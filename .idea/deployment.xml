@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="petro-saman" uploadOnCheckin="2327f7ac-bf22-43e4-80e6-a197a8b4a324">
+  <component name="PublishConfigData" serverName="petro-saman" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
     <serverData>
       <paths name="petro-saman">
         <serverdata>
@@ -10,6 +10,5 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="petro-saman" />
   </component>
 </project>
