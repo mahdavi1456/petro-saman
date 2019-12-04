@@ -1,0 +1,59 @@
+[13-Oct-2019 18:20:06 Asia/Tehran] PHP Warning:  getimagesize(): Filename cannot be empty in /home/petrosam/crm.petrocoke.ir/include/media/functions.php on line 13
+[13-Oct-2019 19:49:14 Asia/Tehran] PHP Warning:  getimagesize(): Filename cannot be empty in /home/petrosam/crm.petrocoke.ir/include/media/functions.php on line 13
+[14-Oct-2019 10:33:52 Asia/Tehran] PHP Fatal error:  Call to undefined function get_category() in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 458
+[14-Oct-2019 10:33:58 Asia/Tehran] PHP Fatal error:  Call to undefined function get_category() in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 458
+[14-Oct-2019 10:33:58 Asia/Tehran] PHP Fatal error:  Call to undefined function get_category() in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 458
+[14-Oct-2019 10:34:20 Asia/Tehran] PHP Fatal error:  Call to undefined function get_category() in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 458
+[14-Oct-2019 10:28:04 America/Chicago] PHP Parse error:  syntax error, unexpected end of file, expecting ',' or ';' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 431
+[14-Oct-2019 10:48:00 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 10:48:04 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 10:48:05 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 10:48:06 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 10:48:08 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 10:48:11 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 10:48:13 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 10:48:13 America/Chicago] PHP Parse error:  syntax error, unexpected '&' in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 396
+[14-Oct-2019 11:53:53 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 205
+[14-Oct-2019 11:54:45 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 205
+[14-Oct-2019 11:54:58 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 205
+[14-Oct-2019 21:34:32 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:34:53 Asia/Tehran] PHP Fatal error:  Call to undefined function insert_VAT_factor_factor() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 64
+[14-Oct-2019 21:39:45 Asia/Tehran] PHP Fatal error:  Call to undefined function insert_VAT_factor_factor() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 64
+[14-Oct-2019 21:43:41 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:43:45 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:44:00 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:44:05 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:44:39 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:44:43 Asia/Tehran] PHP Fatal error:  Call to undefined function insert_VAT_factor_factor() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 64
+[14-Oct-2019 21:44:56 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:45:03 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:46:07 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:47:28 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:48:58 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 21:50:51 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 22:44:26 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 22:50:06 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[14-Oct-2019 23:13:26 Asia/Tehran] PHP Fatal error:  Call to undefined function list_factor_body() in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 5
+[15-Oct-2019 06:29:08 UTC] PHP Fatal error:  Cannot redeclare get_factor_buy() (previously declared in /home/petrosam/crm.petrocoke.ir/factor/functions.php:2) in /home/petrosam/crm.petrocoke.ir/buy/functions.php on line 6
+[15-Oct-2019 15:47:34 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 8
+[15-Oct-2019 15:48:49 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/petrosam/crm.petrocoke.ir/factor/list-factor.php on line 8
+[15-Oct-2019 20:47:16 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 44
+[15-Oct-2019 22:18:29 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 44
+[15-Oct-2019 22:18:29 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 44
+[15-Oct-2019 22:20:12 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 44
+[15-Oct-2019 22:21:17 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 44
+[15-Oct-2019 22:22:20 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 44
+[15-Oct-2019 22:35:21 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 44
+[16-Oct-2019 07:13:36 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 541
+[16-Oct-2019 07:14:11 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 541
+[16-Oct-2019 07:14:13 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/petrosam/crm.petrocoke.ir/factor/functions.php on line 541
+[17-Oct-2019 10:55:01 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 45
+[17-Oct-2019 07:35:14 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 43
+[17-Oct-2019 07:35:18 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 43
+[17-Oct-2019 07:43:46 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 26
+[17-Oct-2019 07:44:07 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 45
+[17-Oct-2019 07:45:52 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 45
+[18-Oct-2019 10:40:44 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 87
+[18-Oct-2019 13:13:17 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 87
+[18-Oct-2019 13:41:00 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 87
+[18-Oct-2019 13:41:26 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm() in /home/petrosam/crm.petrocoke.ir/factor/reg-factor.php on line 87

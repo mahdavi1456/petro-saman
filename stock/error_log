@@ -1,0 +1,78 @@
+[18-Aug-2019 18:48:14 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 102
+[18-Aug-2019 18:52:27 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 112
+[18-Aug-2019 19:25:31 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 112
+[18-Aug-2019 19:25:42 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 112
+[18-Aug-2019 19:28:41 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:32:30 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:32:35 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:33:14 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:33:55 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:34:05 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:34:14 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:34:21 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:34:22 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:34:23 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:34:24 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:35:15 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:36:02 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:37:26 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:37:53 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:40:50 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:41:00 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 113
+[18-Aug-2019 19:42:22 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[18-Aug-2019 19:42:23 Asia/Tehran] PHP Fatal error:  Call to undefined function field_by_type() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 116
+[19-Aug-2019 10:22:20 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 104
+[19-Aug-2019 10:22:26 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 9
+[19-Aug-2019 10:22:26 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 104
+[19-Aug-2019 10:22:41 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 104
+[19-Aug-2019 10:23:59 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:24:06 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 9
+[19-Aug-2019 10:24:06 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:24:54 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:25:03 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:25:10 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 9
+[19-Aug-2019 10:25:10 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:25:14 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 9
+[19-Aug-2019 10:25:14 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:25:47 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 9
+[19-Aug-2019 10:25:47 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:25:57 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 9
+[19-Aug-2019 10:25:57 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:26:33 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:26:34 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:26:42 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 9
+[19-Aug-2019 10:26:42 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:27:13 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:27:15 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:27:35 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:27:40 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:27:43 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 114
+[19-Aug-2019 10:28:04 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 115
+[19-Aug-2019 10:28:11 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 10
+[19-Aug-2019 10:28:11 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 115
+[19-Aug-2019 02:04:31 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 134
+[19-Aug-2019 02:04:32 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 134
+[19-Aug-2019 02:04:33 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 134
+[19-Aug-2019 02:04:33 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/petrosam/crm.petrocoke.ir/stock/amount-material.php on line 134
+[19-Aug-2019 12:23:49 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/list-stock.php on line 106
+[19-Aug-2019 12:24:01 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/stock/list-stock.php on line 106
+[27-Oct-2019 08:42:44 UTC] PHP Parse error:  syntax error, unexpected '?>' in /home/petrosaman/public_html/stock/list-perfomance.php on line 49
+[27-Oct-2019 12:18:26 Asia/Tehran] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function stock::get_outsourcer_stock(), 0 passed in /home/petrosaman/public_html/stock/list-perfomance.php on line 50 and exactly 1 expected in /home/petrosaman/public_html/include/class/stock.php:102
+Stack trace:
+#0 /home/petrosaman/public_html/stock/list-perfomance.php(50): stock->get_outsourcer_stock()
+#1 {main}
+  thrown in /home/petrosaman/public_html/include/class/stock.php on line 102
+[27-Oct-2019 12:18:42 Asia/Tehran] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function stock::get_outsourcer_stock(), 0 passed in /home/petrosaman/public_html/stock/list-perfomance.php on line 50 and exactly 1 expected in /home/petrosaman/public_html/include/class/stock.php:102
+Stack trace:
+#0 /home/petrosaman/public_html/stock/list-perfomance.php(50): stock->get_outsourcer_stock()
+#1 {main}
+  thrown in /home/petrosaman/public_html/include/class/stock.php on line 102
+[27-Oct-2019 08:52:19 UTC] PHP Parse error:  syntax error, unexpected ''st_id'' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ')' in /home/petrosaman/public_html/stock/list-perfomance.php on line 50
+[28-Oct-2019 12:51:44 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60
+[28-Oct-2019 12:51:44 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60
+[28-Oct-2019 12:54:27 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60
+[28-Oct-2019 12:54:27 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60
+[28-Oct-2019 12:54:49 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60
+[28-Oct-2019 12:54:49 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60
+[28-Oct-2019 12:55:23 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60
+[28-Oct-2019 12:55:23 Asia/Tehran] PHP Warning:  Division by zero in /home/petrosaman/public_html/stock/list-perfomance.php on line 60

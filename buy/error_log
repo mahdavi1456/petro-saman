@@ -1,0 +1,10 @@
+[12-Oct-2019 17:59:13 Asia/Tehran] PHP Fatal error:  Call to undefined function send_sms_confirm_buy() in /home/petrosam/crm.petrocoke.ir/buy/reg-buy.php on line 48
+[12-Oct-2019 18:07:48 Asia/Tehran] PHP Fatal error:  Call to undefined function send_smses() in /home/petrosam/crm.petrocoke.ir/include/api/sms.php on line 150
+[12-Oct-2019 18:09:40 Asia/Tehran] PHP Fatal error:  Call to undefined function send_smses() in /home/petrosam/crm.petrocoke.ir/include/api/sms.php on line 151
+[12-Oct-2019 18:11:41 Asia/Tehran] PHP Fatal error:  Call to undefined function send_smses() in /home/petrosam/crm.petrocoke.ir/include/api/sms.php on line 151
+[14-Oct-2019 21:44:18 Asia/Tehran] PHP Fatal error:  Call to undefined function show_btn_list_factor() in /home/petrosam/crm.petrocoke.ir/buy/list-buy.php on line 67
+[14-Oct-2019 21:49:10 Asia/Tehran] PHP Fatal error:  Call to undefined function show_btn_list_factor() in /home/petrosam/crm.petrocoke.ir/buy/list-buy.php on line 67
+[15-Oct-2019 07:06:08 Asia/Tehran] PHP Fatal error:  Call to undefined function show_btn_list_factor() in /home/petrosam/crm.petrocoke.ir/buy/list-buy.php on line 69
+[15-Oct-2019 08:46:06 Asia/Tehran] PHP Fatal error:  Call to undefined function show_btn_list_factor() in /home/petrosam/crm.petrocoke.ir/buy/list-buy.php on line 67
+[27-Oct-2019 20:38:46 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/petrosaman/public_html/buy/reg-buy.php on line 142
+[27-Oct-2019 20:38:48 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/petrosaman/public_html/buy/reg-buy.php on line 142

@@ -1,0 +1,27 @@
+/* font-Davat */
+  @font-face {
+      font-family: titr;
+      src: url('titrbold.eot');
+      src: url('titrbold.eot?#iefix') format('embedded-opentype'),
+           url('titrbold.woff') format('woff'),
+           url('titrbold.ttf') format('truetype');
+      font-weight: normal;
+    }  
+/* font-Mitra */
+  @font-face {
+      font-family: Mitra;
+      src: url('mitra.eot');
+      src: url('mitra.eot?#iefix') format('embedded-opentype'),
+           url('mitra.woff') format('woff'),
+           url('mitra.ttf') format('truetype');
+      font-weight: normal;
+    }
+/* font-Mitra */
+@font-face {
+  font-family: bnaz;
+  src: url('bnazanb.eot');
+  src: url('bnazanb.eot?#iefix') format('embedded-opentype'),
+       url('bnazanb.woff') format('woff'),
+       url('bnazanb.ttf') format('truetype');
+  font-weight: normal;
+}

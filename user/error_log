@@ -1,0 +1,15 @@
+[03-Sep-2019 10:32:36 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/petrosam/crm.petrocoke.ir/user/list-user.php on line 149
+[03-Sep-2019 10:32:41 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home/petrosam/crm.petrocoke.ir/user/list-user.php on line 149
+[04-Sep-2019 01:07:47 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/petrosam/crm.petrocoke.ir/user/list-user.php on line 275
+[04-Sep-2019 01:07:48 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/petrosam/crm.petrocoke.ir/user/list-user.php on line 275
+[04-Sep-2019 01:07:49 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/petrosam/crm.petrocoke.ir/user/list-user.php on line 275
+[04-Sep-2019 01:56:41 America/Chicago] PHP Parse error:  syntax error, unexpected 'مثل' (T_STRING), expecting ',' or ';' in /home/petrosam/crm.petrocoke.ir/user/functions.php on line 49
+[04-Sep-2019 01:56:43 America/Chicago] PHP Parse error:  syntax error, unexpected 'مثل' (T_STRING), expecting ',' or ';' in /home/petrosam/crm.petrocoke.ir/user/functions.php on line 49
+[04-Sep-2019 01:56:44 America/Chicago] PHP Parse error:  syntax error, unexpected 'مثل' (T_STRING), expecting ',' or ';' in /home/petrosam/crm.petrocoke.ir/user/functions.php on line 49
+[04-Sep-2019 01:56:44 America/Chicago] PHP Parse error:  syntax error, unexpected 'مثل' (T_STRING), expecting ',' or ';' in /home/petrosam/crm.petrocoke.ir/user/functions.php on line 49
+[04-Sep-2019 01:56:45 America/Chicago] PHP Parse error:  syntax error, unexpected 'مثل' (T_STRING), expecting ',' or ';' in /home/petrosam/crm.petrocoke.ir/user/functions.php on line 49
+[04-Sep-2019 18:27:32 Asia/Tehran] PHP Warning:  Missing argument 5 for aru::field_by_type(), called in /home/petrosam/crm.petrocoke.ir/user/report_user_group.php on line 44 and defined in /home/petrosam/crm.petrocoke.ir/include/data/aru.php on line 28
+[04-Sep-2019 18:27:32 Asia/Tehran] PHP Warning:  Missing argument 5 for aru::field_by_type(), called in /home/petrosam/crm.petrocoke.ir/user/report_user_group.php on line 45 and defined in /home/petrosam/crm.petrocoke.ir/include/data/aru.php on line 28
+[04-Sep-2019 18:27:32 Asia/Tehran] PHP Warning:  Missing argument 5 for aru::field_by_type(), called in /home/petrosam/crm.petrocoke.ir/user/report_user_group.php on line 46 and defined in /home/petrosam/crm.petrocoke.ir/include/data/aru.php on line 28
+[26-Sep-2019 04:17:00 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/petrosam/crm.petrocoke.ir/user/list-user.php on line 508
+[26-Sep-2019 04:17:26 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/petrosam/crm.petrocoke.ir/user/list-user.php on line 521

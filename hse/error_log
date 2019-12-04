@@ -1,0 +1,156 @@
+[16-Sep-2019 17:50:41 Asia/Tehran] PHP Fatal error:  Call to undefined function get_list() in /home/petrosam/crm.petrocoke.ir/hse/hse_rates.php on line 39
+[17-Sep-2019 11:33:47 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:33:47 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:33:47 Asia/Tehran] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:35:31 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:35:31 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:35:31 Asia/Tehran] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:36:25 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:36:25 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:36:25 Asia/Tehran] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:39:19 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:39:19 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:39:19 Asia/Tehran] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:39:32 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:39:32 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 11:39:32 Asia/Tehran] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 8
+[17-Sep-2019 02:29:32 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 38
+[17-Sep-2019 12:00:35 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 20
+[17-Sep-2019 12:00:35 Asia/Tehran] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 20
+[17-Sep-2019 12:00:35 Asia/Tehran] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/include/theme/breadcrumb.php on line 20
+[17-Sep-2019 12:36:24 Asia/Tehran] PHP Fatal error:  Call to undefined function list_by_type() in /home/petrosam/crm.petrocoke.ir/hse/hse_rates.php on line 51
+[18-Sep-2019 01:38:15 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:38:15 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:38:15 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:38:15 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:39:46 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:39:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:39:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:39:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:43:41 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:43:42 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:43:42 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:43:42 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 01:55:05 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(14): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): ex_query('insert into hse...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 02:03:40 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(30): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(10): get_var_query('select count(hr...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 02:11:34 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(30): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(10): get_var_query('select count(hr...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 02:11:35 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(30): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(10): get_var_query('select count(hr...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 02:14:12 America/Chicago] PHP Warning:  require_once(include/data/functions.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:12 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'include/data/functions.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:14 America/Chicago] PHP Warning:  require_once(include/data/functions.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:14 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'include/data/functions.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:14 America/Chicago] PHP Warning:  require_once(include/data/functions.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:14 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'include/data/functions.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Warning:  require_once(include/data/functions.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'include/data/functions.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Warning:  require_once(include/data/functions.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'include/data/functions.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Warning:  require_once(include/data/functions.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'include/data/functions.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Warning:  require_once(include/data/functions.php): failed to open stream: No such file or directory in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:14:15 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'include/data/functions.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/petrosam/crm.petrocoke.ir/hse/back.php on line 2
+[18-Sep-2019 02:18:19 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)' in /home/petrosam/crm.petrocoke.ir/include/data/functions.php:9
+Stack trace:
+#0 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(9): PDO->__construct('mysql:host=;dbn...', NULL, NULL, Array)
+#1 /home/petrosam/crm.petrocoke.ir/include/data/functions.php(30): get_connection_string()
+#2 /home/petrosam/crm.petrocoke.ir/hse/back.php(9): get_var_query('select count(hr...')
+#3 {main}
+  thrown in /home/petrosam/crm.petrocoke.ir/include/data/functions.php on line 9
+[18-Sep-2019 12:29:25 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/include/data/aru.php on line 122
+[18-Sep-2019 12:29:43 Asia/Tehran] PHP Warning:  Invalid argument supplied for foreach() in /home/petrosam/crm.petrocoke.ir/include/data/aru.php on line 122
