@@ -186,7 +186,7 @@ $media = new media();
 								<?php
 								$sql = "select * from factor_body where fb_id = $fb_id";
 								$res = get_select_query($sql); ?>
-								<input value="<?php if($res[0]['date_verify_finan']!=null){echo $res[0]['date_verify_finan']; }  else{ echo jdate("Y/n/j");} ?>" autocomplete="off" type="text" id="date_verify_finan" name="date_verify_finan" placeholder="تاریخ تایید" class="form-control " readonly>
+								<input value="<?php if($res[0]['date_verify_finan']!=null){ $date_verify_finan = $res[0]['date_verify_finan']; echo per_number(str_replace("-", "/", $date_verify_finan));  }  else{ echo per_number(jdate("Y/n/j"));} ?>" autocomplete="off" type="text" id="date_verify_finan" name="date_verify_finan" placeholder="تاریخ تایید" class="form-control " readonly>
 							</div>
 							<div class="col-xs-12 invoice-col invoice-col-fixer">
 								<textarea class="form-control" name="l_details" id="l_details" placeholder="توضیحات لازم را اینجا بنویسید ..." rows="4" cols="50"></textarea>

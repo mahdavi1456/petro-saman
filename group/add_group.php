@@ -32,7 +32,7 @@
 													if(count($asc)>0){
 														foreach($asc as $row){
 														?>
-														<option <?php if($row['u_id']==$rm_id)echo "selected"; ?> value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']; ?></option>								
+														<option value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']. " " .$row['u_family'] ; ?></option>								
 														<?php
 														} 
 													} ?>
@@ -47,12 +47,14 @@
 													if(count($asc)>0){
 														foreach($asc as $row){
 														?>
-														<option <?php if($row['u_id']==$rm_id)echo "selected"; ?> value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']; ?></option>								
+														<option value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']. " " .$row['u_family']; ?></option>								
 														<?php
 														} 
 													} ?>
 											</select>
 										</div>
+									</div>
+									<div class="row">
 										<div class="item col-md-4">
 											<div class="margin-tb input-group-prepend">
 												<span class="input-group-text">سرپرست ۳</span>
@@ -62,7 +64,7 @@
 													if(count($asc)>0){
 														foreach($asc as $row){
 														?>
-														<option <?php if($row['u_id']==$rm_id)echo "selected"; ?> value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']; ?></option>								
+														<option value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']. " " .$row['u_family']; ?></option>								
 														<?php
 														} 
 													} ?>
@@ -77,7 +79,7 @@
 													if(count($asc)>0){
 														foreach($asc as $row){
 														?>
-														<option <?php if($row['u_id']==$rm_id)echo "selected"; ?> value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']; ?></option>								
+														<option value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']. " " .$row['u_family']; ?></option>								
 														<?php
 														} 
 													} ?>
@@ -92,12 +94,14 @@
 													if(count($asc)>0){
 														foreach($asc as $row){
 														?>
-														<option <?php if($row['u_id']==$rm_id)echo "selected"; ?> value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']; ?></option>								
+														<option value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']. " " .$row['u_family']; ?></option>								
 														<?php
 														} 
 													} ?>
 											</select>
 										</div>
+									</div>
+									<div class="row">
 										<div class="item col-md-4">
 											<div class="margin-tb input-group-prepend">
 												<span class="input-group-text">راننده ۱</span>
@@ -107,7 +111,7 @@
 													if(count($asd)>0){
 														foreach($asd as $row){
 														?>
-														<option <?php if($row['dr_id']==$rm_id)echo "selected"; ?> value="<?php echo $row['dr_id']; ?>"><?php echo $row['dr_name']; ?></option>								
+														<option value="<?php echo $row['dr_id']; ?>"><?php echo $row['dr_name']. " " .$row['dr_family']; ?></option>								
 														<?php
 														} 
 													} ?>
@@ -122,13 +126,13 @@
 													if(count($asd)>0){
 														foreach($asd as $row){
 														?>
-														<option <?php if($row['dr_id']==$rm_id)echo "selected"; ?> value="<?php echo $row['dr_id']; ?>"><?php echo $row['dr_name']; ?></option>								
+														<option value="<?php echo $row['dr_id']; ?>"><?php echo $row['dr_name']. " " .$row['dr_family']; ?></option>								
 														<?php
 														} 
 													} ?>
 											</select>
 										</div>
-										<div class="item col-md-4">
+										<div class="item col-md-4"></br>
 											<button type="submit" class="btn btn-success btn-lg" name="g_submit">اضافه کردن</button>
 											<?php 
 												if(isset($_POST['g_submit'])) {

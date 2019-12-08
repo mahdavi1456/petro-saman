@@ -34,8 +34,8 @@
 												<td><?php echo per_number($i); ?></td>
 												<td><?php echo $row['us_type']; ?></td>
 												<td><?php echo per_number($row['us_id']); ?></td>
-												<td><?php echo per_number($row['tr_quantity']); ?></td>
-												<td><?php echo per_number($row['tr_date']); ?></td>
+												<td><?php echo per_number(number_format($row['tr_quantity'])); ?></td>
+												<td><?php echo per_number(str_replace("-", "/", $row['tr_date'])); ?></td>
                                                 <td><?php 
                                                     if($row['us_type']=="مصرفی"){
                                                     	if($row['tr_condition']== 1){ echo "قابل تعمیر"; }   

@@ -148,9 +148,9 @@
                                                 <td><?php echo per_number($t_name); ?></td>
                                                 <td><?php echo $u_name." ".$u_family; ?></td>
                                                 <td><?php echo $a['us_details']; ?></td>
-                                                <td><?php echo per_number($a['us_date']); ?></td>
-                                                <td><?php echo per_number($a['us_quantity']); ?></td>
-                                                <td><?php echo per_number($quantity_back); ?></td>
+                                                <td><?php echo per_number(str_replace("-", "/", $a['us_date'])) ; ?></td>
+                                                <td><?php echo per_number(number_format($a['us_quantity'])); ?></td>
+                                                <td><?php echo per_number(number_format($quantity_back)); ?></td>
                                                 <td>
                                                     <div id="myModal<?php echo $a['us_id']; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
@@ -267,7 +267,7 @@
                                                     </div>
 
                                                     <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-                                                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal_back<?php echo $a['us_id']; ?>">بازگشت</button>
+                                                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal_back<?php echo $a['us_id']; ?>">بازگشت قطعه</button>
                                                         <!-- button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal<?php echo $a['us_id']; ?>">ویرایش</button!-->
                                                         <button class="btn btn-danger btn-xs" type="submit" name="delete-list" id="delete-list">حذف</button>
                                                         <input class="hidden" type="text" name="delete-text" id="delete-text" value="<?php echo $a['us_id']; ?>">

@@ -262,6 +262,7 @@
 				  			<table id="example1" class="table table-bordered table-striped">
 								<thead>
 					  				<tr>
+									  	<th>ردیف</th>
 										<th>نام</th>
 										<th>نام خانوادگی</th>
 										<th>کدملی</th>
@@ -269,48 +270,56 @@
 										<th>پلاک ماشین</th>
 										<th>شماره همراه</th>
 										<th>وضعیت</th>
+										<th>عملیات</th>
 					  				</tr>
 								</thead>
 								<tbody>
 								<?php 
 								$asb = get_select_query("select * from driver");
-								foreach ($asb as $a ) { ?>
-						  			<tr>
-										<td><?php echo $a['dr_name']; ?></td>
-										<td><?php echo $a['dr_family']; ?></td>
-										<td><?php echo $a['dr_national']; ?></td>
-										<td><?php echo $a['dr_car']; ?></td>
-										<?php
-										$dr_plaque = $a['dr_plaque'];
-										$dr_plaque_arr = explode(" ", $dr_plaque);
-										$dr_plaque_1 = $dr_plaque_arr[0];
-										$dr_plaque_2 = $dr_plaque_arr[1];
-										$dr_plaque_3 = $dr_plaque_arr[2];
-										$dr_plaque_4 = $dr_plaque_arr[3];
-										?>
-										<td dir="rtl"><span><?php echo $dr_plaque_4; ?></span>&nbsp;-&nbsp;<span><?php echo $dr_plaque_3; ?></span>&nbsp;<span><?php echo $dr_plaque_2; ?></span>&nbsp;<span><?php echo $dr_plaque_1; ?></span></td>
-										<td><?php echo $a['dr_mobile']; ?></td>
-										<td><?php if($a['dr_status'] == 1) { echo "فعال"; } else { echo "غیر فعال"; } ?></td>
-										<td>
-											<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-												<a class="btn btn-info btn-sm" href="list-driver.php?dr_id=<?php echo $a['dr_id']; ?>">مشاهده</a>
-												<button class="btn btn-danger btn-sm" type="submit" name="delete-driver">حذف</button>
-												<input class="hidden" type="text" name="delete-text" value="<?php echo $a['dr_id']; ?>">
-												<?php
-												if(isset($_POST['delete-driver'])){
-													$dr_id = $_POST['delete-text'];
-													delete_driver($dr_id);
-													echo "<meta http-equiv='refresh' content='0'/>";
-													exit();
-												}
-												?>
-											</form>
-										</td>
-						  			</tr>
-								<?php } ?>
+								$i = 1;
+								if(count($asb) > 0) {
+									foreach ($asb as $a ) { ?>
+										<tr>
+											<td><?php echo per_number($i); ?></td>
+											<td><?php echo $a['dr_name']; ?></td>
+											<td><?php echo $a['dr_family']; ?></td>
+											<td><?php echo per_number($a['dr_national']); ?></td>
+											<td><?php echo per_number($a['dr_car']); ?></td>
+											<?php
+											$dr_plaque = $a['dr_plaque'];
+											$dr_plaque_arr = explode(" ", $dr_plaque);
+											$dr_plaque_1 = $dr_plaque_arr[0];
+											$dr_plaque_2 = $dr_plaque_arr[1];
+											$dr_plaque_3 = $dr_plaque_arr[2];
+											$dr_plaque_4 = $dr_plaque_arr[3];
+											?>
+											<td dir="rtl"><span><?php echo per_number($dr_plaque_4); ?></span>&nbsp;-&nbsp;<span><?php echo per_number($dr_plaque_3); ?></span>&nbsp;<span><?php echo per_number($dr_plaque_2); ?></span>&nbsp;<span><?php echo per_number($dr_plaque_1); ?></span></td>
+											<td><?php echo per_number($a['dr_mobile']); ?></td>
+											<td><?php if($a['dr_status'] == 1) { echo "فعال"; } else { echo "غیر فعال"; } ?></td>
+											<td>
+												<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+													<a class="btn btn-info btn-sm" href="list-driver.php?dr_id=<?php echo $a['dr_id']; ?>">مشاهده</a>
+													<button class="btn btn-danger btn-sm" type="submit" name="delete-driver">حذف</button>
+													<input class="hidden" type="text" name="delete-text" value="<?php echo $a['dr_id']; ?>">
+													<?php
+													if(isset($_POST['delete-driver'])){
+														$dr_id = $_POST['delete-text'];
+														delete_driver($dr_id);
+														echo "<meta http-equiv='refresh' content='0'/>";
+														exit();
+													}
+													?>
+												</form>
+											</td>
+										</tr>
+										<?php 
+										$i++;
+									}
+								} ?>
 								</tbody>
 								<tfoot>
 					  				<tr>
+									  	<th>ردیف</th>
 										<th>نام</th>
 										<th>نام خانوادگی</th>
 										<th>کدملی</th>
@@ -318,6 +327,7 @@
 										<th>پلاک ماشین</th>
 										<th>شماره همراه</th>
 										<th>وضعیت</th>
+										<th>عملیات</th>
 					  				</tr>
 								</tfoot>
 				  			</table>

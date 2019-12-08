@@ -64,7 +64,7 @@
 											{
 												$d_id = $b['d_id'];
 											?>
-											<option value="<?php echo $d_id; ?>"><?php echo $b['s_type']; ?></option>
+											<option value="<?php echo $d_id; ?>"><?php echo per_number($b['s_type']); ?></option>
 											<?php
 												
 											}
@@ -117,10 +117,10 @@
 							$s_type = $a['s_type'];
 						?>
 						<tr>
-							<td><?php echo $row; ?></td>
+							<td><?php echo per_number($row); ?></td>
 							<td><?php echo $aru->field_by_type("doc_type","s_type","d_id",$s_type,"int"); ?></td>
-							<td><?php echo $a["s_name"]; ?></td>
-							<td><?php echo $a["s_subject"]; ?></td>
+							<td><?php echo per_number($a["s_name"]); ?></td>
+							<td><?php echo per_number($a["s_subject"]); ?></td>
 							<td><?php echo per_number($a["s_date"]); ?></td>
 							<td class="force-inline-text">
 								<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit_modal<?php echo $s_id; ?>">ویرایش</button>
@@ -147,7 +147,7 @@
 																		{
 																			$d_id = $b['d_id'];
 																		?>
-																		<option <?php if($d_id==$s_type) echo "selected"; ?> value="<?php echo $d_id; ?>"><?php echo $b['s_type']; ?></option>
+																		<option <?php if($d_id==$s_type) echo "selected"; ?> value="<?php echo $d_id; ?>"><?php echo per_number($b['s_type']); ?></option>
 																		<?php
 																			
 																		}
@@ -226,8 +226,8 @@
 																			{
 																			?>
 																			<tr>
-																				<td><?php echo $roww; ?></td>
-																				<td><?php echo $c['ms_date']; ?></td>
+																				<td><?php echo per_number($roww); ?></td>
+																				<td><?php echo per_number($c['ms_date']); ?></td>
 																				<td><a target="_blank" href="<?php echo $c['ms_link']; ?>"><img src="<?php echo $c['ms_link']; ?>" style="width:20px;heigh:20px"></a></td>
 																				<td class="force-inline-text">
 																					<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">

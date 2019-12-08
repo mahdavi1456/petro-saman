@@ -548,13 +548,13 @@
 																		<div class="margin-tb input-group-prepend">
 																			<span class="input-group-text">تاریخ شروع به کار</span>
 																		</div>
-																		<input type="text" name="u_start_work" placeholder="تاریخ شروع به کار" class="form-control" value="<?php echo $asd[0]['u_start_work']; ?>">
+																		<input type="text" id="f_date" name="u_start_work" placeholder="تاریخ شروع به کار" class="form-control" value="<?php echo $asd[0]['u_start_work']; ?>">
 																	</div>
                                                                     <div class="item col-md-4">
 																		<div class="margin-tb input-group-prepend">
 																			<span class="input-group-text">تاریخ ترک کار</span>
 																		</div>
-																		<input type="text" name="u_end_work" placeholder="تاریخ ترک کار" class="form-control" value="<?php echo $asd[0]['u_end_work']; ?>">
+																		<input type="text" id="f_date" name="u_end_work" placeholder="تاریخ ترک کار" class="form-control" value="<?php echo $asd[0]['u_end_work']; ?>">
 																	</div>
 																</div>
 																<div class="row">
@@ -715,7 +715,7 @@
 																	</tr>
 																	<tr>
 																		<td>نام کاربری</td>
-																		<td><?php echo $asd[0]['u_username']; ?></td>
+																		<td><?php echo per_number($asd[0]['u_username']); ?></td>
 																	</tr>
 																	<tr>
 																		<td>رمز ورود</td>
@@ -727,11 +727,11 @@
 																	</tr>
 																	<tr>
 																		<td>کد ملی</td>
-																		<td><?php echo per_number( $asd[0]['u_meli'] ); ?></td>
+																		<td><?php echo per_number($asd[0]['u_meli'] ); ?></td>
 																	</tr>
 																	<tr>
 																		<td>تاریخ تولد</td>
-																		<td><?php echo per_number( $asd[0]['u_birth'] ); ?></td>
+																		<td><?php echo per_number($asd[0]['u_birth'] ); ?></td>
 																	</tr>
 																	<tr>
 																		<td>شهر محل سکونت</td>
@@ -739,7 +739,7 @@
 																	</tr>
 																	<tr>
 																		<td>مسافت تا کارخانه</td>
-																		<td><?php echo per_number( $asd[0]['u_destination'] ); ?></td>
+																		<td><?php echo per_number($asd[0]['u_destination'] ); ?></td>
 																	</tr>
 																	<tr>
 																		<td>موبایل</td>
@@ -751,19 +751,19 @@
 																	</tr>
 																	<tr>
 																		<td>آدرس</td>
-																		<td><?php echo $asd[0]['u_address']; ?></td>
+																		<td><?php echo per_number($asd[0]['u_address']); ?></td>
 																	</tr>
 																	<tr>
 																		<td>سنوات</td>
-																		<td><?php echo $asd[0]['u_pre']; ?></td>
+																		<td><?php echo per_number($asd[0]['u_pre']); ?></td>
 																	</tr>
 																	<tr>
 																		<td>توضیحات</td>
-																		<td><?php echo $asd[0]['u_description']; ?></td>
+																		<td><?php echo per_number($asd[0]['u_description']); ?></td>
 																	</tr>
 																	<tr>
 																		<td>کد گروه</td>
-																		<td><?php echo $asd[0]['u_group']; ?></td>
+																		<td><?php echo per_number($asd[0]['u_group']); ?></td>
 																	</tr>
 																	<tr>
 																		<td>شماره پرسنل</td>
@@ -771,7 +771,7 @@
 																	</tr>
 																	<tr>
 																		<td>سمت</td>
-																		<td><?php echo $asd[0]['u_wtype']; ?></td>
+																		<td><?php echo per_number($asd[0]['u_wtype']); ?></td>
 																	</tr>
 																	<tr>
 																		<td>وضعیت تاهل</td>

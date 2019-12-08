@@ -177,15 +177,15 @@ class Cartable{
 				<tr>
 					<td><?php echo per_number($i); ?></td>
 					<td><?php echo get_user_name($row['u_id']); ?></td>
-					<td><?php echo $row['r_date']; ?></td>
-					<td><?php echo $row['r_fromtime']; ?></td>
-					<td><?php echo $row['r_totime']; ?></td>
-                    <td><?php echo $row['r_total']; ?></td>
-                    <td><?php echo $row['r_details']; ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['r_date'])); ?></td>
+					<td><?php echo per_number($row['r_fromtime']); ?></td>
+					<td><?php echo per_number($row['r_totime']); ?></td>
+                    <td><?php echo per_number($row['r_total']); ?></td>
+                    <td><?php echo per_number($row['r_details']); ?></td>
                     <td><?php echo get_user_name($row['r_admin_verify']); ?></td>
-                    <td><?php echo $row['r_admin_date']; ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['r_admin_date'])); ?></td>
                     <td><?php echo get_user_name($row['r_hr_verify']); ?></td>
-                    <td><?php echo $row['r_hr_date']; ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['r_hr_date'])); ?></td>
                     <td>
 						<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#rest_hour_modal<?php echo $row['r_id']; ?>" >تایید مرخصی</button>
 						<div class="modal fade text-xs-left" id="rest_hour_modal<?php echo $row['r_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#rest_hour_modal<?php echo $row['r_id']; ?>" style="display: none;" aria-hidden="true">
@@ -205,13 +205,13 @@ class Cartable{
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات مدیر</span>
 													</div>
-													<input type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo $row['r_admin_details']; ?>">
+													<input type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['r_admin_details']); ?>">
 												</div>
 												<div class="item col-md-12">
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات منابع انسانی</span>
 													</div>
-													<input type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo $row['r_hr_details']; ?>">
+													<input type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['r_hr_details']); ?>">
 												</div>
 											</div>
 											<div class="row">
@@ -281,14 +281,14 @@ class Cartable{
 				<tr>
 					<td><?php echo per_number($i); ?></td>
 					<td><?php echo get_user_name($row['u_id']); ?></td>
-					<td><?php echo $row['r_fromdate']; ?></td>
-					<td><?php echo $row['r_todate']; ?></td>
-                    <td><?php echo $row['r_total']; ?></td>
-                    <td><?php echo $row['r_details']; ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['r_fromdate'])); ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['r_todate'])); ?></td>
+                    <td><?php echo per_number($row['r_total']); ?></td>
+                    <td><?php echo per_number($row['r_details']); ?></td>
                     <td><?php echo get_user_name($row['r_admin_verify']); ?></td>
-                    <td><?php echo $row['r_admin_date']; ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['r_admin_date'])); ?></td>
                     <td><?php echo get_user_name($row['r_hr_verify']); ?></td>
-                    <td><?php echo $row['r_hr_date']; ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['r_hr_date'])); ?></td>
 					<td>
 						<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#rest_day_modal<?php echo $row['r_id']; ?>" >تایید مرخصی</button>
 						<div class="modal fade text-xs-left" id="rest_day_modal<?php echo $row['r_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#rest_day_modal<?php echo $row['r_id']; ?>" style="display: none;" aria-hidden="true">
@@ -308,13 +308,13 @@ class Cartable{
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات مدیر</span>
 													</div>
-													<input type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo $row['r_admin_details']; ?>">
+													<input type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['r_admin_details']); ?>">
 												</div>
 												<div class="item col-md-12">
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات منابع انسانی</span>
 													</div>
-													<input type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo $row['r_hr_details']; ?>">
+													<input type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['r_hr_details']); ?>">
 												</div>
 											</div>
 											<div class="row">
@@ -385,13 +385,13 @@ class Cartable{
 				<tr>
 					<td><?php echo per_number($i); ?></td>
 					<td><?php echo get_user_name($row['u_id']); ?></td>
-					<td><?php echo $row['al_date']; ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['al_date'])); ?></td>
 					<td><?php echo per_number(number_format($row['al_amount'])); ?></td>
-                    <td><?php echo $row['al_details']; ?></td>
+                    <td><?php echo per_number($row['al_details']); ?></td>
                     <td><?php echo get_user_name($row['al_admin_verify']); ?></td>
-                    <td><?php echo $row['al_admin_date']; ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['al_admin_date'])); ?></td>
 					<td><?php echo get_user_name($row['al_hr_verify']); ?></td>
-                    <td><?php echo $row['al_hr_date']; ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['al_hr_date'])); ?></td>
 					<td>
 						<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_loan_modal<?php echo $row['al_id']; ?>" >تایید مساعده</button>
 						<div class="modal fade text-xs-left" id="apply_loan_modal<?php echo $row['al_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#apply_loan_modal<?php echo $row['al_id']; ?>" style="display: none;" aria-hidden="true">
@@ -411,13 +411,13 @@ class Cartable{
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات مدیر</span>
 													</div>
-													<input type="text" id="al_admin_details" name="al_admin_details" placeholder="توضیحات مدیر" value="<?php echo $row['al_admin_details']; ?>">
+													<input type="text" id="al_admin_details" name="al_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['al_admin_details']); ?>">
 												</div>
 												<div class="item col-md-12">
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات منابع انسانی</span>
 													</div>
-													<input type="text" id="al_hr_details" name="al_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo $row['al_hr_details']; ?>">
+													<input type="text" id="al_hr_details" name="al_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['al_hr_details']); ?>">
 												</div>
 											</div>
 											<div class="row">
@@ -478,11 +478,11 @@ class Cartable{
 				<tr>
 					<td><?php echo per_number($i); ?></td>
 					<td><?php echo $row['si_receiver']; ?></td>
-					<td><?php echo $row['si_send_date']; ?></td>
-                    <td><?php echo $row['si_description']; ?></td>
-                    <td><?php echo $row['si_details']; ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['si_send_date'])); ?></td>
+                    <td><?php echo per_number($row['si_description']); ?></td>
+                    <td><?php echo per_number($row['si_details']); ?></td>
                     <td><?php echo get_user_name($row['si_admin_verify']); ?></td>
-                    <td><?php echo $row['si_admin_date']; ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['si_admin_date'])); ?></td>
                     <td><?php echo get_user_name($row['si_writer']); ?></td>
 					<td>
 						<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#admin_verify<?php echo  $row['si_id']; ?>" >تایید مدیر</button>
@@ -503,7 +503,7 @@ class Cartable{
 														<div class="margin-tb input-group-prepend">
 															<span class="input-group-text">توضیحات مدیر</span>
 														</div>
-														<input type="text" id="si_admin_details" name="si_admin_details" placeholder="توضیحات مدیر" value="<?php echo $row['si_admin_details']; ?>">
+														<input type="text" id="si_admin_details" name="si_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['si_admin_details']); ?>">
 													</div>
 												</div>
 												<div class="row">

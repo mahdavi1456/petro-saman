@@ -111,7 +111,7 @@ $user = new user();
 											$res = get_select_query("select * from storage_list");
 											if(count($res)>0){
 												foreach($res as $row){ ?>
-												<option <?php if($st_id_from == $row['st_id']) echo "selected"; ?> value="<?php echo $row['st_id']; ?>"><?php echo $row['st_name']; ?></option>
+												<option <?php if($st_id_from == $row['st_id']) echo "selected"; ?> value="<?php echo $row['st_id']; ?>"><?php echo per_number($row['st_name']); ?></option>
 												<?php
 												}
 											}
@@ -129,7 +129,7 @@ $user = new user();
 											<?php
 											foreach($res as $row){
 											?>
-											<option <?php if($p_id == $row['p_id']) echo "selected"; ?> value="<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></option>
+											<option <?php if($p_id == $row['p_id']) echo "selected"; ?> value="<?php echo $row['p_id']; ?>"><?php echo per_number($row['p_name']); ?></option>
 											<?php 
 											} ?>
 										</select>
@@ -145,7 +145,7 @@ $user = new user();
 											<?php
 											foreach($res as $row){
 											?>
-											<option <?php if($cat_id == $row['cat_id']) echo "selected"; ?> value="<?php echo $row['cat_id']; ?>"><?php echo $row['cat_name']; ?></option>
+											<option <?php if($cat_id == $row['cat_id']) echo "selected"; ?> value="<?php echo $row['cat_id']; ?>"><?php echo per_number($row['cat_name']); ?></option>
 											<?php 
 											} ?>
 										</select>
@@ -161,7 +161,7 @@ $user = new user();
 											$res = get_select_query("select * from storage_list");
 											if(count($res)>0){
 												foreach($res as $row){ ?>
-												<option value="<?php echo $row['st_id']; ?>"><?php echo $row['st_name']; ?></option>
+												<option value="<?php echo $row['st_id']; ?>"><?php echo per_number($row['st_name']); ?></option>
 												<?php
 												}
 											}
@@ -172,7 +172,7 @@ $user = new user();
 										<div class="margin-tb input-group-prepend">
 											<span class="input-group-text">تاریخ ورود</span>
 										</div>
-										<input type="text" name="bar_date"  class="form-control" autocomplete="off" value="<?php echo jdate('Y/n/j'); ?>">
+										<input type="text" id="f_date" name="bar_date"  class="form-control" autocomplete="off" value="<?php echo jdate('Y/n/j'); ?>">
 									</div>
 									<div class="item col-md-3">
 										<div class="margin-tb input-group-prepend">
@@ -207,7 +207,8 @@ $user = new user();
 										<div class="margin-tb input-group-prepend">
 											<span class="input-group-text">وزن بار</span>
 										</div>
-										<input type="text" name="bar_quantity" placeholder="وزن بار" class="form-control">
+										<input id="bar_quantity" type="text" name="bar_quantity" onkeyup="javascript:FormatNumber('bar_quantity','bar_quantity2');" placeholder="وزن بار" class="form-control" autocomplete="off" required>
+										<input id="bar_quantity2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
 									</div>
 									<div class="item col-md-6">
 										<div class="margin-tb input-group-prepend">
@@ -289,12 +290,12 @@ $user = new user();
 								?>
 								<tr>
 								    <td><?php echo per_number($i); ?></td>
-									<td><?php echo $st_name_from; ?></td>
-									<td><?php echo $st_name_to; ?></td>
+									<td><?php echo per_number($st_name_from); ?></td>
+									<td><?php echo per_number($st_name_to); ?></td>
 								    <td><?php echo per_number($row['fb_id']); ?></td>
 									<td><?php echo per_number($row['barname_code']); ?></td>
-								    <td><?php echo per_number($row['bar_quantity']); ?></td>
-									<td><?php echo per_number($row['bar_date']); ?></td>
+								    <td><?php echo per_number(number_format($row['bar_quantity'])); ?></td>
+									<td><?php echo per_number(str_replace("-", "/", $row['bar_date']));?></td>
 									<td><?php echo per_number($row['bar_time']); ?></td>
 									<td>
 										<?php

@@ -50,7 +50,8 @@
 								<div class="margin-tb input-group-prepend">
 									<span class="input-group-text">موجودی اولیه</span>
 								</div>
-								<input id="t_stock" type="text" name="t_stock" placeholder="موجودی اولیه" class="form-control">
+								<input id="t_stock" type="text" name="t_stock" onkeyup="javascript:FormatNumber('t_stock','t_stock2'); calculate()" placeholder="موجودی اولیه" class="form-control" autocomplete="off" required>
+								<input id="t_stock2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
 							</div>
                             <br>
 							<?php 
@@ -107,7 +108,7 @@
                                         <td><?php echo per_number($a['t_id']); ?></td>
                                         <td><?php echo per_number($a['t_name']); ?></td>
                                         <td><?php echo $a['t_unit']; ?></td>
-                                        <td><?php echo per_number($a['t_stock']); ?></td>
+                                        <td><?php echo per_number(number_format($a['t_stock'])); ?></td>
                                         <td>
                                             <div id="myModal<?php echo $a['t_id']; ?>" class="modal fade" role="dialog">
                                                 <div class="modal-dialog">

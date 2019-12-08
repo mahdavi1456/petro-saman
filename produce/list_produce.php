@@ -54,8 +54,9 @@ $prc_type = $_GET['prc_type'];
 												$products = list_product();
 												foreach($products as $product){
 													$p_name = $product['p_name'];
-													$p_id = $product['p_id'];
-													echo "<option value='$p_id'>$p_name</option>";
+													$p_id = $product['p_id']; ?>
+													<option value='$p_id'><?php echo per_number($p_name); ?></option>
+													<?php
 												}
 												?>
 											</select>
@@ -67,8 +68,9 @@ $prc_type = $_GET['prc_type'];
 												$categories = list_category();
 												foreach($categories as $category){
 													$cat_name = $category['cat_name'];
-													$cat_id = $category['cat_id'];
-													echo "<option value='$cat_id'>$cat_name</option>";
+													$cat_id = $category['cat_id']; ?>
+													<option value='$cat_id'><?php echo per_number($cat_name); ?></option>
+													<?php
 												}
 												?>
 											</select>
@@ -82,8 +84,9 @@ $prc_type = $_GET['prc_type'];
 												$products = list_product();
 												foreach($products as $product){
 													$p_name = $product['p_name'];
-													$p_id = $product['p_id'];
-													echo "<option value='$p_id'>$p_name</option>";
+													$p_id = $product['p_id']; ?>
+													<option value='$p_id'><?php echo per_number($p_name); ?></option>
+													<?php
 												}
 												?>
 											</select>
@@ -95,15 +98,17 @@ $prc_type = $_GET['prc_type'];
 												$categories = list_category();
 												foreach($categories as $category){
 													$cat_name = $category['cat_name'];
-													$cat_id = $category['cat_id'];
-													echo "<option value='$cat_id'>$cat_name</option>";
+													$cat_id = $category['cat_id']; ?>
+													<option value='$cat_id'><?php echo per_number($cat_name); ?></option>
+													<?php
 												}
 												?>
 											</select>
 										</div>
 										<div class="item col-md-3">
 											<label>مقدار</label>
-											<input type="text" name="prc_val" placeholder="مقدار" class="form-control">
+											<input id="prc_val" type="text" name="prc_val" onkeyup="javascript:FormatNumber('prc_val', 'prc_val2'); calculate()" placeholder="مقدار" class="form-control" autocomplete="off" required>
+											<input id="prc_val2" type="text" class="form-control" disabled="disabled" style="margin: 0;">
 										</div>
 									</div>
 									<div class="row">
@@ -291,7 +296,7 @@ $prc_type = $_GET['prc_type'];
 																			foreach($products as $product){
 																				$p_name = $product['p_name'];
 																				$p_id = $product['p_id'];
-																				?><option <?php if($produce['prc_p_id']==$p_id){echo "selected";} ?> value='<?php echo $p_id; ?>'><?php echo $p_name; ?></option><?php
+																				?><option <?php if($produce['prc_p_id']==$p_id){echo "selected";} ?> value='<?php echo $p_id; ?>'><?php echo per_number($p_name); ?></option><?php
 																			}
 																			?>
 																		</select>
@@ -308,7 +313,7 @@ $prc_type = $_GET['prc_type'];
 																			foreach($categories as $category){
 																				$cat_name = $category['cat_name'];
 																				$cat_id = $category['cat_id'];
-																				?><option <?php if($produce['prc_cat_id']==$cat_id){echo "selected";} ?> value='<?php echo $cat_id; ?>'><?php echo $cat_name; ?></option><?php
+																				?><option <?php if($produce['prc_cat_id']==$cat_id){echo "selected";} ?> value='<?php echo $cat_id; ?>'><?php echo per_number($cat_name); ?></option><?php
 																			}
 																			?>
 																		</select>

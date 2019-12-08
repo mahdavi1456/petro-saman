@@ -79,7 +79,7 @@
                                                                     <h4 class="modal-title">ویرایش شاخص ارزیابی</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <?php echo $a['pi_id']; ?>
+                                                                    <?php echo per_number($a['pi_id']); ?>
                                                                     <div class="row">
                                                                         <div class="item col-xs-12">
                                                                             <input type="text" name="pi_name" value="<?php echo $a['pi_name']; ?>" class="form-control">

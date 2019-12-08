@@ -66,7 +66,7 @@
                                                         <td colspan="5" class="center">
                                                             <?php echo per_number($row['pi_name']); ?>                                                    
                                                         </td>
-                                                        <td colspan="2" class="center">100</td>
+                                                        <td colspan="2" class="center"><?php echo per_number(100); ?></td>
                                                             
                                                                 <td colspan="1" class="center">مدیریت</td> 
                                                                 <td colspan="5">       
@@ -76,7 +76,7 @@
                                                                         <?php 
                                                                     } 
                                                                     else { ?>
-                                                                        <input value="0" type="text"  id="pr_admin_rate_<?php echo $row['pi_id']; ?>"  name="pr_admin_rate_<?php echo $row['pi_id']; ?>"  class="form-control" readonly>
+                                                                        <input value="<?php echo per_number(0); ?>" type="text"  id="pr_admin_rate_<?php echo $row['pi_id']; ?>"  name="pr_admin_rate_<?php echo $row['pi_id']; ?>"  class="form-control" readonly>
                                                                         <?php 
                                                                     } ?>                                                            
                                                                 </td>
@@ -89,7 +89,7 @@
                                                                         <?php
                                                                     } 
                                                                     else { ?>
-                                                                        <input type="text" value="0" id="pr_hr_rate_<?php echo $row['pi_id']; ?>"  name="pr_hr_rate_<?php echo $row['pi_id']; ?>" class="form-control" readonly>
+                                                                        <input type="text" value="<?php echo per_number(0); ?>" id="pr_hr_rate_<?php echo $row['pi_id']; ?>"  name="pr_hr_rate_<?php echo $row['pi_id']; ?>" class="form-control" readonly>
                                                                         <?php
                                                                     } ?>
                                                                 </td>

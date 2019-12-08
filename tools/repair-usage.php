@@ -86,8 +86,8 @@
 									<td><?php echo per_number($i); ?></td>
 									<td><?php echo $row['t_name']; ?></td>
 									<td><?php echo per_number($row['us_id']); ?></td>
-									<td><?php echo per_number($row['r_repaired']); ?></td>
-									<td><?php echo per_number($row['r_notrepaired']); ?></td>
+									<td><?php echo per_number(number_format($row['r_repaired'])); ?></td>
+									<td><?php echo per_number(number_format($row['r_notrepaired'])); ?></td>
 								</tr>
 								<?php
 								$i++;

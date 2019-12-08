@@ -71,7 +71,7 @@
                                                                         <h4 class="modal-title">بارگزاری سربرگ</h4>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        <?php echo $a['hl_name']; ?>
+                                                                        <?php echo per_number($a['hl_name']); ?>
                                                                         <div class="row">
                                                                             <div class="item col-xs-12">
                                                                                 <input type="file" name="hl_link" data-required="1">

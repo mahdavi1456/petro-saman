@@ -8,6 +8,7 @@
         $si_id = $_GET['si_id'];
         $sql = get_select_query("select * from sender_indicator where si_id = $si_id");
         $media_sender = get_select_query("select * from media_sender_indicator where si_id = $si_id");
+        $media_sender1 = get_var_query("select count(*) from media_sender_indicator where si_id = $si_id");
     } else {
         $letter_type = "";
     }
@@ -15,7 +16,7 @@
     if(isset($_POST['add-sender_indicator'])) {
         $si_writer = $_POST['add-sender_indicator'];
         $si_text = $_POST['si_text'];
-        $sql1="update sender_indicator set  si_text = '$si_text' , 	si_writer = ' $si_writer' where si_id = $si_id";
+        $sql1="update sender_indicator set  si_text = '$si_text' , 	si_writer = '$si_writer' , si_type = '$letter_type' where si_id = $si_id";
         ex_query($sql1);
         echo '<meta http-equiv="refresh" content="2"/>';
     }
@@ -27,20 +28,32 @@
 		$file = $_FILES['uploader1'];
 		$si_id = $_POST['update-media_sender'];
 		$date = $_POST['date'];
-		$msi_name = $_POST['msi_name'];
-		while(!empty($file['name'][$i]))
-		{
-			$filename = $file['name'][$i];
-			$tmp_name = $file['tmp_name'][$i];
-			$size = $file['size'][$i];
-			$link = upload_file($filename, $tmp_name, $size, "0" , "0" , "media_sender_indicator");
-			if($link != '0'){
-				$sql3="insert into media_sender_indicator (si_id, msi_link, msi_date, msi_name) values ('$si_id', '$link', '$date', '$msi_name')";
-				ex_query($sql3);
-			}
-			$i++;
-		}
-		//echo "<meta http-equiv='refresh' content='0'>";
+        $msi_name = $_POST['msi_name'];
+        if (empty($file['name'][$i])){
+            $home_dir = get_the_url();
+            echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>فایلی انتخاب نشده است</div></div>";
+        }
+        else {
+			if($msi_name) {
+                while(!empty($file['name'][$i]))
+                {
+                    $filename = $file['name'][$i];
+                    $tmp_name = $file['tmp_name'][$i];
+                    $size = $file['size'][$i];
+                    $link = upload_file($filename, $tmp_name, $size, "0" , "0" , "media_sender_indicator");
+                    if($link != '0'){
+                        $sql3="insert into media_sender_indicator (si_id, msi_link, msi_date, msi_name) values ('$si_id', '$link', '$date', '$msi_name')";
+                        ex_query($sql3);
+                    }
+                    $i++;
+                }
+            }
+            else {
+                $home_dir = get_the_url();
+                echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>عنوان وارد نشده است</div></div>";
+            }
+            }
+        echo '<meta http-equiv="refresh" content="2"/>';
     }
     
 
@@ -142,9 +155,9 @@
                                                         {
                                                         ?>
                                                         <tr>
-                                                            <td><?php echo $roww; ?></td>
-                                                            <td><?php echo $c['msi_name']; ?></td>
-                                                            <td><?php echo $c['msi_date']; ?></td>
+                                                            <td><?php echo per_number($roww); ?></td>
+                                                            <td><?php echo per_number($c['msi_name']); ?></td>
+                                                            <td><?php echo per_number(str_replace("-", "/", $c['msi_date'])); ?></td>
                                                             <td><a target="_blank" href="<?php get_url(); ?>uploads/media_sender_indicator/<?php echo $c['msi_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_sender_indicator/<?php echo $c['msi_link']; ?>" style="width:20px;heigh:20px"></a></td>
                                                             <td class="force-inline-text">
                                                                 <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
@@ -191,26 +204,32 @@
 
             <?php
             if($letter_type=="a4") { ?>
-                <div class="letter-a4">
+                <div class="letter-a4" id="write_letter-print" >
                     <div class="inline-lab-print-form2" id="letter">
                         <form action="" method="post">
                             <?php
                             if(count($sql) > 0) {
                                 foreach($sql as $row) { ?>
                                     <div class="col-md-3 letter-details">
-                                        <p style="font-size: 14px!important;">تاریخ: <?php echo  $row['si_send_date']; ?></p>
+                                        <p style="font-size: 14px!important;">تاریخ: <?php echo per_number(str_replace("-", "/", $row['si_send_date'])); ?></p>
                                         <p style="font-size: 14px!important;">شماره: <?php echo  $row['si_id']; ?></p>
                                         <p style="font-size: 14px!important;">
                                             <div class="col-md-3 no-padd">پیوست: </div>
                                             <div class="col-md-9 no-padd letter-details-attch">
-                                                <?php if(count($media_sender) >0 ){ echo "دارد"; } else { echo "ندارد"; } ?>
+                                                <?php 
+                                                 if($media_sender1 > 0 ) {
+                                                    if($media_sender1 > 5 ) { echo "دارد"; } 
+                                                    else { echo $media_sender1 . " " . "برگ"; } 
+                                                 } else {
+                                                    echo "ندارد";
+                                                 }?>
                                             </div>
                                         </p>
                                     </div>
                                     <div class="letter-content col-md-12">
                                         <h4><?php echo $row['si_receiver']; ?></h4></br>
                                         <div class="item col-md-12 no-padd">
-                                            <textarea class="form-control" rows="19" id="si_text" type="text" name="si_text" class="form-control" placeholder="متن نامه" data-required="1"><?php echo $row['si_text']; ?></textarea>
+                                            <textarea class="form-control tinymce" rows="19" id="si_text" type="text" name="si_text" class="form-control" placeholder="متن نامه" data-required="1"><?php echo $row['si_text']; ?></textarea>
                                             <span></span>
                                         </div>        
                                         <div class="item col-md-4">
@@ -239,27 +258,33 @@
             } ?>
 
             <?php if($letter_type=="a5") { ?>
-                <div class="letter-a5">
+                <div class="letter-a5" id="write_letter-print" >
                     <div class="inline-lab-print-form2" id="letter">
                         <form action="" method="post" id="myForm" enctype='multipart/form-data'>
                             <?php
                             if(count($sql) >0) {
                                 foreach($sql as $row) { ?>
                                     <div class="col-md-3 letter-details">
-                                        <p style="font-size: 14px!important;">تاریخ: <?php echo  $row['si_send_date']; ?></p>
+                                        <p style="font-size: 14px!important;">تاریخ: <?php echo  per_number(str_replace("-", "/", $row['si_send_date'])); ?></p>
                                         <p style="font-size: 14px!important;">شماره: <?php echo  $row['si_id']; ?></p>
                                         <p style="font-size: 14px!important;">
                                             <div class="col-md-3 no-padd">
                                             پیوست:
                                             </div>
                                             <div class="col-md-9 no-padd letter-details-attch-a5">
-                                                <?php if(count($media_sender) >0 ){ echo "دارد"; } else { echo "ندارد"; } ?>
+                                                <?php 
+                                                 if($media_sender1 > 0 ) {
+                                                    if($media_sender1 > 5 ){ echo "دارد"; } 
+                                                    else { echo $media_sender1 . " " . "برگ"; } 
+                                                 }else {
+                                                    echo "ندارد";
+                                                 }?>
                                             </div>
                                     </div>
                                     <div class="letter-content col-md-12">
                                         <h4><?php echo $row['si_receiver']; ?></h4></br>
                                         <div class="item col-md-12 no-padd">
-                                            <textarea class="form-control" rows="10" id="si_text" type="text" name="si_text" class="form-control" placeholder="متن نامه" data-required="1"><?php echo $row['si_text']; ?></textarea>
+                                            <textarea class="form-control tinymce" rows="10" id="si_text" type="text" name="si_text" class="form-control" placeholder="متن نامه" data-required="1"><?php echo $row['si_text']; ?></textarea>
                                             <span></span>
                                         </div>        
                                         <div class="item col-md-4">
@@ -286,6 +311,19 @@
             } ?>
 
 		</section>
+        <section class="col-xs-12 no-print">
+            <input type="button" value="چاپ" id="analyze_report-printer" class="btn btn-sm btn-default">
+        </section>
 	</div>
-<script src="<?php get_url(); ?>secretariat/js/secretariat.js"></script>
+    <script src="<?php get_url(); ?>user/jquery-print.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#analyze_report-printer').on('click', function() {
+            $.print('#write_letter-print');
+        });
+    });
+    </script>
+    <script src="<?php get_url(); ?>secretariat/js/secretariat.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector: '.tinymce' });</script>
 <?php include"../left-nav.php"; include"../footer.php"; ?>

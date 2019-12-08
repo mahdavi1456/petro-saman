@@ -147,7 +147,7 @@ if(isset($_GET['fb_id'])){
 										$f_type = $res1[0]['f_type'];
 										$c_id = $res1[0]['c_id'];
 										$f_date = $res1[0]['f_date'];
-										$st_id = $res1[0]['st_id'];
+										$st_id = $res1[0]['st_id_to'];
 									}
 								} else {
 									$f_type = 0;
@@ -196,7 +196,7 @@ if(isset($_GET['fb_id'])){
 												if(count($res_st) >0){
 													foreach($res_st as $row_st){
 														?>
-														<option <?php if($row_st['st_id'] == $st_id) echo "selected"; ?> value="<?php echo $row_st['st_id']; ?>"><?php echo $row_st['st_name']; ?></option>
+														<option <?php if($row_st['st_id'] == $st_id) echo "selected"; ?> value="<?php echo $row_st['st_id']; ?>"><?php echo per_number($row_st['st_name']); ?></option>
 														<?php
 													}
 												}
@@ -267,7 +267,7 @@ if(isset($_GET['fb_id'])){
 															$res = get_select_query($sql);
 															if(count($res) > 0) {
 																foreach($res as $row) { ?>
-																	<option value="<?php echo $row['p_id']; ?>"  <?php if(isset($_GET['fb_id'])){ if($p_id==$row['p_id']){ echo 'selected'; } } ?>><?php echo $row['p_name']; ?></option>
+																	<option value="<?php echo $row['p_id']; ?>"  <?php if(isset($_GET['fb_id'])){ if($p_id==$row['p_id']){ echo 'selected'; } } ?>><?php echo per_number($row['p_name']); ?></option>
 																<?php
 																}
 															}
@@ -304,7 +304,7 @@ if(isset($_GET['fb_id'])){
 														$res5 = get_select_query("select * from factor_description");
 														if(count($res5) > 0){
 															foreach($res5 as $row5){ ?>
-																<option value="<?php echo $row5['fd_id']; ?>" <?php if($fd_id == $row5['fd_id']) { echo 'selected'; } ?> ><?php echo $row5['fd_text']; ?></option>
+																<option value="<?php echo $row5['fd_id']; ?>" <?php if($fd_id == $row5['fd_id']) { echo 'selected'; } ?> ><?php echo per_number($row5['fd_text']); ?></option>
 															<?php
 															}
 														}

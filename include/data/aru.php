@@ -48,8 +48,14 @@ class aru{
 		$last_id = ex_query($sql);
 		
 		if($refresh){
-			$home_dir = get_the_url();
-			echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'> مورد با موفقیت حذف شد</div></div>";
+			//$home_dir = get_the_url();
+			//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'> مورد با موفقیت حذف شد</div></div>";
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-left');
+ 				alertify.success('مورد با موفقیت حذف شد');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 			//echo '<script type="text/javascript">setTimeout(function(){ window.location.reload(); return; }, 2000);</script>';
 		}else{
@@ -85,8 +91,14 @@ class aru{
 		$sql .= $sql_key . $sql_value;
 		$last_id = ex_query($sql);
 		if($refresh){
-			$home_dir = get_the_url();
-			echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مورد با موفقیت ثبت شد</div></div>";
+			//$home_dir = get_the_url();
+			//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مورد با موفقیت ثبت شد</div></div>";
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-left');
+ 				alertify.success('مورد با موفقیت ثبت شد');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 			//echo '<script type="text/javascript">setTimeout(function(){ window.location.reload(); return; }, 2000);</script>';
 		}else{
@@ -105,8 +117,14 @@ class aru{
 		
 		if($exists){
 			if($refresh){
-				$home_dir = get_the_url();
-				echo "<div class='alert-aru col-xs-12'><div class='alert alert-danger col-xs-6'>این مورد موجود می باشد</div></div>";
+				//$home_dir = get_the_url();
+				//echo "<div class='alert-aru col-xs-12'><div class='alert alert-danger col-xs-6'>این مورد موجود می باشد</div></div>";
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-left');
+					alertify.error('این مورد موجود می باشد');
+				</script>
+				<?php
 				echo '<meta http-equiv="refresh" content="2"/>';
 				//echo '<script type="text/javascript">setTimeout(function(){ window.location.reload(); return; }, 2000);</script>';
 			}else{
@@ -140,8 +158,14 @@ class aru{
 			$sql .= $sql_key . $sql_value;
 			$last_id = ex_query($sql);
 			if($refresh){
-				$home_dir = get_the_url();
-				echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مورد با موفقیت ثبت شد</div></div>";
+				//$home_dir = get_the_url();
+				//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مورد با موفقیت ثبت شد</div></div>";
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-left');
+					alertify.success('مورد با موفقیت ثبت شد');
+				</script>
+				<?php
 				echo '<meta http-equiv="refresh" content="2"/>';
 				//echo '<script type="text/javascript">setTimeout(function(){ window.location.reload(); return; }, 2000);</script>';
 			}else{
@@ -177,8 +201,14 @@ class aru{
 		$last_id = ex_query($sql);
 		
 		if($refresh){
-			$home_dir = get_the_url();
-			echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'> مورد با موفقیت ویرایش شد</div></div>";
+			//$home_dir = get_the_url();
+			//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'> مورد با موفقیت ویرایش شد</div></div>";
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-left');
+ 				alertify.success('مورد با موفقیت ویرایش شد');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 			//echo '<script type="text/javascript">setTimeout(function(){ window.location.reload(); return; }, 2000);</script>';
 		}else{

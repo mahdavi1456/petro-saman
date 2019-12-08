@@ -79,8 +79,8 @@
 				  			<tr>
 				  				<td><?php echo $row; ?></td>
   								<td><?php echo $a['sh_name']; ?></td>
-  								<td><?php echo $a['sh_checkin']; ?></td>
-  								<td><?php echo $a['sh_checkout']; ?></td>
+  								<td><?php echo per_number($a['sh_checkin']); ?></td>
+  								<td><?php echo per_number($a['sh_checkout']); ?></td>
   								<td>
   									<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit_modal<?php echo $sh_id; ?>">ویرایش</button>
   									<div class="modal fade text-xs-left" id="edit_modal<?php echo $sh_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#edit_modal<?php echo $sh_id; ?>" style="display: none;" aria-hidden="true">

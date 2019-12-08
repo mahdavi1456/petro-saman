@@ -229,7 +229,7 @@ $user = new user();
 																		$dr_plaque_3 = $dr_plaque_arr[2];
 																		$dr_plaque_4 = $dr_plaque_arr[3];
 																		?>
-																		<option <?php if($row1['dr_id'] == $selected_driver) echo "selected"; ?> value="<?php echo $row1['dr_id']; ?>"><?php echo $row1['dr_name'] . " " . $row1['dr_family'] . " (" . $row1['dr_car'] . " (" . "<span>" .  $dr_plaque_4 . "</span>&nbsp;-&nbsp;<span>" . $dr_plaque_3 . "</span>&nbsp;<span>" . $dr_plaque_2 . "</span>&nbsp;<span>" . $dr_plaque_1 . "</span>" . ")) "; ?></option>
+																		<option <?php if($row1['dr_id'] == $selected_driver) echo "selected"; ?> value="<?php echo $row1['dr_id']; ?>"><?php echo $row1['dr_name'] . " " . $row1['dr_family'] . " (" . per_number($row1['dr_car']) . " (" . "<span>" .  per_number($dr_plaque_4) . "</span>&nbsp;-&nbsp;<span>" . per_number($dr_plaque_3) . "</span>&nbsp;<span>" . per_number($dr_plaque_2) . "</span>&nbsp;<span>" . per_number($dr_plaque_1) . "</span>" . ")) "; ?></option>
 																		<?php
 																	}
 																} else { ?>

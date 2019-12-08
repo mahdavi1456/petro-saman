@@ -125,7 +125,7 @@
                                         foreach ($asb2 as $a){ ?>
                                         <tr>
                                             <td><?php echo per_number($i); ?></td>
-                                            <td><?php echo per_number($a['al_date']); ?></td>
+                                            <td><?php echo  per_number(str_replace("-", "/", $a['al_date'])); ?></td>
                                             <td><?php echo per_number(number_format($a['al_amount'])); ?></td>
                                             <td><?php echo per_number($a['al_details']); ?></td>
                                             <td>

@@ -50,8 +50,8 @@
 						  				<td><?php echo $row; ?></td>
 										<td><?php echo $u_name; ?></td>
 										<td><?php echo $u_family; ?></td>
-										<td><?php echo $asb[$i]['gl_date']; ?></td>
-										<td><?php if($i==$count_gl-1){echo "الان";} else {echo $asb[$i+1]['gl_date'];} ?></td>
+										<td><?php echo per_number($asb[$i]['gl_date']); ?></td>
+										<td><?php if($i==$count_gl-1){echo "الان";} else {echo per_number($asb[$i+1]['gl_date']);} ?></td>
 										<td><?php echo $g_name; ?></td>
 						  			</tr>
 						  		<?php $row++;}

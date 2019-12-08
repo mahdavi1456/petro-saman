@@ -21,32 +21,38 @@ function upload_file($filename, $tmp_name, $size, $type, $bu_id , $type_media=nu
 	}
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-		
-	$check = getimagesize($tmp_name);
-	if($check !== false) {
-		//echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
-	} else {
-		//echo "File is not an image.";
-		alert("alert-success", "File is not an image.");
-		$uploadOk = 0;
-	}
 	
 	if (file_exists($target_file)) {
 		//echo "Sorry, file already exists.";
 		alert("alert-success", "Sorry, file already exists.");
 		$uploadOk = 0;
 	}
-		
-	if ($size > 1048576) {
-		//echo "حجم مجاز برای آپلود عکس ۱مگابایت است.";
-		alert("alert-success", "حجم مجاز برای آپلود عکس ۱مگابایت است.");
-		$uploadOk = 0;
+
+	if( $imageFileType == "pdf" || $imageFileType == "docx" || $imageFileType == "doc" || $imageFileType == "ppt" || $imageFileType == "pptx") {
+		if ($size > 4194304) {
+			alert("alert-success", "حجم مجاز برای آپلود فایل ۴ مگابایت است.");
+			$uploadOk = 0;
+		}
+	}
+	else {
+		if ($size > 1048576) {
+			alert("alert-success", "حجم مجاز برای آپلود عکس ۱ مگابایت است.");
+			$uploadOk = 0;
+		}
+		$check = getimagesize($tmp_name);
+		if($check !== false) {
+			//echo "File is an image - " . $check["mime"] . ".";
+			$uploadOk = 1;
+		} else {
+			//echo "File is not an image.";
+			alert("alert-success", "File is not an image.");
+			$uploadOk = 0;
+		}
 	}
 
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "pdf"  && $imageFileType != "docx"  && $imageFileType != "doc" && $imageFileType != "ppt" && $imageFileType != "pptx") {
 		//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-		alert("alert-success", "Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+		alert("alert-success", "Sorry, only JPG, JPEG, PNG , GIF , PDF , DOC , DOCX , PPT & PPTX files are allowed.");
 		$uploadOk = 0;
 	}
 

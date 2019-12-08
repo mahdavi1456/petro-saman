@@ -177,9 +177,9 @@
 								<td><?php echo $a['u_name']; ?></td>
 								<td><?php echo $a['u_family']; ?></td>
 								<td><?php echo $a['u_level']; ?></td>
-								<td><?php echo $a['u_username']; ?></td>
+								<td><?php echo per_number($a['u_username']); ?></td>
 								<td>***</td>
-								<td><?php echo $a['u_group']; ?></td>
+								<td><?php echo per_number($a['u_group']); ?></td>
 								<td>
 									<button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#view_modal<?php echo $u_id; ?>">مشاهده</button>
 									<div class="modal fade text-xs-left" id="view_modal<?php echo $u_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#view_modal<?php echo $u_id; ?>" style="display: none;" aria-hidden="true">
@@ -209,7 +209,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>نام کاربری</td>
-                                                                <td><?php echo $asd[0]['u_username']; ?></td>
+                                                                <td><?php echo per_number($asd[0]['u_username']); ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>رمز ورود</td>
@@ -245,19 +245,19 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>آدرس</td>
-                                                                <td><?php echo $asd[0]['u_address']; ?></td>
+                                                                <td><?php echo ($asd[0]['u_address']); ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>سنوات</td>
-                                                                <td><?php echo $asd[0]['u_pre']; ?></td>
+                                                                <td><?php echo per_number($asd[0]['u_pre']); ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>توضیحات</td>
-                                                                <td><?php echo $asd[0]['u_description']; ?></td>
+                                                                <td><?php echo per_number($asd[0]['u_description']); ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>کد گروه</td>
-                                                                <td><?php echo $asd[0]['u_group']; ?></td>
+                                                                <td><?php echo per_number($asd[0]['u_group']); ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>شماره پرسنل</td>
@@ -265,7 +265,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>سمت</td>
-                                                                <td><?php echo $asd[0]['u_wtype']; ?></td>
+                                                                <td><?php echo per_number($asd[0]['u_wtype']); ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>وضعیت تاهل</td>

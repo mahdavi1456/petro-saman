@@ -1,7 +1,7 @@
 <?php $title = "تنظیمات"; include"../header.php"; include"../nav.php";
 ?>
 <div class="content-wrapper">
-	<?php breadcrumb("تنظیمات"); ?>
+	<?php breadcrumb(); ?>
 	<section class="content">
 		<?php
 		if(isset($_POST['save-option'])){

@@ -55,6 +55,16 @@
                 </div>
 			</div>
 		</section>
+        <section class="col-xs-12 no-print">
+            <input type="button" value="چاپ" id="analyze_report-printer" class="btn btn-sm btn-default">
+        </section>
 	</div>
 	<script src="<?php get_url(); ?>user/jquery-print.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#analyze_report-printer').on('click', function() {
+            $.print('#rest-print');
+        });
+    });
+    </script>
 <?php include"../left-nav.php"; include"../footer.php"; ?>

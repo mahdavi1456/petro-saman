@@ -97,7 +97,7 @@
 																<h4 class="modal-title">ویرایش سقف امتیاز</h4>
 															</div>
 															<div class="modal-body">
-																<?php echo $a['pc_id'];  ?>
+																<?php echo per_number($a['pc_id']);  ?>
 																<div class="row">
 																	<div class="item col-md-6">
 																		<div class="margin-tb input-group-prepend">

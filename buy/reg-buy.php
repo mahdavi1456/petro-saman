@@ -239,7 +239,7 @@ $user = new user();
                             			<select class="form-control" name="ma_id">
                             				<?php
                             				foreach($list_products as $list_product) { ?>
-												<option value="<?php echo $list_product['p_id']; ?>" <?php if(isset($_GET['fb_id'])){ if($ma_id==$list_product['p_id']){ echo 'selected'; } } ?> ><?php echo $list_product['p_name']; ?></option>
+												<option value="<?php echo $list_product['p_id']; ?>" <?php if(isset($_GET['fb_id'])){ if($ma_id==$list_product['p_id']){ echo 'selected'; } } ?> ><?php echo per_number($list_product['p_name']); ?></option>
 											<?php
                             				}
                             				?>
@@ -251,7 +251,7 @@ $user = new user();
                             			<select class="form-control" name="cat_id">
                             				<?php
                             				foreach($categories as $category) { ?>
-												<option value="<?php echo $category['cat_id']; ?>" <?php if(isset($_GET['fb_id'])){ if($cat_id == $category['cat_id']){ echo 'selected'; } } ?> ><?php echo $category['cat_name']; ?></option>
+												<option value="<?php echo $category['cat_id']; ?>" <?php if(isset($_GET['fb_id'])){ if($cat_id == $category['cat_id']){ echo 'selected'; } } ?> ><?php echo per_number($category['cat_name']); ?></option>
 											<?php 
                             				}
                             				?>

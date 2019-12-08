@@ -16,6 +16,7 @@
 	}
 ?>
 <div class="content-wrapper">
+<?php breadcrumb(); ?>
 	<section class="content">
 	    <div class="row">
 			<div class="col-xs-12">
@@ -65,7 +66,7 @@
 									foreach($asb as $a) { ?>
 									<tr>
 										<td><?php echo per_number($i); ?></td>
-										<td><?php echo $a['fd_text']; ?></td>
+										<td><?php echo per_number($a['fd_text']); ?></td>
 										<td>
 											<div id="myModal<?php echo $a['fd_id']; ?>" class="modal fade" role="dialog">
 												<div class="modal-dialog">

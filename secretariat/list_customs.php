@@ -49,19 +49,32 @@
 				$lc_id = $_POST['update-media'];
                 $date = $_POST['date'];
                 $cm_name = $_POST['cm_name'];
-				while(!empty($file['name'][$i]))
-				{
-                    $filename = $file['name'][$i];
-                    $tmp_name = $file['tmp_name'][$i];
-                    $size = $file['size'][$i];
-                    $link = upload_file($filename, $tmp_name, $size, "0" , "0" , "customs_media");
-                    if($link != '0'){
-                        $sql="insert into customs_media (lc_id, cm_link, cm_date, cm_name) values ('$lc_id', '$link', '$date', '$cm_name')";
-                        ex_query($sql);
+                if (empty($file['name'][$i])){
+                    $home_dir = get_the_url();
+                    echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>فایلی انتخاب نشده است</div></div>";
+                }
+                else {
+                    if($cm_name) {
+                        while(!empty($file['name'][$i]))
+                        {
+                            $filename = $file['name'][$i];
+                            $tmp_name = $file['tmp_name'][$i];
+                            $size = $file['size'][$i];
+                            $link = upload_file($filename, $tmp_name, $size, "0" , "0" , "customs_media");
+                            if($link != '0'){
+                                $sql="insert into customs_media (lc_id, cm_link, cm_date, cm_name) values ('$lc_id', '$link', '$date', '$cm_name')";
+                                ex_query($sql);
+                            }
+                            $i++;
+                            
+                        }
                     }
-					$i++;
-				}
-				echo "<meta http-equiv='refresh' content='0'>";
+                    else {
+                        $home_dir = get_the_url();
+                        echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>عنوان وارد نشده است</div></div>";
+                    }
+                }
+                echo '<meta http-equiv="refresh" content="2"/>';
 			}
 			if(isset($_POST['delete-media']))
 			{
@@ -97,23 +110,8 @@
                             </select>
                         </div>
                         <div class="item col-md-3">
-                            <label for="c_id">نام شرکت</label>
-                            <select name="c_id" id="c_id" class="form-control">
-                                <?php
-                                    if(count($company) >0)
-                                    {
-                                        
-                                        foreach ($company as $b ) 
-                                        {
-                                            $c_id = $b['c_id'];
-                                        ?>
-                                        <option value="<?php echo $c_id; ?>"><?php echo $b['c_company']; ?></option>
-                                        <?php
-                                            
-                                        }
-                                    }
-                                ?>
-                            </select>
+                            <label for="lc_company">نام شرکت</label>
+                            <input type="text" name="lc_company" id="lc_company" placeholder="نام شرکت" class="form-control">
                         </div>
                         <div class="item col-md-3">
                             <label for="lc_code">کد رهگیری</label>
@@ -151,7 +149,7 @@
                         <tr>
                             <th>ردیف</th>
                             <th>نوع</th>
-                            <th>شرکت</th>
+                            <th>نام شرکت</th>
                             <th>توضیحات</th>
                             <th>شماره فاکتور</th>
                             <th>کد رهگیری</th>
@@ -166,9 +164,9 @@
                                     $lc_id = $a['lc_id'];
                                 ?>
                                 <tr>
-                                    <td><?php echo $row; ?></td>
+                                    <td><?php echo per_number($row); ?></td>
                                     <td><?php echo $a['lc_type'];  ?></td>
-                                    <td><?php echo $aru->field_by_type("customer","c_company","c_id",$a['c_id'],"int"); ?></td>
+                                    <td><?php echo $a['lc_company']; ?></td>
                                     <td><?php echo $a['lc_details']; ?></td>
                                     <td><?php echo per_number($a['fb_id']); ?></td>
                                     <td><?php echo per_number($a['lc_code']); ?></td>
@@ -195,22 +193,7 @@
                                                                 </div>
                                                                 <div class="item col-md-6">
                                                                     <label for="c_id">نام شرکت</label>
-                                                                    <select name="c_id" id="c_id" class="form-control">
-                                                                        <?php
-                                                                            if(count($company) >0)
-                                                                            {
-                                                                                
-                                                                                foreach ($company as $b ) 
-                                                                                {
-                                                                                    $c_id = $b['c_id'];
-                                                                                ?>
-                                                                                <option <?php if($c_id==$a['c_id']) echo "selected"; ?> value="<?php echo $c_id; ?>"><?php echo $b['c_company']; ?></option>
-                                                                                <?php
-                                                                                    
-                                                                                }
-                                                                            }
-                                                                        ?>
-                                                                    </select>
+                                                                    <input type="text" name="lc_company" id="lc_company" placeholder="نام شرکت" class="form-control" value="<?php echo  $a['lc_company']; ?>">
                                                                 </div>
                                                                 <div class="item col-md-6">
                                                                     <label for="lc_code">کد رهگیری</label>
@@ -290,9 +273,9 @@
                                                                                     {
                                                                                     ?>
                                                                                     <tr>
-                                                                                        <td><?php echo $roww; ?></td>
-                                                                                        <td><?php echo $c['cm_name']; ?></td>
-                                                                                        <td><?php echo $c['cm_date']; ?></td>
+                                                                                        <td><?php echo per_number($roww); ?></td>
+                                                                                        <td><?php echo per_number($c['cm_name']); ?></td>
+                                                                                        <td><?php echo per_number(str_replace("-", "/", $c['cm_date'])); ?></td>
                                                                                         <td><a target="_blank" href="<?php get_url(); ?>uploads/customs_media/<?php echo $c['cm_link']; ?>" ><img src="<?php get_url(); ?>uploads/customs_media/<?php echo $c['cm_link']; ?>" style="width:20px;heigh:20px"></a></td>
                                                                                         <td class="force-inline-text">
                                                                                             <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
@@ -354,7 +337,7 @@
                         <tr>
                             <th>ردیف</th>
                             <th>نوع</th>
-                            <th>شرکت</th>
+                            <th>نام شرکت</th>
                             <th>توضیحات</th>
                             <th>شماره فاکتور</th>
                             <th>کد رهگیری</th>

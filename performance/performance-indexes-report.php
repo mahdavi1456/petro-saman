@@ -32,7 +32,7 @@
                                     <tr>
                                         <td><?php echo per_number($i); ?></td>
                                         <td><?php echo $user[0]['u_name'] . " " . $user[0]['u_family']; ?></td>
-                                        <td><?php echo "از ".per_number($row['pr_fromdate'])." تا ".per_number($row['pr_todate']); ?></td>
+                                        <td><?php echo "از " . per_number(str_replace("-", "/", $row['pr_fromdate'])) . " تا " . per_number(str_replace("-", "/", $row['pr_todate'])); ?></td>
                                         <td><?php echo per_number($row['sum(pr_admin_rate)']); ?></td>
                                         <td><?php echo per_number($row['sum(pr_hr_rate)']); ?></td>
                                     <?php

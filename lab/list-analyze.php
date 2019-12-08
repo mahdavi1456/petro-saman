@@ -30,7 +30,7 @@
 													$res = get_select_query($sql);
 													if(count($res) > 0) {
 														foreach($res as $row) { ?>
-															<option value="<?php echo $row['p_id']; ?>" ><?php echo $row['p_name']; ?></option>
+															<option value="<?php echo $row['p_id']; ?>" ><?php echo per_number($row['p_name']); ?></option>
 														<?php
 														}
 													}
@@ -47,7 +47,7 @@
 												$res = get_select_query($sql);
 												if(count($res) > 0) {
 													foreach($res as $row) { ?>
-														<option value="<?php echo $row['cat_id']; ?>" ><?php echo $row['cat_name']; ?></option>
+														<option value="<?php echo $row['cat_id']; ?>" ><?php echo per_number($row['cat_name']); ?></option>
 													<?php
 													}
 												}
@@ -84,7 +84,7 @@
 						<table class="table table-bordered table-striped table_pagination">
 							<thead>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>کد فاکتور خرید</th>
 									<th>کد ردیف فاکتور</th>
 									<th>محصول و دانه بندی</th>
@@ -133,7 +133,7 @@
 							</tbody>
 							<tfoot>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>کد فاکتور خرید</th>
 									<th>کد ردیف فاکتور</th>
 									<th>محصول و دانه بندی</th>
@@ -152,7 +152,7 @@
 						<table class="table table-bordered table-striped table_pagination">
 							<thead>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>کد فاکتور فروش</th>
 									<th>کد ردیف فاکتور</th>
 									<th>محصول و دانه بندی</th>
@@ -218,7 +218,7 @@
 							</tbody>
 							<tfoot>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>کد فاکتور فروش</th>
 									<th>کد ردیف فاکتور</th>
 									<th>محصول و دانه بندی</th>
@@ -237,7 +237,7 @@
 						<table class="table table-bordered table-striped table_pagination">
 							<thead>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>کد تولید</th>
 									<th>تاریخ تولید</th>
 									<th>محصول و دانه بندی</th>
@@ -285,7 +285,7 @@
 							</tbody>
 							<tfoot>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>کد فاکتور فروش</th>
 									<th>کد ردیف فاکتور</th>
 									<th>محصول و دانه بندی</th>
@@ -304,7 +304,7 @@
 						<table class="table table-bordered table-striped table_pagination">
 							<thead>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>تاریخ ثبت آزمون</th>
 									<th>توضیحات</th>
 									<th>عملیات</th>
@@ -319,7 +319,7 @@
                                 ?>
 								<tr>
                                     <td><?php echo per_number($i); ?></td>
-									<td><?php echo per_number($row['oa_date']); ?></td>
+									<td><?php echo per_number(str_replace("-", "/", $row['oa_date'])) ; ?></td>
 									<td><?php echo $row['oa_description']; ?></td>
 									<td>
 										<?php
@@ -345,7 +345,7 @@
 							</tbody>
 							<tfoot>
 								<tr>
-                                    <th>#</th>
+                                    <th>ردیف</th>
 									<th>تاریخ ثبت آزمون</th>
 									<th>توضیحات</th>
 									<th>عملیات</th>

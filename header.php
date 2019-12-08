@@ -45,6 +45,10 @@ if(isset($_GET['logout']) || !isset($_SESSION['user_id'])){
         <link rel="stylesheet" href="<?php get_url(); ?>dist/css/rtl.css">
         <link rel="stylesheet" href="<?php get_url(); ?>plugins/datatables/dataTables.bootstrap.css">
 	    <link rel="stylesheet" href="<?php get_url(); ?>dist/css/persianDatepicker-default.css">
+        <link rel="stylesheet" href="<?php get_url(); ?>dist/alert/alertify.rtl.min.css">
+	    <link rel="stylesheet" href="<?php get_url(); ?>dist/alert/default.rtl.min.css">
+	    <link rel="stylesheet" href="<?php get_url(); ?>dist/alert/semantic.rtl.min.css">
+
     	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -57,6 +61,7 @@ if(isset($_GET['logout']) || !isset($_SESSION['user_id'])){
 		<link href="<?php get_url(); ?>include/validation/style.css" type="text/css" rel="stylesheet" />
 		<script src="<?php get_url(); ?>include/validation/script.js"></script>
         <script type="text/javascript" src="<?php get_url(); ?>include/lib/NumberFormat.js"></script>
+        <script src="<?php get_url(); ?>dist/alert/alertify.min.js"></script>
         <style>
             .control-sidebar{
                 display:none;

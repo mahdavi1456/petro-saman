@@ -44,12 +44,14 @@ function get_text_url($text2){
 		return "دبیرخانه";
 	case "doc_type":
         return "نوع سند";
-	case "list_letter":
-        return "نامه و مرسوله";
+	case "list_customs":
+        return "مرسولات";
 	case "list_meeting":
         return "صورت جلسه";
 	case "list_rule":
-        return "اساس نامه";
+		return "اساس نامه";
+	case "write_letter":
+			return "نامه ارسالی";
 	case "amount-material":
         return "موجودی مواد اولیه";
 	case "factor":
@@ -146,6 +148,24 @@ function get_text_url($text2){
 		return "گزارش قطعات بازگشتی";
 	case "repair-usage";
 		return "تعمیر قطعات";
+	case "performance";
+		return "ارزیابی و عملکرد";
+	case "indexes";
+		return "شاخص ارزیابی";
+	case "performance-indexes";
+		return "فرم ارزیابی";
+	case "performance-indexes-report";
+		return "گزارش ارزیابی";
+	case "options";
+		return "تنظیمات";
+	case "edit_options";
+		return "ویرایش اطلاعات";
+	case "factor_description";
+		return "توضیحات پیش فاکتور";
+	case "points-ceiling";
+		return "تعریف سقف امتیازات";
+	case "header-loading";
+		return "بارگزاری سربرگ";
 	case "Petrosaman";
 		return "پتروسامان";
     default:

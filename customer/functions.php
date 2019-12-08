@@ -127,25 +127,35 @@ function list_just_customer() {
 function get_customer_name($c_id) {
 	$sql = "select c_name, c_family, c_account, c_company from customer where c_id = $c_id";
 	$res = get_select_query($sql);
-	$c_account = $res[0]['c_account'];
-	if($c_account == "real_person") {
-		$name = $res[0]['c_name'] . " " . $res[0]['c_family'];
-	} else {
-		$name = $res[0]['c_company'];
+	if(count($res) > 0) {
+		$c_account = $res[0]['c_account'];
+		if($c_account == "real_person") {
+			$name = $res[0]['c_name'] . " " . $res[0]['c_family'];
+		} else {
+			$name = $res[0]['c_company'];
+		}
+		return $name;
 	}
-	return $name;
+	else {
+		return "نامعتبر";
+	}
 }
 
 function get_national($c_id) {
 	$sql = "select c_national, c_national_id, c_account from customer where c_id = $c_id";
 	$res = get_select_query($sql);
-	$c_account = $res[0]['c_account'];
-	if($c_account == "real_person") {
-		$name = $res[0]['c_national'];
-	} else {
-		$name = $res[0]['c_national_id'];
+	if(count($res) > 0) {
+		$c_account = $res[0]['c_account'];
+		if($c_account == "real_person") {
+			$name = $res[0]['c_national'];
+		} else {
+			$name = $res[0]['c_national_id'];
+		}
+		return $name;
 	}
-	return $name;
+	else {
+		return "ندارد";
+	}
 }
 
 function get_company_name($c_id) {
