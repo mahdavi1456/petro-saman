@@ -52,7 +52,7 @@ class aru{
 			//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'> مورد با موفقیت حذف شد</div></div>";
 			?>
 			<script>
-				alertify.set('notifier','position', 'bottom-left');
+				alertify.set('notifier','position', 'bottom-right');
  				alertify.success('مورد با موفقیت حذف شد');
 			</script>
 			<?php
@@ -95,7 +95,7 @@ class aru{
 			//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مورد با موفقیت ثبت شد</div></div>";
 			?>
 			<script>
-				alertify.set('notifier','position', 'bottom-left');
+				alertify.set('notifier','position', 'bottom-right');
  				alertify.success('مورد با موفقیت ثبت شد');
 			</script>
 			<?php
@@ -121,7 +121,7 @@ class aru{
 				//echo "<div class='alert-aru col-xs-12'><div class='alert alert-danger col-xs-6'>این مورد موجود می باشد</div></div>";
 				?>
 				<script>
-					alertify.set('notifier','position', 'bottom-left');
+					alertify.set('notifier','position', 'bottom-right');
 					alertify.error('این مورد موجود می باشد');
 				</script>
 				<?php
@@ -162,7 +162,7 @@ class aru{
 				//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مورد با موفقیت ثبت شد</div></div>";
 				?>
 				<script>
-					alertify.set('notifier','position', 'bottom-left');
+					alertify.set('notifier','position', 'bottom-right');
 					alertify.success('مورد با موفقیت ثبت شد');
 				</script>
 				<?php
@@ -205,7 +205,7 @@ class aru{
 			//echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'> مورد با موفقیت ویرایش شد</div></div>";
 			?>
 			<script>
-				alertify.set('notifier','position', 'bottom-left');
+				alertify.set('notifier','position', 'bottom-right');
  				alertify.success('مورد با موفقیت ویرایش شد');
 			</script>
 			<?php
