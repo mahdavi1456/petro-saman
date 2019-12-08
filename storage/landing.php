@@ -15,7 +15,12 @@ $user = new user();
 		$sql = "update bar_bring set dr_id = $dr_id where bar_id = $bar_id";
 		ex_query($sql);
 		$home_dir = get_the_url();
-		echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>عملیات با موفقیت انجام شد</div></div>";
+		?>
+		<script>
+			alertify.set('notifier','position', 'bottom-right');
+			alertify.success('عملیات با موفقیت شد');
+		</script>
+		<?php
 		echo '<meta http-equiv="refresh" content="2"/>';
 		//send_sms_confirm($fb_id, $type);
 	}

@@ -9,7 +9,12 @@
         $stock = get_stock($_POST['t_id']);
         $us_quantity = $_POST['us_quantity']; 
         if($us_quantity > $stock) {
-			echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مقدار وارد شده بیشتر از موجودی انبار می باشد.</div></div>";
+            ?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.error('مقدار وارد شده بیشتر از موجودی انبار می باشد');
+			</script>
+			<?php
             echo '<meta http-equiv="refresh" content="2"/>';
         }
         else{
@@ -99,7 +104,12 @@
                                     $tr_date = $_POST['tr_date'];
                                     $tr_details = $_POST['tr_details'];
                                     if($remaining < $tr_quantity) {
-                                        echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مقدار وارد شده بیشتر از مقدار خروجی می باشد.</div></div>";
+                                        ?>
+                                        <script>
+                                            alertify.set('notifier','position', 'bottom-right');
+                                            alertify.error('مقدار وارد شده بیشتر از مقدار خروجی می باشد');
+                                        </script>
+                                        <?php
                                         echo '<meta http-equiv="refresh" content="2"/>';
                                     } else {
                                         if($us_type=="مصرفی"){
@@ -125,7 +135,12 @@
                                     $us_id = $_POST['update-usage_tools'];
                                     $us_quantity = $_POST['us_quantity'];
                                     if($us_quantity <  $us_quantity_back){
-                                        echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مقدار وارد شده بیشتر از مقدار خروجی می باشد.</div></div>";
+                                        ?>
+                                        <script>
+                                            alertify.set('notifier','position', 'bottom-right');
+                                            alertify.error('مقدار وارد شده بیشتر از مقدار خروجی می باشد');
+                                        </script>
+                                        <?php
                                         echo '<meta http-equiv="refresh" content="2"/>';
                                     } else {
                                         $aru->update('usage_tools',$_POST,'us_id', $us_id);

@@ -5,7 +5,12 @@
         $r_repaired = $_POST['r_repaired'];
         if($r_notrepaired < $r_repaired)
         {
-            echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مقدار وارد شده مجاز نمی باشد.</div></div>";
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.error('مقدار وارد شده مجاز نمی باشد');
+			</script>
+			<?php
             echo '<meta http-equiv="refresh" content="2"/>';
         }
         else{

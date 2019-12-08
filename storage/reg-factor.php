@@ -39,9 +39,12 @@ require_once"../category/functions.php";
 						array_push($array, $fb_price);
 						insert_factor_body($array);
 						?>
-						<div class="alert alert-success">
-							ردیف کالا با موفقیت ثبت شد
-						</div>
+						?>
+						<script>
+							alertify.set('notifier','position', 'bottom-right');
+							alertify.success('مورد با موفقیت ثبت شد');
+						</script>
+						<?php
 						<?php
 					}
 						

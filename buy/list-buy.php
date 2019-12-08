@@ -19,7 +19,6 @@ $user = new user();
 		update_a_row_buy_log_factor($fb_id, $l_details);
 		$verify = "fb_buy_delete";
 		$sms->send_sms_confirm_buy($fb_id, $verify);
-		
 		echo "<meta http-equiv='refresh' content='0'/>";
 		exit();
 	}

@@ -46,10 +46,11 @@ $user = new user();
 		$fb_id_exists = get_var_query("select count(fb_id) from factor_buy_body where fb_id = $fb_id");
 		if($fb_id == ""){
 			?>
-				<script>
-				alert("کد فاکتور خرید را وارد کنید.");
-				</script>
-				<?php
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('کد فاکتور خرید را وارد کنید');
+			</script>
+			<?php
 				echo '<meta http-equiv="refresh" content="2"/>';
 			//$aru->add("bar_bring", $arry);
 			//$l_details = "ثبت ورودی انبار";
@@ -62,7 +63,8 @@ $user = new user();
 			}else{
 				?>
 				<script>
-				alert("فاکتور خرید با این کد موجود نمی باشد.");
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.error('فاکتور خرید با این کد موجود نمی باشد');
 				</script>
 				<?php
 				echo '<meta http-equiv="refresh" content="2"/>';

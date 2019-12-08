@@ -50,8 +50,13 @@
                 $date = $_POST['date'];
                 $cm_name = $_POST['cm_name'];
                 if (empty($file['name'][$i])){
-                    $home_dir = get_the_url();
-                    echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>فایلی انتخاب نشده است</div></div>";
+                    //$home_dir = get_the_url();
+                    ?>
+                    <script>
+                        alertify.set('notifier','position', 'bottom-right');
+                        alertify.warning('فایللی انتخاب نشده است');
+                    </script>
+                    <?php
                 }
                 else {
                     if($cm_name) {
@@ -71,7 +76,12 @@
                     }
                     else {
                         $home_dir = get_the_url();
-                        echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>عنوان وارد نشده است</div></div>";
+                        ?>
+                        <script>
+                            alertify.set('notifier','position', 'bottom-right');
+                            alertify.warning('عنوان وارد نشده است');
+                        </script>
+                        <?php
                     }
                 }
                 echo '<meta http-equiv="refresh" content="2"/>';

@@ -1,5 +1,5 @@
 <?php
-$src = $_SERVER["DOCUMENT_ROOT"] . "/Petrosaman/gt-config.gt";
+$src = $_SERVER["DOCUMENT_ROOT"] . "/petro-saman/gt-config.gt";
 $myfile = fopen($src, "r") or die("Unable to open file!");
 $data = fread($myfile, filesize($src));
 fclose($myfile);

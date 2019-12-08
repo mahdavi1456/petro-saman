@@ -143,7 +143,12 @@ function singed_pre_invoice_scan_buy($fb_id) {
 		<?php
 	}
 	}else{
-		echo "<div class='alert alert-danger'>موردی یافت نشد!</div>";
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('موردی یافت نشد');
+			</script>
+			<?php
 	}
 }
 
@@ -172,7 +177,12 @@ function show_singed_pre_invoice_scan_buy($fb_id) {
 			<?php
 		}
 	}else{
-		echo "<div class='alert alert-danger'>موردی یافت نشد!</div>";
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('موردی یافت نشد');
+			</script>
+			<?php
 	}
 }
 
@@ -229,7 +239,12 @@ function get_invoice_files($bu_id){
 		<?php
 	}
 	}else{
-		echo "<div class='alert alert-danger'>هیچ پیش فاکتوری در سیستم بارگزاری نشده است</div>";
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('هیچ پیش فاکتوری در سیستم بارگزاری نشده است');
+			</script>
+			<?php
 	}
 }
 
@@ -257,7 +272,12 @@ function get_receipt_files($bu_id){
 			<?php
 		}
 	}else{
-		echo "<div class='alert alert-danger'>هیچ پیش فاکتوری در سیستم بارگزاری نشده است</div>";
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('هیچ پیش فاکتوری در سیستم بارگزاری نشده است');
+			</script>
+			<?php
 	}
 }
 

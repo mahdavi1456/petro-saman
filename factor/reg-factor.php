@@ -42,7 +42,12 @@ if(isset($_GET['fb_id'])){
 								if(isset($_POST['del-fb'])){
 									$fb_id = $_POST['del-fb'];
 									delete_factor_body($fb_id);
-									alert("success", "آیتم با موفقیت حذف شد");
+									?>
+									<script>
+										alertify.set('notifier','position', 'bottom-right');
+										alertify.success('مورد با موفقیت حذف شد');
+									</script>
+									<?php
 									$l_details = "حذف فاکتور فروش";
 									update_a_row_log_factor( $fb_id ,  $l_details );	
 								}
@@ -96,7 +101,12 @@ if(isset($_GET['fb_id'])){
 									//send_sms_confirm($fb_id, $type);
 									$l_details = "افزودن فاکتور فروش";
 									update_a_row_log_factor( $fb_id ,  $l_details );	
-									alert("success", "ردیف کالا با موفقیت ثبت شد");
+									?>
+									<script>
+										alertify.set('notifier','position', 'bottom-right');
+										alertify.success('مورد با موفقیت ثبت شد');
+									</script>
+									<?php
 								}
 								if(isset($_POST['add-factor'])){
 									$c_id = $_POST['c_id'];

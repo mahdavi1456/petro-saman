@@ -17,7 +17,12 @@
 		if($update_amount < $fb_quantity){
         	ex_query("update factor_buy_body set fb_amount_get = $update_amount where fb_id = $fb_id");
 		}else{
-			alert("alert-danger", "مقدار از حد مجاز فاکتور خرید بیشتر است");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('مقدار وارد شده از حد مجاز فاکتور خرید بیشتر است');
+			</script>
+			<?php
 		}
 	}
 											

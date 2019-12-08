@@ -38,7 +38,12 @@ $media = new media();
 		update_a_row_log_factor($fb_id, $l_details );	
 		}
 		else{
-			alert("alert-warning", "فایلی انتخاب نشده است");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('فایلی انتخاب نشده است');
+			</script>
+			<?php
 		}
 	}
 

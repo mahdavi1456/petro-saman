@@ -139,7 +139,12 @@ function get_waybill_files($s_id){
 		<?php
 	}
 	}else{
-		echo "<div class='alert alert-danger'>هیچ بارنامه ای در سیستم بارگذاری نشده</div>";
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('هیچ بارنامه ای در سیستم بارگذاری نشده است');
+			</script>
+			<?php
 	}
 }
 function get_bill_files($s_id){
@@ -166,7 +171,12 @@ function get_bill_files($s_id){
 		<?php
 	}
 	}else{
-		echo "<div class='alert alert-danger'>هیچ بارنامه ای در سیستم بارگذاری نشده</div>";
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('هیچ بارنامه ای در سیستم بارگذاری نشده است');
+			</script>
+			<?php
 	}
 }
 

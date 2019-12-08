@@ -34,7 +34,12 @@
 									$aru->add("points_ceiling", $_POST);
 								}
 								else {
-									echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>امتیاز وارد شده صحیح نمی باشد.</div></div>";
+									?>
+									<script>
+										alertify.set('notifier','position', 'bottom-right');
+										alertify.error('امتیاز وارد شده صحیح نمی باشد');
+									</script>
+									<?php
                                     echo '<meta http-equiv="refresh" content="2"/>';
 								}
                             }
@@ -77,8 +82,12 @@
 											echo "<meta http-equiv='refresh' content='0'/>";
 										}
 										else {
-											echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>امتیاز وارد شده صحیح نمی باشد.</div></div>";
-											echo '<meta http-equiv="refresh" content="2"/>';
+											?>
+											<script>
+												alertify.set('notifier','position', 'bottom-right');
+												alertify.error('امتیاز وارد شده صحیح نمی باشد');
+											</script>
+											<?php											echo '<meta http-equiv="refresh" content="2"/>';
 										}
 									}
 									foreach($asb as $a) { ?>

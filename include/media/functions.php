@@ -24,19 +24,34 @@ function upload_file($filename, $tmp_name, $size, $type, $bu_id , $type_media=nu
 	
 	if (file_exists($target_file)) {
 		//echo "Sorry, file already exists.";
-		alert("alert-success", "Sorry, file already exists.");
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('فایلی با این نام وجود دارد');
+			</script>
+			<?php
 		$uploadOk = 0;
 	}
 
 	if( $imageFileType == "pdf" || $imageFileType == "docx" || $imageFileType == "doc" || $imageFileType == "ppt" || $imageFileType == "pptx") {
 		if ($size > 4194304) {
-			alert("alert-success", "حجم مجاز برای آپلود فایل ۴ مگابایت است.");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('حجم مجاز برای آپلود فایل ۴ مگابایت است');
+			</script>
+			<?php
 			$uploadOk = 0;
 		}
 	}
 	else {
 		if ($size > 1048576) {
-			alert("alert-success", "حجم مجاز برای آپلود عکس ۱ مگابایت است.");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('حجم مجاز برای آپلود عکس ۱ مگابایت است');
+			</script>
+			<?php
 			$uploadOk = 0;
 		}
 		$check = getimagesize($tmp_name);
@@ -45,14 +60,24 @@ function upload_file($filename, $tmp_name, $size, $type, $bu_id , $type_media=nu
 			$uploadOk = 1;
 		} else {
 			//echo "File is not an image.";
-			alert("alert-success", "File is not an image.");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('فایل انتخاب شده تصویر نیست');
+			</script>
+			<?php
 			$uploadOk = 0;
 		}
 	}
 
 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "pdf"  && $imageFileType != "docx"  && $imageFileType != "doc" && $imageFileType != "ppt" && $imageFileType != "pptx") {
 		//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-		alert("alert-success", "Sorry, only JPG, JPEG, PNG , GIF , PDF , DOC , DOCX , PPT & PPTX files are allowed.");
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('تنها مجاز به بارگزاری تصویر , pdf و word می باشید');
+			</script>
+			<?php
 		$uploadOk = 0;
 	}
 
@@ -62,11 +87,23 @@ function upload_file($filename, $tmp_name, $size, $type, $bu_id , $type_media=nu
 	} else {
 		if (move_uploaded_file($tmp_name, $target_file)) {
 			//echo "فایل ". basename($filename). " با موفقیت آپلود شد." . "<br>";
-			alert("alert-success", "فایل با موفقیت آپلود شد");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.success('فایل با موفقیت بارگزاری شد');
+			</script>
+			<?php
 			return $filename;
 		} else {
 			//echo "Sorry, there was an error uploading your file.";
-			alert("alert-success", "Sorry, there was an error uploading your file.");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('یک خطا در بارگزاری فایل وجود دارد');
+			</script>
+			<?php
+			$uploadOk = 0;
+			return $uploadOk;
 		}
 	}
 }
@@ -88,7 +125,12 @@ function upload_file_header($filename, $tmp_name, $size , $media_name){
 		$uploadOk = 1;
 	} else {
 		//echo "File is not an image.";
-		alert("alert-success", "File is not an image.");
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('فایل انتخاب شده تصویر نیست');
+			</script>
+			<?php
 		$uploadOk = 0;
 	}
 	
@@ -109,15 +151,24 @@ function upload_file_header($filename, $tmp_name, $size , $media_name){
             }
 	}
 		
-	/* if ($size > 1048576) {
-		//echo "حجم مجاز برای آپلود عکس ۱مگابایت است.";
-		alert("alert-success", "حجم مجاز برای آپلود عکس ۱مگابایت است.");
+	if ($size > 1048576) {
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('حجم مجاز برای آپلود عکس ۱ مگابایت است');
+			</script>
+			<?php
 		$uploadOk = 0;
-	} */
+	}
 
 	if($imageFileType != "jpg") {
 		//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-		alert("alert-success", "Sorry, only JPG files are allowed.");
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('فرمت مجاز برای سربرگ jpg می باشد');
+			</script>
+			<?php
 		$uploadOk = 0;
 	}
 
@@ -127,11 +178,21 @@ function upload_file_header($filename, $tmp_name, $size , $media_name){
 	} else {
 		if (move_uploaded_file($tmp_name, $target_file)) {
 			//echo "فایل ". basename($filename). " با موفقیت آپلود شد." . "<br>";
-			alert("alert-success", "فایل با موفقیت آپلود شد");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.success('فایل با موفقیت بارگزاری شد');
+			</script>
+			<?php
 			return $filename;
 		} else {
 			//echo "Sorry, there was an error uploading your file.";
-			alert("alert-success", "Sorry, there was an error uploading your file.");
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('یک خطا در بارگزاری فایل وجود دارد');
+			</script>
+			<?php
 		}
 	}
 }

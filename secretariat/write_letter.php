@@ -30,8 +30,12 @@
 		$date = $_POST['date'];
         $msi_name = $_POST['msi_name'];
         if (empty($file['name'][$i])){
-            $home_dir = get_the_url();
-            echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>فایلی انتخاب نشده است</div></div>";
+            ?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('فایلی انتخاب نشده است');
+			</script>
+			<?php
         }
         else {
 			if($msi_name) {
@@ -49,8 +53,12 @@
                 }
             }
             else {
-                $home_dir = get_the_url();
-                echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>عنوان وارد نشده است</div></div>";
+                ?>
+                <script>
+                    alertify.set('notifier','position', 'bottom-right');
+                     alertify.warning('عنوان وارد نشده است');
+                </script>
+                <?php
             }
             }
         echo '<meta http-equiv="refresh" content="2"/>';
@@ -102,6 +110,7 @@
                                     <div class="input-group-prepend">
                                     </div><br>
                                     <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $si_id; ?>">پیوست ها</button>
+                                    <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit<?php echo $si_id; ?>">ویرایش نامه</button>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +118,7 @@
                 </section>
             </form>
             <div class="modal fade text-xs-left" id="doc_modal<?php echo $si_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#doc_modal<?php echo $si_id; ?>" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog" role="document" id="hse_item_edit">
+                <div class="modal-dialog" role="document" id="doc_modal">
                     <form action="" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="date" value="<?php echo jdate("Y/n/j"); ?>">
                         <div class="modal-content">
@@ -202,6 +211,31 @@
                 </div>
             </div>
 
+            <div class="modal fade text-xs-left" id="edit<?php echo $si_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#edit<?php echo $si_id; ?>" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog" role="document" id="edit">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="date" value="<?php echo jdate("Y/n/j"); ?>">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel3">ویرایش نامه</h4>
+                            </div>
+                            <div class="modal-body">
+                                <textarea class="form-control tinymce" rows="10" id="si_text" type="text" name="si_text" class="form-control" placeholder="متن نامه" data-required="1"><?php  if(count($sql) > 0) { foreach($sql as $row) {  echo $row['si_text'];  }   }?></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <center>
+                                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
+                                    <button type="submit" class="btn btn-success btn-sm" name="add-sender_indicator" value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">ذخیره</button>
+                                </center>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <?php
             if($letter_type=="a4") { ?>
                 <div class="letter-a4" id="write_letter-print" >
@@ -229,7 +263,7 @@
                                     <div class="letter-content col-md-12">
                                         <h4><?php echo $row['si_receiver']; ?></h4></br>
                                         <div class="item col-md-12 no-padd">
-                                            <textarea class="form-control tinymce" rows="19" id="si_text" type="text" name="si_text" class="form-control" placeholder="متن نامه" data-required="1"><?php echo $row['si_text']; ?></textarea>
+                                            <?php echo $row['si_text']; ?>
                                             <span></span>
                                         </div>        
                                         <div class="item col-md-4">
@@ -242,9 +276,6 @@
                                                 <?php get_signature($row['si_admin_verify']); ?>
                                             </div>
                                         </div>
-                                        <div style="text-align: center; margin: 20px 0;" class="col-xs-12">
-                                            <button type="submit" class="btn btn-success btn-sm" name="add-sender_indicator" value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">ذخیره</button>
-                                        </div>	
                                     </div>
                                     <?php
                                 }
@@ -284,7 +315,7 @@
                                     <div class="letter-content col-md-12">
                                         <h4><?php echo $row['si_receiver']; ?></h4></br>
                                         <div class="item col-md-12 no-padd">
-                                            <textarea class="form-control tinymce" rows="10" id="si_text" type="text" name="si_text" class="form-control" placeholder="متن نامه" data-required="1"><?php echo $row['si_text']; ?></textarea>
+                                            <?php echo $row['si_text']; ?>
                                             <span></span>
                                         </div>        
                                         <div class="item col-md-4">
@@ -297,9 +328,6 @@
                                                 <?php get_signature($row['si_admin_verify']); ?>
                                             </div>
                                         </div>
-                                        <div style="text-align: center; margin: 20px 0;" class="col-xs-12">
-                                            <button type="submit" class="btn btn-success btn-sm" name="add-sender_indicator" value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">ذخیره</button>
-                                        </div>	
                                     </div>
                                     <?php
                                 }
@@ -325,5 +353,6 @@
     </script>
     <script src="<?php get_url(); ?>secretariat/js/secretariat.js"></script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    
     <script>tinymce.init({selector: '.tinymce' });</script>
 <?php include"../left-nav.php"; include"../footer.php"; ?>

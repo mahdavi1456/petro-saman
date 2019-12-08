@@ -82,11 +82,21 @@
                                 $res5 = get_select_query("select * from points_ceiling where pc_amount >= $al_amount and pc_points_needed <= $rate_percent ");
                                 if(count($res5) >0 ){
                                     $sql = ex_query("insert into apply_loan (u_id, al_date, al_amount, al_details) values ($u_id , '$al_date', $al_amount, '$al_details')");
-                                    echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>درخواست شما با موفقیت ثبت شد.</div></div>";
+                                    ?>
+                                    <script>
+                                        alertify.set('notifier','position', 'bottom-right');
+                                        alertify.success('مورد با موفقیت ثبت شد');
+                                    </script>
+                                    <?php
                                     echo '<meta http-equiv="refresh" content="2"/>';
                                 }
                                 else {
-                                    echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>امتیاز شما برای این وام کافی نمی باشد.</div></div>";
+                                    ?>
+                                    <script>
+                                        alertify.set('notifier','position', 'bottom-right');
+                                        alertify.error('امتیاز شما برای این وام کافی نمی باشد');
+                                    </script>
+                                    <?php
                                     echo '<meta http-equiv="refresh" content="2"/>';
                                 }
                             }

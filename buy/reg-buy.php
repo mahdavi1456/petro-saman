@@ -81,7 +81,12 @@ $user = new user();
 							$l_details = "آپلود پیش فاکتور خرید";
 							update_a_row_buy_log_factor($fb_id, $l_details);
 						} else {
-							alert("alert-warning", "فایلی انتخاب نشده است");
+							?>
+							<script>
+								alertify.set('notifier','position', 'bottom-right');
+								alertify.warning('فایلی انتخاب نشده است');
+							</script>
+							<?php
 						}
 					}
 				
@@ -106,7 +111,12 @@ $user = new user();
 						$home_dir = get_the_url();
 						$l_details = "افزودن فاکتور خرید";
 						update_a_row_buy_log_factor($fb_id, $l_details);
-						echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>مورد با موفقیت ثبت شد</div></div>";
+						?>
+							<script>
+								alertify.set('notifier','position', 'bottom-right');
+								alertify.success('مورد با موفقیت ثبت شد');
+							</script>
+						<?php
 						echo '<meta http-equiv="refresh" content="2"/>';
 					}
 				

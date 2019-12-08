@@ -66,12 +66,22 @@ $user = new user();
 
 			$home_dir = get_the_url();
 			$l_details = "انتقال باقیمانده به فاکتور دیگر" ;
-			update_a_row_log_factor( $export_from ,  $l_details );	
-			echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'><img src='$home_dir/dist/img/check4.gif'>عملیات با موفقیت انجام شد.</div></div>";
+			update_a_row_log_factor( $export_from ,  $l_details );
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.success('عملیات با موفقیت انجام شد');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 
 		}else{
-			?><script>alert("لطفا ردیف فاکتور را انتخاب کنید.");</script><?php
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('لطفا ردیف فاکتور را انتخاب کنید');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 		}
 	}
@@ -242,7 +252,12 @@ $user = new user();
 														$fb_type = "sale";
 	
 														if($update_amount > $row['fb_quantity']){
-															?><script>alert("مقدار مجاز رعایت نشده است.");</script><?php
+															?>
+															<script>
+																alertify.set('notifier','position', 'bottom-right');
+																alertify.error('مقدار مجاز رعایت نشده است');
+															</script>
+															<?php
 															echo "<meta http-equiv='refresh' content='0'/>";
 														}else{
 															update_amount_fb_factor($update_amount, $fb_id);
