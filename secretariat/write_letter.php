@@ -14,11 +14,28 @@
     }
 
     if(isset($_POST['add-sender_indicator'])) {
+        $letter_type = $_GET['letter_type'];
         $si_writer = $_POST['add-sender_indicator'];
         $si_text = $_POST['si_text'];
-        $sql1="update sender_indicator set  si_text = '$si_text' , 	si_writer = '$si_writer' , si_type = '$letter_type' where si_id = $si_id";
-        ex_query($sql1);
-        echo '<meta http-equiv="refresh" content="2"/>';
+        if($letter_type != '0' ){
+            $sql1="update sender_indicator set  si_text = '$si_text' , 	si_writer = '$si_writer' , si_type = '$letter_type' where si_id = $si_id";
+            ex_query($sql1);
+            ?>
+            <script>
+                alertify.set('notifier','position', 'bottom-right');
+                alertify.success('مورد با موفقیت ویرایش شد');
+            </script>
+            <?php
+            echo '<meta http-equiv="refresh" content="2"/>';
+        }
+        else{
+            ?>
+            <script>
+                alertify.set('notifier','position', 'bottom-right');
+                 alertify.warning('نوع برگه را انتخاب کنید');
+            </script>
+            <?php
+        }
     }
 
     if(isset($_POST['update-media_sender']))
@@ -75,9 +92,6 @@
 		}
 		$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 		?>
-		<script type="text/javascript">
-			window.location.href = "<?php echo $url; ?>";
-		</script>
 		<?php
 	}
 
@@ -99,7 +113,7 @@
                                         <label for="letter_type">نوع برگه</label>
                                     </div>
                                     <select class="form-control" id="letter_type" name="letter_type" onchange="this.form.submit()">
-                                        <option>نوع برگه را انتخاب کنید</option>
+                                        <option value="0">نوع برگه را انتخاب کنید</option>
                                         <option <?php if($letter_type == "a4") echo "selected"; ?> value="a4">a4</option>
                                         <option <?php if($letter_type == "a5") echo "selected"; ?> value="a5">a5</option>
                                     </select>
@@ -108,9 +122,9 @@
                                 </div>
                                 <div class="item col-md-4">
                                     <div class="input-group-prepend">
-                                    </div><br>
-                                    <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $si_id; ?>">پیوست ها</button>
-                                    <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit<?php echo $si_id; ?>">ویرایش نامه</button>
+                                    </div><br><br>
+                                    <button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $si_id; ?>">پیوست ها</button>
+                                    <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit<?php echo $si_id; ?>">ویرایش نامه</button>
                                 </div>
                             </div>
                         </div>
@@ -279,12 +293,13 @@
                                     </div>
                                     <?php
                                 }
-                        } else {
-                            echo "eysdas";
-                        } ?>
+                            } ?>
                         </form>
                     </div>
                 </div>
+                <section class="col-xs-12 center">
+                    <input type="button" value="چاپ"  id="analyze_report-printer" class="btn btn-sm btn-default">
+                </section>
                 <?php 
             } ?>
 
@@ -335,13 +350,13 @@
                         </form>
                     </div>
                 </div>
+                <section class="col-xs-12 center">
+                    <input type="button" value="چاپ" id="analyze_report-printer"  class="btn btn-sm btn-default">
+                </section>
                 <?php 
             } ?>
-
 		</section>
-        <section class="col-xs-12 no-print">
-            <input type="button" value="چاپ" id="analyze_report-printer" class="btn btn-sm btn-default">
-        </section>
+       
 	</div>
     <script src="<?php get_url(); ?>user/jquery-print.js"></script>
     <script>

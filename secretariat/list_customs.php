@@ -1,4 +1,4 @@
-<?php include"../header.php"; include"../nav.php";	include('function.php');
+<?php include"../header.php"; include"../nav.php";
 	
     $aru = new aru();
     $media = new media();
@@ -30,13 +30,10 @@
                         $cm_link = $row2['cm_link'];
                         $path = str_replace($_SERVER['DOCUMENT_ROOT'], '', "../uploads/customs_media/" . $cm_link);
                         if(unlink($path)){
-                            $aru->remove('customs_media','cm_id', $cm_id ,'int');
+                            $sql2 = "delete from customs_media where cm_id = $cm_id";
                         }
                         $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                         ?>
-                        <script type="text/javascript">
-                            window.location.href = "<?php echo $url; ?>";
-                        </script>
                         <?php
                     }
                 }
@@ -96,9 +93,6 @@
                 }
                 $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                 ?>
-                <script type="text/javascript">
-                    window.location.href = "<?php echo $url; ?>";
-                </script>
                 <?php
 			}
 		?>
@@ -231,9 +225,6 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-                                            <button class="btn btn-danger btn-sm" type="submit" name="delete-list_customs" value="<?php echo $lc_id; ?>">حذف</button>
-                                        </form>
                                         
                                         <button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $lc_id; ?>">ویرایش اسناد</button>
                                         <div class="modal fade text-xs-left" id="doc_modal<?php echo $lc_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#doc_modal<?php echo $lc_id; ?>" style="display: none;" aria-hidden="true">
@@ -329,6 +320,9 @@
                                                 </form>
                                             </div>
                                         </div>
+                                        <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+                                            <button class="btn btn-danger btn-sm" type="submit" name="delete-list_customs" value="<?php echo $lc_id; ?>">حذف</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 <?php

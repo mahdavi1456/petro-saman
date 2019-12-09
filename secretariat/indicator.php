@@ -1,4 +1,4 @@
-<?php $title = "اندیکاتور"; include"../header.php"; include"../nav.php"; 
+<?php $title = "مکاتبات"; include"../header.php"; include"../nav.php"; 
 	$aru = new aru();
 	$user = new user();
 	$u_level = $user->get_current_user_level();
@@ -16,7 +16,7 @@
 ?>
 
 <div class="content-wrapper">
-	<?php breadcrumb("اندیکاتور");
+	<?php breadcrumb("مکاتبات");
 
 	if(isset($_POST['save_admin_verify'])){
 		$si_id = $_POST['si_id'];
@@ -28,12 +28,24 @@
 		{
 			if($u_level=='مدیریت'){
 				$res2 = ex_query("update sender_indicator set si_admin_details = null , si_admin_verify = '$verify' , si_admin_date = '0000-00-00'  where si_id = $si_id");
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					 alertify.success('مورد با موفقیت ثبت شد');
+				</script>
+				<?php
 			}
 		}
 		else
 		{
 			if($u_level=='مدیریت'){
 				$res2 = ex_query("update sender_indicator set si_admin_details = '$si_admin_details' , si_admin_verify = '$verify' , si_admin_date = '$date'  where si_id = $si_id");
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					 alertify.success('مورد با موفقیت ثبت شد');
+				</script>
+				<?php
 			}
 		}
 		echo '<meta http-equiv="refresh" content="2"/>';
@@ -50,7 +62,13 @@
 		$si_details = $_POST['si_details'];
 		$sql="insert into sender_indicator (si_receiver, si_send_date, si_description, si_details) values ('$si_receiver', '$si_send_date', '$si_description', '$si_details')";
 		ex_query($sql);	
-		echo "<meta http-equiv='refresh' content='0'>";
+		?>
+		<script>
+			alertify.set('notifier','position', 'bottom-right');
+			 alertify.success('مورد با موفقیت ثبت شد');
+		</script>
+		<?php
+		echo "<meta http-equiv='refresh' content='2'>";
 	}
 
 	if(isset($_POST['update-received_indicator'])) {
@@ -72,13 +90,10 @@
 				$mri_link = $row2['mri_link'];
 				$path = str_replace($_SERVER['DOCUMENT_ROOT'], '', "../uploads/media_received_indicator/" . $mri_link);
 				if(unlink($path)){
-					$aru->remove('media_received_indicator','mri_id', $mri_id ,'int');
+					$sql2 = "delete from media_received_indicator where mri_id = $mri_id";
 				}
 				$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 				?>
-				<script type="text/javascript">
-					window.location.href = "<?php echo $url; ?>";
-				</script>
 				<?php
 			}
 		}
@@ -207,7 +222,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">تاریخ ارسال نامه</span>
 								</div>
-								<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ ارسال نامه" id="si_send_date" name="si_send_date">
+								<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ ارسال نامه" id="si_send_date" name="si_send_date" value="<?php echo jdate('Y/n/j'); ?>">
 							</div>
 							<div class="item col-md-12">
 								<div class="margin-tb input-group-prepend">
@@ -266,7 +281,7 @@
 										<td><?php echo per_number(str_replace("-", "/", $a['si_admin_date'])); ?></td>
 										<td><?php 	$user = new user(); echo $user->get_user_name($a['si_writer']); ?></td>
 										<td class="force-inline-text">
-											<a class="btn btn-success btn-xs" href="<?php get_url(); ?>secretariat/write_letter.php?si_id=<?php echo $si_id; ?>&letter_type=<?php echo $a['si_type']; ?>">نوشتن نامه</a>
+											<a class="btn btn-success btn-xs" href="<?php get_url(); ?>secretariat/write_letter.php?si_id=<?php echo $si_id; ?>&letter_type=<?php echo $a['si_type']; ?>">محتوای نامه</a>
 											<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#admin_verify<?php echo $si_id; ?>" >تایید مدیر</button>
 											<button class="btn btn-primary btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit_modal<?php echo $si_id; ?>">ویرایش</button>
 											<div class="modal fade text-xs-left" id="edit_modal<?php echo $si_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#edit_modal<?php echo $si_id; ?>" style="display: none;" aria-hidden="true">
@@ -691,7 +706,7 @@
 
 
 
-											<button class="btn btn-info btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $ri_id; ?>">ویرایش پیوست ها</button>
+											<button class="btn btn-info btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $ri_id; ?>">پیوست ها</button>
 											<div class="modal fade text-xs-left" id="doc_modal<?php echo $ri_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#doc_modal<?php echo $ri_id; ?>" style="display: none;" aria-hidden="true">
 												<div class="modal-dialog" role="document" id="hse_item_edit">
 													<form action="" method="post" enctype="multipart/form-data">

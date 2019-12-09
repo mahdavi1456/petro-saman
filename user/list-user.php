@@ -3,11 +3,11 @@
 	$media = new media();
 	$user = new user();
 	$u_level = $user->get_current_user_level();
-	if($u_level == "مدیریت"){
-		$asb = list_user();
+	if(isset($_GET['type'])=="profile"){
+		$asb = select_a_user($u_id);
 	}
 	else{
-		$asb = select_a_user($u_id);
+		$asb = list_user();
 	}
 	?>
 	<div class="content-wrapper">
@@ -21,7 +21,7 @@
 						</div>
 						<div class="box-body">
 							<?php
-							if($u_level=="مدیریت"){ ?>
+							if($u_level=="مدیریت" || $u_level == "منابع انسانی"){ ?>
 								<form action="" method="post" id="myForm" enctype='multipart/form-data'>
 									<div id="details" class="col-xs-12">
 										<div class="row">
@@ -47,10 +47,13 @@
 													<option>مدیریت</option>
 													<option>بازرگانی</option>
 													<option>امور مالی</option>
+													<option>دبیرخانه</option>
 													<option>منابع انسانی</option>
 													<option>آزمایشگاه</option>
-													<option>انبار</option>
-													<option>کارگر</option>
+													<option>ارزیابی</option>
+													<option>تولید</option>
+													<option>انباردار</option>
+													<option>پرسنل</option>
 												</select>
 											</div>
 											<div class="item col-md-4">
@@ -114,9 +117,17 @@
 										<th>رمز ورود</th>
 										<th>گروه</th>
 										<th>ویرایش</th>
-										<th>حذف</th>
+										<?php
+										if($u_level=="مدیریت" || $u_level == "منابع انسانی"){ ?>
+											<th>حذف</th>
+											<?php
+										} ?>
 										<th>مشاهده</th>
-										<th>محاسبه حقوق</th>
+										<?php
+										if($u_level=="مدیریت" || $u_level == "منابع انسانی"){ ?>
+											<th>محاسبه حقوق</th>
+											<?php
+										} ?>
 										<th>گزارشات گروه</th>
 					  				</tr>
 								</thead>
@@ -659,33 +670,37 @@
 												</div>
 											</div>
 										</td>
-										<td>
-											<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-												<?php
-												if($u_level =="مدیریت"){ ?>
-													<button class="btn btn-danger btn-sm" type="submit" name="delete-user">حذف</button>
-												<?php } 
-												else{ ?>
-													<button class="btn btn-danger btn-sm" type="submit" disabled>حذف</button>
-												<?php } ?>
-												<input class="hidden" type="text" name="delete-text" value="<?php echo $a['u_id']; ?>">
-												<?php
-												if(isset($_POST['delete-user'])){
-													$u_id = $_POST['delete-text'];
-													$type = "user";
-													$res2 = get_select_query("select * from user where u_id = $u_id ");
-													if(count($res2)>0){
-														if($res2[0]['u_link'] !=null){
-															$media->delete_media($res2[0]['u_link'] , $type);
+										<?php
+										if($u_level == "مدیریت" || $u_level == "منابع انسانی"){?>
+											<td>
+												<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+													<?php
+													if($u_level =="مدیریت"){ ?>
+														<button class="btn btn-danger btn-sm" type="submit" name="delete-user">حذف</button>
+													<?php } 
+													else{ ?>
+														<button class="btn btn-danger btn-sm" type="submit" disabled>حذف</button>
+													<?php } ?>
+													<input class="hidden" type="text" name="delete-text" value="<?php echo $a['u_id']; ?>">
+													<?php
+													if(isset($_POST['delete-user'])){
+														$u_id = $_POST['delete-text'];
+														$type = "user";
+														$res2 = get_select_query("select * from user where u_id = $u_id ");
+														if(count($res2)>0){
+															if($res2[0]['u_link'] !=null){
+																$media->delete_media($res2[0]['u_link'] , $type);
+															}
 														}
+														delete_user($u_id);
+														echo "<meta http-equiv='refresh' content='0'/>";
+														exit();
 													}
-													delete_user($u_id);
-													echo "<meta http-equiv='refresh' content='0'/>";
-													exit();
-												}
-												?>
-											</form>
-										</td>
+													?>
+												</form>
+											</td>
+											<?php
+										} ?>
 										<td>
 											<button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#view_modal<?php echo $u_id; ?>">مشاهده</button>
 											<div class="modal fade text-xs-left" id="view_modal<?php echo $u_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#view_modal<?php echo $u_id; ?>" style="display: none;" aria-hidden="true">
@@ -1061,23 +1076,15 @@
 												</div>
 											</div>
 										</td>
-										<td> 
-											<?php
-											if($u_level == "مدیریت"){ ?>
+										<?php
+										if($u_level == "مدیریت" || $u_level == "منابع انسانی"){?>
+											<td> 
 												<a href="<?php echo get_url(); ?>user/raw_rights.php?uid=<?php echo $u_id; ?>&month=<?php echo $myYear . "_" . $myMonth; ?>"><button class="btn btn-warning btn-sm" type="submit" name="delete-user">محاسبه حقوق</button></a>
-											<?php } 
-											else{ ?>
-												<button class="btn btn-warning btn-sm" type="submit" disabled>محاسبه حقوق</button>
-											<?php } ?>
-										</td>
+											</td>
+											<?php 
+										} ?>
 										<td>
-											<?php
-											if($u_level == "مدیریت"){ ?>
-												<a target="_blank" href="<?php echo get_url(); ?>user/report_user_group.php?uid=<?php echo $u_id; ?>"><button class="btn btn-success btn-sm" type="submit" name="report_user_group">گزارشات گروه</button></a>
-											<?php } 
-											else{ ?>
-												<button class="btn btn-success btn-sm" type="submit" disabled>گزارشات گروه</button>
-											<?php } ?>
+											<a target="_blank" href="<?php echo get_url(); ?>user/report_user_group.php?uid=<?php echo $u_id; ?>"><button class="btn btn-success btn-sm" type="submit" name="report_user_group">گزارشات گروه</button></a>
 										</td>
 						  			</tr>
 						  		<?php $row++; ?>
@@ -1100,9 +1107,17 @@
 										<th>رمز ورود</th>
 										<th>گروه</th>
 										<th>ویرایش</th>
-										<th>حذف</th>
+										<?php
+										if($u_level=="مدیریت" || $u_level == "منابع انسانی"){ ?>
+											<th>حذف</th>
+											<?php
+										} ?>
 										<th>مشاهده</th>
-										<th>محاسبه حقوق</th>
+										<?php
+										if($u_level=="مدیریت" || $u_level == "منابع انسانی"){ ?>
+											<th>محاسبه حقوق</th>
+											<?php
+										} ?>
 										<th>گزارشات گروه</th>
 					  				</tr>
 								</tfoot>

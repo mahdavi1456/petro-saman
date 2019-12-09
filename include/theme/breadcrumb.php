@@ -51,7 +51,7 @@ function get_text_url($text2){
 	case "list_rule":
 		return "اساس نامه";
 	case "write_letter":
-			return "نامه ارسالی";
+			return "محتوای نامه ارسالی";
 	case "amount-material":
         return "موجودی مواد اولیه";
 	case "factor":

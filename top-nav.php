@@ -159,7 +159,7 @@
 						</li>
 						<li class="user-footer">
 							<div class="pull-right">
-								<a href="<?php get_url(); ?>user/list-user.php" class="btn btn-default btn-flat">پروفایل</a>
+								<a href="<?php get_url(); ?>user/list-user.php?type=profile" class="btn btn-default btn-flat">پروفایل</a>
 							</div>
 							<div class="pull-left">
 								<a href="<?php get_url(); ?>index.php?logout=yes" class="btn btn-default btn-flat">خروج</a>
