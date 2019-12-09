@@ -34,7 +34,7 @@
 				</li>
 				<?php 
 				if($u_level == "مدیریت" || $u_level == "بازرگانی"){ ?>
-					<li class="<?php check_active('list-customer.php'); check_active('new-customer.php'); check_active('show-customer.php'); check_active('list-product.php'); check_active('list-category.php'); check_active('list-material.php'); check_active('new-storage.php'); check_active('tools_cat.php'); check_active('new-tools.php');?> treeview">
+					<li class="<?php check_active('list-customer.php'); check_active('new-customer.php'); check_active('show-customer.php'); check_active('list-product.php'); check_active('list-category.php'); check_active('list-material.php'); check_active('new-storage.php'); ?> treeview">
 						<a href="#"><i class="fa fa-database"></i><span>تعاریف اولیه</span></a>
 						<ul class="treeview-menu">
 							<li class="<?php check_active('list-customer.php'); ?>"><a href="<?php get_url(); ?>customer/list-customer.php"><i class="fa fa-circle-o"></i> مدیریت حساب ها</a></li>
@@ -121,7 +121,7 @@
 					<li class="<?php check_active('tools_cat.php'); check_active('new-tools.php'); check_active('usage.php'); check_active('log-usage.php'); check_active('returned-usage.php');  check_active('repair-usage.php'); ?> treeview">
 						<a href="#"><i class="fa fa-wrench"></i><span>ابزارآلات و قطعات</span></a>
 						<ul class="treeview-menu">
-							<li class="<?php check_active('tools_cat.php'); ?>"><a href="<?php get_url(); ?>tools/tools_cat.php"><i class="fa fa-circle-o"></i>دسته بندی</a></li>
+							<li class="<?php check_active('tools-cat.php'); ?>"><a href="<?php get_url(); ?>tools/tools-cat.php"><i class="fa fa-circle-o"></i>دسته بندی</a></li>
 							<li class="<?php check_active('new-tools.php'); ?>"><a href="<?php get_url(); ?>tools/new-tools.php"><i class="fa fa-circle-o"></i>مدیریت قطعات</a></li>
 							<li class="<?php check_active('usage.php?us_type=مصرفی'); ?>"><a href="<?php get_url(); ?>tools/usage.php?us_type=مصرفی"><i class="fa fa-circle-o"></i>ثبت مصرف</a></li>
 							<li class="<?php check_active('usage.php?us_type=امانتی'); ?>"><a href="<?php get_url(); ?>tools/usage.php?us_type=امانتی"><i class="fa fa-circle-o"></i>ثبت امانت</a></li>
