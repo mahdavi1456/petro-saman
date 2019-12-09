@@ -24,8 +24,8 @@
 										<span class="input-group-text">نام دسته بندی</span>
 									</div>
 									<input id="cat_name" type="text" name="cat_name" placeholder="نام دسته بندی" class="form-control">
-								</div></br>
-								</br>
+								</div><br>
+								<br>
 								<div class="col-xs-3 text-left">
 									<button type="submit" class="btn btn-success w-100" id="cat_submit" name="add-tools_cat">اضافه کردن</button>
 								</div>
