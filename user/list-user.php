@@ -356,9 +356,13 @@
 																			<option>مدیریت</option>
 																			<option>بازرگانی</option>
 																			<option>امور مالی</option>
+																			<option>دبیرخانه</option>
+																			<option>منابع انسانی</option>
 																			<option>آزمایشگاه</option>
-																			<option>انبار</option>
-																			<option>کارگر</option>
+																			<option>ارزیابی</option>
+																			<option>تولید</option>
+																			<option>انباردار</option>
+																			<option>پرسنل</option>
 																		</select>
 																	</div>
 																</div>
