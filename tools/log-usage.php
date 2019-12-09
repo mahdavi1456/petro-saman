@@ -8,15 +8,15 @@
 					<h3 class="box-title">گزارش قطعات</h3>
 				</div>
 				<div class="box-body">
-					<table id="example1" class="table table-bordered table-striped dataTable">
+					<table id="example1" class="table table-bordered table-striped dataTable text-center">
 						<thead>
 							<tr>
 								<th>ردیف</th>
 								<th>کد قطعه</th>
 								<th>نام قطعه</th>
 								<th>موجودی انبار</th>
-								<th>امانتی ها</th>
-								<th>مصرفی ها</th>
+								<th>امانتی</th>
+								<th>مصرف شده</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -49,8 +49,8 @@
 								<th>کد قطعه</th>
 								<th>نام قطعه</th>
 								<th>موجودی انبار</th>
-								<th>امانتی ها</th>
-								<th>مصرفی ها</th>
+								<th>امانتی</th>
+								<th>مصرف شده</th>
 							</tr>
 						</tfoot>
 					</table>
@@ -80,8 +80,8 @@
 			$('#example1').DataTable({
 				"paging": true,
 				"lengthChange": false,
-				"searching": false,
-				"ordering": false,
+				"searching": true,
+				"ordering": true,
 				"info": true,
 				"autoWidth": false
 			});
