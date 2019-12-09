@@ -1,6 +1,5 @@
 <?php include 'header.php'; include 'nav.php'; require_once("customer/functions.php"); ?>
 <div class="content-wrapper">
-	<?php breadcrumb("پیشخوان"); ?>
     <section class="content">
 		<div class="row">
 			<div class="col-lg-3 col-xs-6">
