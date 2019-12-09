@@ -231,7 +231,18 @@
 						</ul>.
 					</li>
 					<?php
+				}
+
+				if($u_level == "مدیریت"){?>
+					<li class="<?php check_active('login-log.php'); ?> treeview">
+						<a href="#"><i class="fa fa-gear"></i><span>گزارشات سیستم</span></a>
+						<ul class="treeview-menu">
+							<li class="<?php check_active('login-log.php'); ?>"><a href="<?php get_url(); ?>system/login-log.php"><i class="fa fa-circle-o"></i>سوابق ورود</a></li>
+						</ul>
+					</li>
+					<?php
 				} ?>
+
 		  	</ul>
 		</section>
 	</aside>
