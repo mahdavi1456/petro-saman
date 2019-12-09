@@ -8,6 +8,13 @@ function insert_user($array){
 	$u_link = $array[5];
 	$sql = "insert into user(u_name, u_family, u_level, u_username, u_password , u_link) values('$u_name', '$u_family', '$u_level', '$u_username', '$u_password' , '$u_link' )";
 	$res = ex_query($sql);
+	?>
+	<script>
+		alertify.set('notifier','position', 'bottom-right');
+		alertify.success('مورد با موفقیت ثبت شد');
+	</script>
+	<?php
+	echo '<meta http-equiv="refresh" content="2"/>';
 	return $res;
 }
 
@@ -53,13 +60,26 @@ function update_user($array){
 	}
     $sql = "update user set u_link = '$u_link' , u_name = '$u_name', u_family = '$u_family', u_level = '$u_level', u_username = '$u_username', u_password = '$u_password', u_father = '$u_father', u_meli = '$u_meli', u_birth = '$u_birth', u_live_city = '$u_live_city', u_destination = '$u_destination', u_mobile = '$u_mobile', u_tell = '$u_tell', u_address = '$u_address', u_pre = '$u_pre', u_group = '$u_group', u_description = '$u_description', u_pcode = '$u_pcode', u_wtype = '$u_wtype', u_marital = '$u_marital', u_evidence = '$u_evidence', u_child_count = '$u_child_count', u_daily_wage = '$u_daily_wage', u_fix_right = '$u_fix_right', u_fin_contract = '$u_fin_contract', u_cart = '$u_cart', u_hesab = '$u_hesab', u_shaba = '$u_shaba', u_birth_city = '$u_birth_city', u_cert_number = '$u_cert_number', u_cert_city = '$u_cert_city', u_start_work = '$u_start_work', u_end_work = '$u_end_work' where u_id = $u_id";
 	$res = ex_query($sql);
-
+	?>
+	<script>
+		alertify.set('notifier','position', 'bottom-right');
+		alertify.success('مورد با موفقیت ویرایش شد');
+	</script>
+	<?php
+	echo '<meta http-equiv="refresh" content="2"/>';
 	return $res;
 }
 
 function delete_user($u_id){
 	$sql = "delete from user where u_id = $u_id";
 	$res = ex_query($sql);
+	?>
+	<script>
+		alertify.set('notifier','position', 'bottom-right');
+		alertify.success('مورد با موفقیت حذف شد');
+	</script>
+	<?php
+	echo '<meta http-equiv="refresh" content="2"/>';
 }
 
 function select_a_user($u_id){
