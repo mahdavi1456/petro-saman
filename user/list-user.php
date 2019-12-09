@@ -9,6 +9,22 @@
 	else{
 		$asb = list_user();
 	}
+	if(isset($_POST['u_submit'])) {
+		$array = array();
+		$type = "user";
+		$u_link = "";
+		if(isset($_FILES['u_link']) && $_FILES['u_link']['size']>0){
+			$file = $_FILES['u_link'];
+			$u_link = $media->upload_media($file , $type);
+		}
+		array_push($array, $_POST['u_name']);
+		array_push($array, $_POST['u_family']);
+		array_push($array, $_POST['u_level']);
+		array_push($array, $_POST['u_username']);
+		array_push($array, $_POST['u_password']);
+		array_push($array,$u_link);
+		insert_user($array);
+	}
 	?>
 	<div class="content-wrapper">
 		<?php breadcrumb(); ?>
@@ -80,31 +96,12 @@
 											<div class="item col-md-4" style="margin-top:10px;">
 											<br>
 												<button type="submit" class="btn btn-success btn-sm " name="u_submit">اضافه کردن</button>
-											
-											<?php 
-											if(isset($_POST['u_submit'])) {
-												$array = array();
-												$type = "user";
-												$u_link = "";
-												if(isset($_FILES['u_link']) && $_FILES['u_link']['size']>0){
-													$file = $_FILES['u_link'];
-													$u_link = $media->upload_media($file , $type);
-												}
-												array_push($array, $_POST['u_name']);
-												array_push($array, $_POST['u_family']);
-												array_push($array, $_POST['u_level']);
-												array_push($array, $_POST['u_username']);
-												array_push($array, $_POST['u_password']);
-												array_push($array,$u_link);
-												insert_user($array);
-												echo "<meta http-equiv='refresh' content='0'/>";
-											}
-											?>
 											</div>
 										</div>
 									</div>
 								</form>
-							<?php } ?>
+								<?php 
+							} ?>
 								
 				  			<table id="example1" class="table table-bordered table-striped">
 								<thead>
@@ -296,7 +293,6 @@
 										$type = "u_meliservice";
 										user_upload_file($filename, $tmp_name, $size, $type, $bu_id);
                                     }
-									echo "<meta http-equiv='refresh' content='0'/>";
 								}
 
 								if($asb){
@@ -697,7 +693,6 @@
 															}
 														}
 														delete_user($u_id);
-														echo "<meta http-equiv='refresh' content='0'/>";
 														exit();
 													}
 													?>
