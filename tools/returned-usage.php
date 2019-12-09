@@ -15,10 +15,10 @@
 								<thead>
 									<tr>
 										<th>ردیف</th>
-										<th>مصرفی/ امانتی</th>
+										<th>نوع</th>
                                         <th>شماره آیتم</th>
-										<th>مقدار بازگشتی</th>
-										<th>تاریخ بازگشتی</th>
+										<th>تعداد / مقدار</th>
+										<th>تاریخ</th>
                                         <th>وضعیت</th>
 										<th>توضیحات</th>
 									</tr>
@@ -53,10 +53,10 @@
 								<tfoot>
 									<tr>
 									    <th>ردیف</th>
-										<th>مصرفی/ امانتی</th>
+										<th>نوع</th>
                                         <th>شماره آیتم</th>
-										<th>مقدار بازگشتی</th>
-										<th>تاریخ بازگشتی</th>
+										<th>تعداد / مقدار</th>
+										<th>تاریخ</th>
                                         <th>وضعیت</th>
 										<th>توضیحات</th>
 									</tr>
@@ -88,8 +88,7 @@
 	<!-- page script -->
 	<script>
 		$(function () {
-			$("#example1").DataTable();
-			$('#example2').DataTable({
+			$('#example1').DataTable({
 				"paging": true,
 				"lengthChange": false,
 				"searching": false,
@@ -97,6 +96,6 @@
 				"info": true,
 				"autoWidth": false
 			});
-	  });
+	  	});
 	</script>
 <?php include"../left-nav.php"; include"../footer.php"; ?>

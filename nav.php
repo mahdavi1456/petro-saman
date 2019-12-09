@@ -119,13 +119,13 @@
 				}
 				if($u_level == "مدیریت" || $u_level == "انباردار"){ ?>
 					<li class="<?php check_active('tools_cat.php'); check_active('new-tools.php'); check_active('usage.php'); check_active('log-usage.php'); check_active('returned-usage.php');  check_active('repair-usage.php'); ?> treeview">
-						<a href="#"><i class="fa fa-wrench"></i><span>ابزارآلات</span></a>
+						<a href="#"><i class="fa fa-wrench"></i><span>ابزارآلات و قطعات</span></a>
 						<ul class="treeview-menu">
-							<li class="<?php check_active('tools_cat.php'); ?>"><a href="<?php get_url(); ?>tools/tools_cat.php"><i class="fa fa-circle-o"></i> دسته بندی قطعات</a></li>
-							<li class="<?php check_active('new-tools.php'); ?>"><a href="<?php get_url(); ?>tools/new-tools.php"><i class="fa fa-circle-o"></i> مدیریت قطعات</a></li>
+							<li class="<?php check_active('tools_cat.php'); ?>"><a href="<?php get_url(); ?>tools/tools_cat.php"><i class="fa fa-circle-o"></i>دسته بندی</a></li>
+							<li class="<?php check_active('new-tools.php'); ?>"><a href="<?php get_url(); ?>tools/new-tools.php"><i class="fa fa-circle-o"></i>مدیریت قطعات</a></li>
 							<li class="<?php check_active('usage.php?us_type=مصرفی'); ?>"><a href="<?php get_url(); ?>tools/usage.php?us_type=مصرفی"><i class="fa fa-circle-o"></i>ثبت مصرف</a></li>
 							<li class="<?php check_active('usage.php?us_type=امانتی'); ?>"><a href="<?php get_url(); ?>tools/usage.php?us_type=امانتی"><i class="fa fa-circle-o"></i>ثبت امانت</a></li>
-							<li class="<?php check_active('log-usage.php'); ?>"><a href="<?php get_url(); ?>tools/log-usage.php"><i class="fa fa-circle-o"></i>گزارش قطعات</a></li>
+							<li class="<?php check_active('log-usage.php'); ?>"><a href="<?php get_url(); ?>tools/log-usage.php"><i class="fa fa-circle-o"></i>کاردکس</a></li>
 							<li class="<?php check_active('returned-usage.php'); ?>"><a href="<?php get_url(); ?>tools/returned-usage.php"><i class="fa fa-circle-o"></i>گزارش قطعات بازگشتی</a></li>
 							<li class="<?php check_active('repair-usage.php'); ?>"><a href="<?php get_url(); ?>tools/repair-usage.php"><i class="fa fa-circle-o"></i>تعمیر قطعات</a></li>
 						</ul>
