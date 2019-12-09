@@ -36,7 +36,7 @@
 						<div class="row">
 							<div class="item col-md-6">
 								<label>نام قطعه</label>
-								<select class="form-control" id="t_id" name="t_id">
+								<select class="form-control select2" id="t_id" name="t_id">
                                     <?php
                                     $res_st = get_select_query("select * from tools");
                                     if(count($res_st) > 0){

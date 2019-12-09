@@ -118,7 +118,7 @@
 					$group_name = 'A';
 				}
 				if($u_level == "مدیریت" || $u_level == "انباردار"){ ?>
-					<li class="<?php check_active('tools_cat.php'); check_active('new-tools.php'); check_active('usage.php'); check_active('log-usage.php'); check_active('returned-usage.php');  check_active('repair-usage.php'); ?> treeview">
+					<li class="<?php check_active('tools-cat.php'); check_active('new-tools.php'); check_active('usage.php'); check_active('log-usage.php'); check_active('returned-usage.php');  check_active('repair-usage.php'); ?> treeview">
 						<a href="#"><i class="fa fa-wrench"></i><span>ابزارآلات و قطعات</span></a>
 						<ul class="treeview-menu">
 							<li class="<?php check_active('tools-cat.php'); ?>"><a href="<?php get_url(); ?>tools/tools-cat.php"><i class="fa fa-circle-o"></i>دسته بندی</a></li>
