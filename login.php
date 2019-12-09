@@ -45,7 +45,7 @@
 						$uid = $user_id[0][0];
 						$url = "index.php?login=ok&id=" . $uid;
 
-						$lr_time = date('Y/m/d H:i:s');
+						$lr_time = jdate('Y/m/d H:i:s');
 						$lr_ip = get_ip();
 						$sql_r = "insert into login_record(u_id, lr_time, lr_ip) values($uid, '$lr_time', '$lr_ip')";
 						ex_query($sql_r);

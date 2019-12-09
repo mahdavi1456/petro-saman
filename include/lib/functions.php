@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Tehran');
 function timeDiff($time2, $time1){
     if($time1!="" && $time2!=""){
         $list2 = explode('/', $time2);
