@@ -168,7 +168,7 @@
 					</li>.
 					<?php
 				} 
-				if($u_level == "مدیریت" || $u_level == "ارزیابی"){?>
+				if($u_level == "مدیریت" || $u_level == "ارزیابی"  || $u_level == "منابع انسانی"){?>
 					<li class="<?php check_active('indexes.php');  check_active('performance-indexes.php'); check_active('performance-indexes-report.php'); ?> treeview">
 						<a href="#"><i class="fa fa-wrench"></i><span>ارزیابی و عملکرد</span></a>
 						<ul class="treeview-menu">
