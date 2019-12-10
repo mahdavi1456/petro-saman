@@ -169,11 +169,12 @@
 					<?php
 				} 
 				if($u_level == "مدیریت" || $u_level == "ارزیابی"  || $u_level == "منابع انسانی"){?>
-					<li class="<?php check_active('indexes.php');  check_active('performance-indexes.php'); check_active('performance-indexes-report.php'); ?> treeview">
+					<li class="<?php check_active('points-ceiling.php'); check_active('indexes.php');  check_active('performance-indexes.php'); check_active('performance-indexes-report.php'); ?> treeview">
 						<a href="#"><i class="fa fa-wrench"></i><span>ارزیابی و عملکرد</span></a>
 						<ul class="treeview-menu">
 							<li class="<?php check_active('indexes.php'); ?>"><a href="<?php get_url(); ?>performance/indexes.php"><i class="fa fa-circle-o"></i>تعریف شاخص</a></li>
 							<li class="<?php check_active('performance-indexes.php'); ?>"><a href="<?php get_url(); ?>performance/performance-indexes.php"><i class="fa fa-circle-o"></i>فرم ارزیابی</a></li>
+							<li class="<?php check_active('points-ceiling.php'); ?>"><a href="<?php get_url(); ?>performance/points-ceiling.php"><i class="fa fa-circle-o"></i>تعریف سقف امتیازات</a></li>
 							<li class="<?php check_active('performance-indexes-report.php'); ?>"><a href="<?php get_url(); ?>performance/performance-indexes-report.php"><i class="fa fa-circle-o"></i>گزارش ارزیابی</a></li>
 						</ul>
 					</li>
@@ -224,12 +225,11 @@
 				</li>
 				<?php
 				if($u_level == "مدیریت"){?>
-					<li class="<?php check_active('edit_options.php'); check_active('factor_description.php'); check_active('points-ceiling.php'); check_active('header-loading.php'); ?> treeview">
+					<li class="<?php check_active('edit_options.php'); check_active('factor_description.php'); check_active('header-loading.php'); ?> treeview">
 						<a href="#"><i class="fa fa-gear"></i><span>تنظیمات</span></a>
 						<ul class="treeview-menu">
 							<li class="<?php check_active('edit_options.php'); ?>"><a href="<?php get_url(); ?>options/edit_options.php"><i class="fa fa-circle-o"></i>ویرایش اطلاعات</a></li>
 							<li class="<?php check_active('factor_description.php'); ?>"><a href="<?php get_url(); ?>options/factor_description.php"><i class="fa fa-circle-o"></i>توضیحات پیش فاکتور</a></li>
-							<li class="<?php check_active('points-ceiling.php'); ?>"><a href="<?php get_url(); ?>options/points-ceiling.php"><i class="fa fa-circle-o"></i>تعریف سقف امتیازات</a></li>
 							<li class="<?php check_active('header-loading.php'); ?>"><a href="<?php get_url(); ?>options/header-loading.php"><i class="fa fa-circle-o"></i>بارگزاری سربرگ</a></li>
 						</ul>.
 					</li>

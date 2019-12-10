@@ -1,4 +1,6 @@
 <?php
+$user = new user();
+$u_level = $user->get_current_user_level();
 class Cartable{
 
 	public function get_works_manager(){
@@ -378,6 +380,10 @@ class Cartable{
 			echo '<meta http-equiv="refresh" content="2"/>';
 		}
 		$i = 1;
+		$res3 = get_select_query("select * from max_loan");
+		if(count($res3) > 0) {
+			$mi_amount = $res3[0]['mi_amount'];
+		}
 		$res = get_select_query("select * from apply_loan  where al_admin_verify = 0 or al_hr_verify = 0  order by al_id desc");
 		if(count($res) > 0) {
 			foreach($res as $row) {
@@ -388,7 +394,7 @@ class Cartable{
 					<td><?php echo per_number(str_replace("-", "/", $row['al_date'])); ?></td>
 					<td><?php echo per_number(number_format($row['al_amount'])); ?></td>
                     <td><?php echo per_number($row['al_details']); ?></td>
-                    <td><?php echo get_user_name($row['al_admin_verify']); ?></td>
+                    <td><?php if($row['al_amount'] <= $mi_amount){ echo "نیاز ندارد"; } else { echo get_user_name($row['al_admin_verify']); } ?></td>
                     <td><?php echo per_number(str_replace("-", "/", $row['al_admin_date'])); ?></td>
 					<td><?php echo get_user_name($row['al_hr_verify']); ?></td>
                     <td><?php echo per_number(str_replace("-", "/", $row['al_hr_date'])); ?></td>
@@ -407,12 +413,18 @@ class Cartable{
 										</div>
 										<div class="modal-body">
 											<div class="row">
-												<div class="item col-md-12">
-													<div class="margin-tb input-group-prepend">
-														<span class="input-group-text">توضیحات مدیر</span>
+												<?php
+												if($row['al_amount'] <= $mi_amount) {
+												} 
+												else {?>
+													<div class="item col-md-12">
+														<div class="margin-tb input-group-prepend">
+															<span class="input-group-text">توضیحات مدیر</span>
+														</div>
+														<input type="text" id="al_admin_details" name="al_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['al_admin_details']); ?>">
 													</div>
-													<input type="text" id="al_admin_details" name="al_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['al_admin_details']); ?>">
-												</div>
+													<?php
+												} ?>
 												<div class="item col-md-12">
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات منابع انسانی</span>
