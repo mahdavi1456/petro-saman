@@ -22,6 +22,13 @@ if(isset($_POST['list'])) {
                 else {
                     $res2 = ex_query("insert into performance_rates(u_id, pi_id, pr_fromdate, pr_todate, pr_admin_rate, pr_admin_date) values($u_id, $pi_id, '$pr_fromdate', '$pr_todate', $pr_admin_rate , '$date' )");
                 }
+                ?>
+                <script>
+                    alertify.set('notifier','position', 'bottom-right');
+                    alertify.success('مورد با موفقیت ثبت شد');
+                </script>
+                <?php
+                echo "<meta http-equiv='refresh' content='2'>";
             }
 
             if($n['pr_hr_rate_' . $pi_id] != "") {
@@ -39,6 +46,7 @@ if(isset($_POST['list'])) {
                     alertify.success('مورد با موفقیت ثبت شد');
                 </script>
                 <?php
+                echo "<meta http-equiv='refresh' content='2'>";
                 //echo "<div class='alert-aru col-xs-12'><div class='alert alert-success col-xs-6'>ارزیابی ثبت شد</div></div>";
             }
         }

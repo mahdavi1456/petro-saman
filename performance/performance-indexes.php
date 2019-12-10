@@ -52,6 +52,7 @@
                                             
                                     <thead>
                                             <tr>
+                                                <th colspan="5" class="center">ردیف</th>
                                                 <th colspan="5" class="center">شاخص های ارزیابی</th>
                                                 <th colspan="2" class="center">سقف امتیاز شاخص</th>
                                                 <th colspan="12" class="center">امتیاز مکتسبه</th>
@@ -59,10 +60,14 @@
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $i = 1 ;
                                             if(count($asb) > 0){
                                                 foreach ($asb as $row) {
                                                     ?>
                                                     <tr>
+                                                        <td colspan="5" class="center">
+                                                            <?php echo per_number($i); ?>                                                    
+                                                        </td>
                                                         <td colspan="5" class="center">
                                                             <?php echo per_number($row['pi_name']); ?>                                                    
                                                         </td>
@@ -96,12 +101,14 @@
                                                         
                                                     </tr>
                                                     <?php
+                                                    $i++;
                                                 }
                                             }
                                             ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
+                                                <th colspan="5" class="center">ردیف</th>
                                                 <th colspan="5" class="center">شاخص های ارزیابی</th>
                                                 <th colspan="2" class="center">سقف امتیاز شاخص</th>
                                                 <th colspan="12" class="center">امتیاز مکتسبه</th>

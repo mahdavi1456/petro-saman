@@ -26,7 +26,16 @@
                                     <span class="input-group-text">امتیاز مورد نیاز (برحسب درصد)</span>
                                 </div>
                                 <input id="pc_points_needed" type="text" name="pc_points_needed" placeholder="بین 0 تا 100" class="form-control">
-                            </div></br>
+                            </div>
+							<div class="item col-md-4">
+								<div class="margin-tb input-group-prepend">
+									<span class="input-group-text">نیاز به تایید مدیر</span>
+								</div>
+								<select class="form-control" id="pc_admin_verify" name="pc_admin_verify">
+									<option value="1">دارد</option>
+									<option value="0">ندارد</option>
+								</select></br>
+							</div>
                             <?php 
                             if(isset($_POST['add-points_ceiling'])) {
 								$points = $_POST['pc_points_needed'];
@@ -68,6 +77,7 @@
 									<th>ردیف</th>
 									<th>مبلغ وام (ریال)</th>
 									<th>امتیاز مورد نیاز</th>
+									<th>نیاز به تایید مدیر</th>
                                     <th>عملیات</th>
 								</tr>
 							</thead>
@@ -95,6 +105,7 @@
 										<td><?php echo per_number($i); ?></td>
 										<td><?php echo per_number(number_format($a['pc_amount'])); ?></td>
 										<td><?php echo per_number($a['pc_points_needed']); ?> درصد</td>
+										<td><?php if($a['pc_admin_verify'] == 0){ echo "ندارد"; } else { echo "دارد"; }; ?></td>
 										<td>
 											<div id="myModal<?php echo $a['pc_id']; ?>" class="modal fade" role="dialog">
 												<div class="modal-dialog">
@@ -108,17 +119,26 @@
 															<div class="modal-body">
 																<?php echo per_number($a['pc_id']);  ?>
 																<div class="row">
-																	<div class="item col-md-6">
+																	<div class="item col-md-4">
 																		<div class="margin-tb input-group-prepend">
 																			<span class="input-group-text">مبلغ وام</span>
 																		</div>
 																		<input type="text" name="pc_amount" placeholder="مبلغ وام" value="<?php echo $a['pc_amount']; ?>" class="form-control">
 																	</div>
-																	<div class="item col-md-6">
+																	<div class="item col-md-4">
 																		<div class="margin-tb input-group-prepend">
 																			<span class="input-group-text">امتیاز مورد نیاز (برحسب درصد)</span>
 																		</div>
 																		<input type="text" name="pc_points_needed" placeholder="بین 0 تا 100" value="<?php echo $a['pc_points_needed']; ?>" class="form-control">
+																	</div>
+																	<div class="item col-md-4">
+																		<div class="margin-tb input-group-prepend">
+																			<span class="input-group-text">نیاز به تایید مدیر</span>
+																		</div>
+																		<select class="form-control" id="pc_admin_verify" name="pc_admin_verify">
+																			<option  <?php if($a['pc_admin_verify'] == 1 ) echo "selected"; ?>  value="1">دارد</option>
+																			<option  <?php if($a['pc_admin_verify'] == 0 ) echo "selected"; ?>  value="0">ندارد</option>
+																		</select></br>
 																	</div>
 																</div>
 																
@@ -156,6 +176,7 @@
                                     <th>ردیف</th>
 									<th>مبلغ وام (ریال)</th>
 									<th>امتیاز مورد نیاز</th>
+									<th>نیاز به تایید مدیر</th>
                                     <th>عملیات</th>
 								</tr>
 							</tfoot>
