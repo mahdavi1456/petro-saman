@@ -211,11 +211,12 @@
 					</li>
 					<?php 
 				} ?>
-				<li class="<?php check_active('list-user.php'); check_active('rest.php'); check_active('apply-loan.php'); check_active('payroll.php'); ?> treeview">
+				<li class="<?php  check_active('report-rest.php'); check_active('list-user.php'); check_active('rest.php'); check_active('apply-loan.php'); check_active('payroll.php'); ?> treeview">
 					<a href="#"><i class="fa fa-gear"></i><span>پرسنل</span></a>
 					<ul class="treeview-menu">
 						<li class="<?php check_active('list-user.php'); ?>"><a href="<?php get_url(); ?>user/list-user.php?type=profile"><i class="fa fa-circle-o"></i>پروفایل</a></li>
 						<li class="<?php check_active('rest.php'); ?>"><a href="<?php get_url(); ?>user/rest.php"><i class="fa fa-circle-o"></i>مدیریت مرخصی</a></li>
+						<li class="<?php check_active('report-rest.php'); ?>"><a href="<?php get_url(); ?>user/report-rest.php"><i class="fa fa-circle-o"></i>گزارش مرخصی ها</a></li>
 						<li class="<?php check_active('apply-loan.php'); ?>"><a href="<?php get_url(); ?>user/apply-loan.php"><i class="fa fa-circle-o"></i>درخواست مساعده</a></li>
 						<li class="<?php check_active('payroll.php'); ?>"><a href="<?php get_url(); ?>user/payroll.php?month=<?php echo $myYear . "_" . $myMonth; ?>"><i class="fa fa-circle-o"></i>فیش حقوق</a></li>
 
