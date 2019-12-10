@@ -448,5 +448,39 @@
     <script src="https://cdn.tiny.cloud/1/21lk9vj2zz4exegft0fpn9tfnrdwv8gmxkswk9mmyyp0aegn
 /tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     
-    <script>tinymce.init({selector: '.tinymce' });</script>
+    <script>
+        tinymce.init({
+  selector: '.tinymce',
+  height: 470,
+  menubar: true,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks advcode fullscreen',
+    'insertdatetime media table contextmenu powerpaste tinymcespellchecker a11ychecker linkchecker mediaembed',
+    'wordcount formatpainter permanentpen pageembed checklist casechange'
+  ],
+  toolbar: 'undo redo | insert | styleselect | bold italic formatpainter permanentpen pageembed | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | advcode spellchecker a11ycheck | code | checklist | casechange',
+  toolbar_drawer: 'sliding',
+  permanentpen_properties: {
+    fontname: 'arial,helvetica,sans-serif',
+    forecolor: '#FF0000',
+    fontsize: '18pt',
+    hilitecolor: '',
+    bold: true,
+    italic: false,
+    strikethrough: false,
+    underline: false
+  },
+  table_toolbar: "tableprops cellprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+  powerpaste_allow_local_images: true,
+  powerpaste_word_import: 'prompt',
+  powerpaste_html_import: 'prompt',
+  spellchecker_language: 'en',
+  spellchecker_dialog: true,
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css']
+});
+
+    </script>
 <?php include"../left-nav.php"; include"../footer.php"; ?>
