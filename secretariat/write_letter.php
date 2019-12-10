@@ -445,7 +445,8 @@
     });
     </script>
     <script src="<?php get_url(); ?>secretariat/js/secretariat.js"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/21lk9vj2zz4exegft0fpn9tfnrdwv8gmxkswk9mmyyp0aegn
+/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     
     <script>tinymce.init({selector: '.tinymce' });</script>
 <?php include"../left-nav.php"; include"../footer.php"; ?>
