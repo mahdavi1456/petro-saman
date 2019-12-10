@@ -36,7 +36,7 @@
 						<div class="row">
 							<div class="item col-md-6">
 								<label>نام قطعه</label>
-								<select class="form-control" id="t_id" name="t_id">
+								<select class="form-control select2" id="t_id" name="t_id">
                                     <?php
                                     $res_st = get_select_query("select * from tools");
                                     if(count($res_st) > 0){
@@ -50,11 +50,11 @@
 							</div>
 							<div class="item col-md-6">
 								<label>تاریخ خروج قطعه</label>
-                                <input id="f_date" autocomplete="off" type="text" name="us_date" placeholder="تاریخ خروج قطعه" class="form-control">
+                                <input id="f_date" autocomplete="off" type="text" name="us_date" placeholder="تاریخ خروج قطعه" class="form-control" value="<?php echo jdate('Y/n/d'); ?>">
 							</div>
                             <div class="item col-md-6">
-								<label>مقدار خروجی</label>
-								<input id="us_quantity" type="text" name="us_quantity" placeholder="مقدار" class="form-control">
+								<label>تعداد / مقدار خروجی</label>
+								<input id="us_quantity" type="text" name="us_quantity" placeholder="تعداد / مقدار خروجی" class="form-control">
 							</div>
                             <div class="item col-md-6">
 								<label>توضیحات</label>
@@ -84,13 +84,12 @@
 							<thead>
 								<tr>
 									<th>ردیف</th>
-									<th>کد قطعه <?php echo $us_type; ?></th>
 									<th>نام قطعه</th>
-									<th>نام کاربر</th>
+									<th>کاربر</th>
 									<th>توضیحات</th>
-                                    <th>تاریخ خروج قطعه</th>
-                                    <th>مقدار خروجی</th>
-                                    <th>مقدار بازگشتی</th>
+                                    <th>خروج</th>
+                                    <th>تعداد / مقدار</th>
+                                    <th>بازگشت</th>
 									<th>عملیات</th>
 								</tr>
 							</thead>
@@ -159,9 +158,8 @@
                                             ?>
                                             <tr>
                                                 <td><?php echo per_number($i); ?></td>
-                                                <td><?php echo per_number($a['us_id']); ?></td>
                                                 <td><?php echo per_number($t_name); ?></td>
-                                                <td><?php echo $u_name." ".$u_family; ?></td>
+                                                <td><?php echo $u_name . " " . $u_family; ?></td>
                                                 <td><?php echo $a['us_details']; ?></td>
                                                 <td><?php echo per_number(str_replace("-", "/", $a['us_date'])) ; ?></td>
                                                 <td><?php echo per_number(number_format($a['us_quantity'])); ?></td>
@@ -304,17 +302,16 @@
                                 } ?>
 							</tbody>
 							<tfoot>
-								<tr>
+                                <tr>
                                     <th>ردیف</th>
-									<th>کد قطعه <?php echo $us_type; ?></th>
-									<th>نام قطعه</th>
-									<th>نام کاربر</th>
-									<th>توضیحات</th>
-                                    <th>تاریخ خروج قطعه</th>
-                                    <th>مقدار خروجی</th>
-                                    <th>مقدار بازگشتی</th>
-									<th>عملیات</th>
-								</tr>
+                                    <th>نام قطعه</th>
+                                    <th>کاربر</th>
+                                    <th>توضیحات</th>
+                                    <th>خروج</th>
+                                    <th>تعداد / مقدار</th>
+                                    <th>بازگشت</th>
+                                    <th>عملیات</th>
+                                </tr>
 							</tfoot>
 						</table>
 					</div>

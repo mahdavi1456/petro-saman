@@ -81,7 +81,7 @@
 							<thead>
 								<tr>
 									<th>ردیف</th>
-									<th>دسته بندی</th>
+									<th>دسته</th>
 									<th>کد قطعه</th>
 									<th>نام قطعه</th>
 									<th>واحد قطعه</th>
@@ -186,7 +186,7 @@
 							<tfoot>
 								<tr>
 									<th>ردیف</th>
-									<th>دسته بندی</th>
+									<th>دسته</th>
 									<th>کد قطعه</th>
 									<th>نام قطعه</th>
 									<th>واحد قطعه</th>
@@ -209,8 +209,8 @@
 		$('#example1').DataTable({
 			"paging": true,
 			"lengthChange": false,
-			"searching": false,
-			"ordering": false,
+			"searching": true,
+			"ordering": true,
 			"info": true,
 			"autoWidth": false
 		});
