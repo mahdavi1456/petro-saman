@@ -75,7 +75,7 @@ function upload_file($filename, $tmp_name, $size, $type, $bu_id , $type_media=nu
 		?>
 			<script>
 				alertify.set('notifier','position', 'bottom-right');
- 				alertify.warning('تنها مجاز به بارگزاری تصویر , pdf و word می باشید');
+ 				alertify.warning('تنها مجاز به بارگزاری تصویر , pdf و word و xls می باشید');
 			</script>
 			<?php
 		$uploadOk = 0;
@@ -261,7 +261,7 @@ function user_upload_file($filename, $tmp_name, $size, $type, $bu_id){
 		?>
 			<script>
 				alertify.set('notifier','position', 'bottom-right');
- 				alertify.warning('تنها مجاز به بارگزاری تصویر , pdf و word می باشید');
+ 				alertify.warning('تنها مجاز به بارگزاری تصویر , pdf و word و xls می باشید');
 			</script>
 			<?php
 		$uploadOk = 0;

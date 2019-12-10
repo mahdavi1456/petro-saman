@@ -246,6 +246,41 @@
 					<div class="box-footer clearfix"></div>
 				</div>
 			</div>
+			<div class="col-md-12">
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<h3 class="box-title">کارتابل نامه های ارجاع شده</h3>
+						<div class="box-tools pull-right">
+							<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table no-margin">
+								<thead>
+									<tr>
+										<th>ردیف</th>
+										<th>شماره نامه</th>
+										<th>تاریخ نامه دریافتی</th>
+										<th>فرستنده نامه</th>
+										<th>شرح نامه دریافتی</th>
+										<th>تاریخ دریافت نامه</th>
+										<th>تاریخ ارجاع</th>
+										<th>عملیات</th>
+                              		</tr>
+								</thead>
+								<tbody>
+                              	<?php
+                  				$cartable->received_indicator();
+                              	?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="box-footer clearfix"></div>
+				</div>
+			</div>
         </div>	
     </section>
 </div>

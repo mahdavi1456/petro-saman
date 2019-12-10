@@ -535,6 +535,112 @@ class Cartable{
 		}
 	}
 
+	public function received_indicator() {
+		$u_id = $_SESSION['user_id'];
+		$i = 1;
+		$aru = new aru();
+		$media = $aru->get_list("media_received_indicator", "mri_id");
+		$res = get_select_query("select * from received_indicator where u_id = $u_id order by ri_id desc");
+		if(count($res) > 0) {
+			foreach($res as $row) {
+				$ri_id = $row['ri_id'];
+				?>
+				<tr>
+					<td><?php echo per_number($i); ?></td>
+					<td><?php echo per_number($row['ri_number']);  ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['ri_reg_date'])); ?></td>
+					<td><?php echo $row['ri_sender']; ?></td>
+					<td><?php echo per_number($row['ri_description']); ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['ri_receive_date'])); ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['ri_reference_date'])); ?></td>
+					<td>
+						<button class="btn  btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#file_letter<?php echo $ri_id; ?>">مشاهده فایل نامه</button>
+						<div class="modal fade text-xs-left" id="file_letter<?php echo $ri_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#file_letter<?php echo $ri_id; ?>" style="display: none;" aria-hidden="true">
+							<div class="modal-dialog" role="document" id="hse_item_edit">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">×</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel3">فایل نامه</h4>
+									</div>
+									<div class="modal-body">
+										<div class="row">
+											<table id="example1" class="table table-striped table-bordered table-responsive group_save_table">
+												<thead>
+													<tr>
+														<th>ردیف</th>
+														<th>تاریخ آپلود فایل</th>
+														<th>لینک فایل</th>
+														<th>عملیات</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php
+														$roww=1;
+														if($media)
+														{
+															
+															foreach ($media as $c ) 
+															{
+																$rri_id = $c['ri_id'];
+																$mri_id = $c['mri_id'];
+																$mri_name = $c['mri_name'];
+																if($ri_id == $rri_id && $mri_name == "file_letter")
+																{
+																?>
+																<tr>
+																	<td><?php echo $roww; ?></td>
+																	<td><?php echo $c['mri_date']; ?></td>
+																	<td><a target="_blank" href="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" style="width:20px;heigh:20px"></a></td>
+																	<td class="force-inline-text">
+																		<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+																			<button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $mri_id; ?>">حذف</button>
+																		</form>
+																	</td>
+																</tr>
+																<?php
+																	$roww++;
+																}
+															}
+															} else {
+														?>
+														<tr>
+															<td colspan="9">داده ای موجود نیست!</td>
+														</tr>
+														<?php
+														}
+													?>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>ردیف</th>
+														<th>تاریخ آپلود فایل</th>
+														<th>لینک فایل</th>
+														<th>عملیات</th>
+													</tr>
+													
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<center>
+											<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
+											<button class="btn btn-primary btn-sm" name="update-media" value="<?php echo $a['ri_id']; ?>" type="submit">ذخیره</button>
+										</center>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<?php
+				$i++;
+			}
+		}
+	}
+
 
 
 

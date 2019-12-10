@@ -532,10 +532,6 @@
 													</form>
 												</div>
 											</div>
-											
-
-
-
 
 											<button class="btn  btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#file_letter<?php echo $ri_id; ?>">فایل نامه</button>
 											<div class="modal fade text-xs-left" id="file_letter<?php echo $ri_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#file_letter<?php echo $ri_id; ?>" style="display: none;" aria-hidden="true">
@@ -626,11 +622,6 @@
 													</form>
 												</div>
 											</div>
-
-
-
-
-
 
 											<button class="btn btn-info btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $ri_id; ?>">پیوست ها</button>
 											<div class="modal fade text-xs-left" id="doc_modal<?php echo $ri_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#doc_modal<?php echo $ri_id; ?>" style="display: none;" aria-hidden="true">
