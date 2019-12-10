@@ -2,12 +2,12 @@
 	$aru = new aru();
     $asb = $aru->get_list('points_ceiling','pc_id');
     $u_id = $_SESSION['user_id'];
-    $rate_admin = get_var_query ("select sum(pr_admin_rate) from performance_rates where u_id = '$u_id'" );
-    $rate_hr = get_var_query ("select sum(pr_hr_rate) from performance_rates where u_id = '$u_id'" );
-    $count = get_var_query ("select count(*) from points_ceiling");
-    $rate = $rate_admin + $rate_hr ;
-    $total_points = $count;
-    $rate_percent = ($rate * 100)/($total_points) ;
+    $rate_admin = get_var_query ("select sum(pr_admin_rate) from performance_rates where u_id = $u_id" );
+    $rate_hr = get_var_query ("select sum(pr_hr_rate) from performance_rates where u_id = $u_id");
+    $count = get_var_query ("select count(*) from performance_indexes");
+    $rate = $rate_admin + $rate_hr;
+    $total_points = $count * 200;
+    $rate_percent = ($rate * 100) / ($total_points);
     $asb2 = get_select_query ("select * from apply_loan where u_id = '$u_id'" );
     $home_dir = get_the_url();
 
