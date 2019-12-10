@@ -2,7 +2,7 @@
 <div class="content-wrapper">
     <section class="content">
 		<div class="row">
-			<div class="col-lg-3 col-xs-6">
+			<div class="col-lg-3 col-sm-3 col-xs-6">
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3><?php echo per_number(get_var_query("select count(fb_id) from factor_body where fb_verify_admin1 > 0")); ?></h3>
@@ -14,7 +14,7 @@
 					<a href="#" class="small-box-footer">اطلاعات بیشتر <i class="fa fa-arrow-circle-left"></i></a>
 				</div>
 			</div>
-			<div class="col-lg-3 col-xs-6">
+			<div class="col-lg-3 col-sm-3 col-xs-6">
 				<div class="small-box bg-green">
 					<div class="inner">
 						<h3><?php echo per_number(get_var_query("select count(fb_id) from factor_buy_body where fb_verify_admin1 > 0")); ?></h3>
@@ -26,7 +26,7 @@
 					<a href="#" class="small-box-footer">اطلاعات بیشتر <i class="fa fa-arrow-circle-left"></i></a>
 				</div>
 			</div>
-			<div class="col-lg-3 col-xs-6">
+			<div class="col-lg-3 col-sm-3 col-xs-6">
 				<div class="small-box bg-yellow">
 					<div class="inner">
 						<h3><?php echo per_number(get_var_query("select count(c_id) from customer")); ?></h3>
@@ -38,11 +38,11 @@
 					<a href="<?php get_url(); ?>customer/list-customer.php?action=customer" class="small-box-footer">اطلاعات بیشتر <i class="fa fa-arrow-circle-left"></i></a>
 				</div>
 			</div>
-			<div class="col-lg-3 col-xs-6">
+			<div class="col-lg-3 col-sm-3 col-xs-6">
 				<div class="small-box bg-red">
 					<div class="inner">
 						<h3><?php echo per_number(customer_expire_count()); ?></h3>
-						<p>گواهی ارزش افزوده منقضی</p>
+						<p>ارزش افزوده منقضی</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-pie-graph"></i>
