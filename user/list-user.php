@@ -15,7 +15,10 @@
 		$u_link = "";
 		if(isset($_FILES['u_link']) && $_FILES['u_link']['size']>0){
 			$file = $_FILES['u_link'];
-			$u_link = $media->upload_media($file , $type);
+			$link = $media->upload_media($file , $type);
+			if($link != 0){
+				$u_link = $link;
+			}
 		}
 		array_push($array, $_POST['u_name']);
 		array_push($array, $_POST['u_family']);
@@ -138,10 +141,14 @@
 									if(isset($_FILES['u_link']) && $_FILES['u_link']['size']>0){
 										$u_link2 = get_var_query("select u_link from user where u_id = $uid");
 										if($u_link2 != null){
-										$media->delete_media($u_link2 , $type);
+											$media->delete_media($u_link2 , $type);
 										}
 										$file = $_FILES['u_link'];
-										$u_link = $media->upload_media($file , $type);
+										$link = $media->upload_media($file , $type);
+										if($link != 0){
+											$u_link = $link;
+										}
+										
 									}
 									array_push($array, $uid);
 									array_push($array, $_POST['u_name']);
@@ -491,7 +498,15 @@
 																		<div class="margin-tb input-group-prepend">
 																			<span class="input-group-text">مدرک</span>
 																		</div>
-																		<input type="text" name="u_evidence" placeholder="مدرک" class="form-control" value="<?php echo $asd[0]['u_evidence']; ?>">
+																		<select name="u_evidence" class="form-control">
+																			<option><?php echo $asd[0]['u_evidence']; ?></option>
+																			<option>زیر دیپلم</option>
+																			<option>دیپلم</option>
+																			<option>فوق دیپلم</option>
+																			<option>لیسانس</option>
+																			<option>فوق لیسانس</option>
+																			<option>دکتری</option>
+																		</select>
 																	</div>
 																</div>
 																<div class="row">
@@ -1057,7 +1072,7 @@
 																		<td>تصویر پروفایل</td>
 																		<td>
 																			<?php
-																			if($u_file == ""){
+																			if($u_link == ""){
 																				echo "موجود نیست!";
 																			}else{
 																				?>

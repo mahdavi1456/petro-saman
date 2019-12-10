@@ -526,7 +526,7 @@ class Cartable{
 									</form>
 								</div>
 							</div>
-						<a class="btn btn-success btn-xs" href="<?php get_url(); ?>secretariat/write_letter.php?si_id=<?php echo $row['si_id']; ?>">چاپ نامه</a>
+						<a class="btn btn-success btn-xs" href="<?php get_url(); ?>secretariat/write_letter.php?si_id=<?php echo $row['si_id']; ?>&letter_type=<?php echo $row['si_type']; ?>">چاپ نامه</a>
 					</td>
 				</tr>
 				<?php

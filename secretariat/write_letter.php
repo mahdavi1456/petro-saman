@@ -95,6 +95,39 @@
 		<?php
 	}
 
+    if(isset($_POST['save_admin_verify'])){
+		$si_id = $_POST['si_id'];
+		$si_admin_details = $_POST['si_admin_details'];
+		$verify =  $_POST['verify'];
+        $date = jdate('Y/n/j');
+        $user = new user();
+        $u_level = $user->get_current_user_level();
+		if($verify == 0)
+		{
+			if($u_level=='مدیریت'){
+				$res2 = ex_query("update sender_indicator set si_admin_details = null , si_admin_verify = '$verify' , si_admin_date = '0000-00-00'  where si_id = $si_id");
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.success('مورد با موفقیت ثبت شد');
+				</script>
+				<?php
+			}
+		}
+		else
+		{
+			if($u_level=='مدیریت'){
+				$res2 = ex_query("update sender_indicator set si_admin_details = '$si_admin_details' , si_admin_verify = '$verify' , si_admin_date = '$date'  where si_id = $si_id");
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.success('مورد با موفقیت ثبت شد');
+				</script>
+				<?php
+			}
+		}
+		echo '<meta http-equiv="refresh" content="2"/>';
+	}
 
     ?> 
 	<div class="content-wrapper">
@@ -125,12 +158,53 @@
                                     </div><br><br>
                                     <button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $si_id; ?>">پیوست ها</button>
                                     <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit<?php echo $si_id; ?>">ویرایش نامه</button>
+                                    <button class="btn btn-warning btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#admin_verify<?php echo $si_id; ?>" >تایید مدیر</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </form>
+            <div class="modal fade text-xs-left" id="admin_verify<?php echo $si_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#admin_verify<?php echo $si_id; ?>" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input class="hidden" type="text" name="si_id" id="si_id" value="<?php echo $si_id; ?>">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel3">تایید مدیر</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="item col-md-12">
+                                        <div class="margin-tb input-group-prepend">
+                                            <span class="input-group-text">توضیحات مدیر</span>
+                                        </div>
+                                        <input type="text" id="si_admin_details" name="si_admin_details" placeholder="توضیحات مدیر" value="<?php if(count($sql) > 0) { foreach($sql as $row) { echo $row['si_admin_details']; } } ?>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="item col-md-6">
+                                        <div class="margin-tb input-group-prepend">
+                                            <span class="input-group-text">وضعیت</span>
+                                        </div>
+                                        <select class="form-control" name="verify" id="verify">
+                                            <option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">تایید</option>
+                                            <option value="0">عدم تایید</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
+                                <button class="btn btn-primary btn-sm" name="save_admin_verify" type="submit">ذخیره</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="modal fade text-xs-left" id="doc_modal<?php echo $si_id; ?>" tabindex="-1" role="dialog" aria-labelledby="#doc_modal<?php echo $si_id; ?>" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog" role="document" id="doc_modal">
                     <form action="" method="post" enctype="multipart/form-data">
@@ -283,6 +357,8 @@
                                         <div class="item col-md-4">
                                         </div>
                                         <div class="item col-md-4">
+                                        </div>
+                                        <div class="item col-md-4">
                                             <div class="margin-tb input-group-prepend">
                                                 <p style="font-size: 14px!important;"><?php if($row['si_admin_verify'] != 0){ $user = new user(); echo $user->get_user_name($row['si_admin_verify']); } ?></p>
                                             </div>
@@ -333,6 +409,8 @@
                                             <?php echo $row['si_text']; ?>
                                             <span></span>
                                         </div>        
+                                        <div class="item col-md-4">
+                                        </div>
                                         <div class="item col-md-4">
                                         </div>
                                         <div class="item col-md-4">

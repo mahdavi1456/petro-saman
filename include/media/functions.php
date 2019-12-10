@@ -33,7 +33,7 @@ function upload_file($filename, $tmp_name, $size, $type, $bu_id , $type_media=nu
 		$uploadOk = 0;
 	}
 
-	if( $imageFileType == "pdf" || $imageFileType == "docx" || $imageFileType == "doc" || $imageFileType == "ppt" || $imageFileType == "pptx") {
+	if( $imageFileType == "pdf" || $imageFileType == "docx" || $imageFileType == "doc" || $imageFileType == "ppt" || $imageFileType == "pptx"  || $imageFileType == "xls"  || $imageFileType == "xlsx") {
 		if ($size > 4194304) {
 			?>
 			<script>
@@ -70,7 +70,7 @@ function upload_file($filename, $tmp_name, $size, $type, $bu_id , $type_media=nu
 		}
 	}
 
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "pdf"  && $imageFileType != "docx"  && $imageFileType != "doc" && $imageFileType != "ppt" && $imageFileType != "pptx") {
+	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "pdf"  && $imageFileType != "docx"  && $imageFileType != "doc" && $imageFileType != "ppt" && $imageFileType != "pptx"  && $imageFileType != "xls"  && $imageFileType != "xlsx") {
 		//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 		?>
 			<script>
@@ -209,45 +209,90 @@ function user_upload_file($filename, $tmp_name, $size, $type, $bu_id){
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		
 	$check = getimagesize($tmp_name);
-	if($check !== false) {
-		//echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
-	} else {
-		echo "File is not an image.";
-		$uploadOk = 0;
-	}
 	
 	if (file_exists($target_file)) {
-		echo "Sorry, file already exists.";
-		$uploadOk = 0;
-	}
-		
-	if ($size > 2000000) {
-		echo "Sorry, your file is too large.";
+		?>
+		<script>
+			alertify.set('notifier','position', 'bottom-right');
+			alertify.warning('فایلی با این نام وجود دارد');
+		</script>
+		<?php
 		$uploadOk = 0;
 	}
 
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	if( $imageFileType == "pdf" || $imageFileType == "docx" || $imageFileType == "doc" || $imageFileType == "ppt" || $imageFileType == "pptx" || $imageFileType == "xls"  || $imageFileType == "xlsx") {
+		if ($size > 4194304) {
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('حجم مجاز برای آپلود فایل ۴ مگابایت است');
+			</script>
+			<?php
+			$uploadOk = 0;
+		}
+	}
+	else {
+		if ($size > 1048576) {
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('حجم مجاز برای آپلود عکس ۱ مگابایت است');
+			</script>
+			<?php
+			$uploadOk = 0;
+		}
+		$check = getimagesize($tmp_name);
+		if($check !== false) {
+			//echo "File is an image - " . $check["mime"] . ".";
+			$uploadOk = 1;
+		} else {
+			//echo "File is not an image.";
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('فایل انتخاب شده تصویر نیست');
+			</script>
+			<?php
+			$uploadOk = 0;
+		}
+	}
+	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "pdf"  && $imageFileType != "docx"  && $imageFileType != "doc" && $imageFileType != "ppt" && $imageFileType != "pptx"  && $imageFileType != "xls"  && $imageFileType != "xlsx") {
+		//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+		?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('تنها مجاز به بارگزاری تصویر , pdf و word می باشید');
+			</script>
+			<?php
 		$uploadOk = 0;
 	}
 
 	if ($uploadOk == 0) {
 		echo "Sorry, your file was not uploaded.";
 	} else {
-		echo $tmp_name . "<br>" . $target_file;
+		//echo $tmp_name . "<br>" . $target_file;
 		if (move_uploaded_file($tmp_name, $target_file)) {
-			echo "فایل ". basename($filename). " با موفقیت آپلود شد.";
+			
+
 			$sql2 = "SELECT count(m_id) FROM media WHERE bu_id = $bu_id AND m_name_file = '$type'";
+			$m_name = get_var_query("SELECT m_name FROM media WHERE bu_id = $bu_id AND m_name_file = '$type'");
 			$check = get_var_query($sql2);
 			if ( $check > 0 ) {
-				$sql = "UPDATE media SET m_name = '$filename', m_type = 'user', m_name_file = '$type', bu_id = $bu_id WHERE bu_id = $bu_id AND m_name_file = '$type'";
+				$path = str_replace($_SERVER['DOCUMENT_ROOT'], '', "uploads/" . $m_name);
+                if(unlink($path)){
+					$sql = "UPDATE media SET m_name = '$filename', m_type = 'user', m_name_file = '$type', bu_id = $bu_id WHERE bu_id = $bu_id AND m_name_file = '$type'";
+                }
 			} else {
 				$sql = "INSERT INTO media(m_name, m_type, m_name_file, bu_id) VALUES('$filename', 'user', '$type', $bu_id)";
 			}
 			$res = ex_query($sql);
 		} else {
-			echo "Sorry, there was an error uploading your file.";
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.warning('یک خطا در بارگزاری فایل وجود دارد');
+			</script>
+			<?php
 		}
 	}
 }

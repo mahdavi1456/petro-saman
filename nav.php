@@ -183,8 +183,8 @@
 					<li class="<?php check_active('indicator.php'); check_active('list_customs.php'); ?> treeview">
 						<a href="#"><i class="fa fa-folder-open"></i><span>دبیرخانه</span></a>
 						<ul class="treeview-menu">
-							<li class="<?php check_active('list_customs.php'); ?>"><a href="<?php get_url(); ?>secretariat/list_customs.php"><i class="fa fa-circle-o"></i>مرسولات</a></li>
 							<li class="<?php check_active('indicator.php'); ?>"><a href="<?php get_url(); ?>secretariat/indicator.php"><i class="fa fa-circle-o"></i>مکاتبات</a></li>
+							<li class="<?php check_active('list_customs.php'); ?>"><a href="<?php get_url(); ?>secretariat/list_customs.php"><i class="fa fa-circle-o"></i>مرسولات</a></li>
 						</ul>
 					</li>
 					<?php 
