@@ -130,9 +130,9 @@
 							</thead>
 							<tbody>
 								<?php
-									$i = 1;
-                                    if(count($asb2) > 0){
-                                        foreach ($asb2 as $a){ ?>
+                                $i = 1;
+                                if(count($asb2) > 0){
+                                    foreach ($asb2 as $a){ ?>
                                         <tr>
                                             <td><?php echo per_number($i); ?></td>
                                             <td><?php echo  per_number(str_replace("-", "/", $a['al_date'])); ?></td>
@@ -153,9 +153,13 @@
                                             </td>
                                         </tr>
                                         <?php
-                                            $i++;
-                                        } 
-                                 } ?>
+                                        $i++;
+                                    } 
+                                }
+                                else { ?>
+                                    <td colspan="12">داده ای موجود نیست...</td>
+                                    <?php 
+                                } ?> ?>
 							</tbody>
                             <tfoot>
                                 <tr>
