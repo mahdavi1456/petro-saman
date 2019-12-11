@@ -133,7 +133,7 @@
 					<?php
 				} 
 				if($u_level == "مدیریت" || $u_level == "منابع انسانی"){?>
-					<li class="<?php check_active('list-user.php'); check_active('set_schedule.php'); check_active('get_schedule.php'); check_active('add_group.php'); check_active('edit_group.php'); check_active('raw_rights.php');  check_active('new_shift.php'); ?> treeview">
+					<li class="<?php check_active('list-user.php'); check_active('set_schedule.php'); check_active('get_schedule.php'); check_active('add_group.php'); check_active('edit_group.php');  check_active('new_shift.php'); ?> treeview">
 						<a href="#"><i class="fa fa-users"></i><span>کاربران</span></a>
 						<ul class="treeview-menu">
 							<li class="<?php check_active('list-user.php'); ?>"><a href="<?php get_url(); ?>user/list-user.php"><i class="fa fa-circle-o"></i>لیست کاربران</a></li>
@@ -141,7 +141,6 @@
 							<li class="<?php check_active('new_shift.php'); ?>"><a href="<?php get_url(); ?>group/new_shift.php"><i class="fa fa-circle-o"></i>تعریف شیفت</a></li>
 							<li class="<?php check_active('set_schedule.php'); ?>"><a href="<?php get_url(); ?>group/set_schedule.php?group=<?php echo $group_name; ?>&month=<?php echo $myYear . "_" . $myMonth; ?>&sch_submit=1"><i class="fa fa-circle-o"></i>برنامه ریزی شیفت ها</a></li>
 							<li class="<?php check_active('get_schedule.php'); ?>"><a href="<?php get_url(); ?>group/get_schedule.php?group=A&sch_submit=1"><i class="fa fa-circle-o"></i>مشاهده گروه ها</a></li>
-							<li class="<?php check_active('raw_rights.php'); ?>"><a href="<?php get_url(); ?>user/raw_rights.php?month=<?php echo $myYear . "_" . $myMonth; ?>"><i class="fa fa-circle-o"></i>محاسبه حقوق</a></li>
 						</ul>
 					</li>
 					<?php
@@ -212,13 +211,18 @@
 					</li>
 					<?php 
 				} ?>
-				<li class="<?php  check_active('report-rest.php'); check_active('list-user.php'); check_active('rest.php'); check_active('apply-loan.php'); check_active('payroll.php'); ?> treeview">
+				<li class="<?php  check_active('report-rest.php'); check_active('list-user.php'); check_active('rest.php'); check_active('apply-loan.php'); check_active('raw_rights.php'); check_active('payroll.php'); ?> treeview">
 					<a href="#"><i class="fa fa-gear"></i><span>پرسنل</span></a>
 					<ul class="treeview-menu">
 						<li class="<?php check_active('list-user.php'); ?>"><a href="<?php get_url(); ?>user/list-user.php?type=profile"><i class="fa fa-circle-o"></i>پروفایل</a></li>
 						<li class="<?php check_active('rest.php'); ?>"><a href="<?php get_url(); ?>user/rest.php"><i class="fa fa-circle-o"></i>مدیریت مرخصی</a></li>
 						<li class="<?php check_active('report-rest.php'); ?>"><a href="<?php get_url(); ?>user/report-rest.php"><i class="fa fa-circle-o"></i>گزارش مرخصی ها</a></li>
 						<li class="<?php check_active('apply-loan.php'); ?>"><a href="<?php get_url(); ?>user/apply-loan.php"><i class="fa fa-circle-o"></i>درخواست مساعده</a></li>
+						<?php 
+						if($u_level == "امور مالی" ){ ?>
+							<li class="<?php check_active('raw_rights.php'); ?>"><a href="<?php get_url(); ?>user/raw_rights.php?month=<?php echo $myYear . "_" . $myMonth; ?>"><i class="fa fa-circle-o"></i>محاسبه حقوق</a></li>
+							<?php
+						} ?>
 						<li class="<?php check_active('payroll.php'); ?>"><a href="<?php get_url(); ?>user/payroll.php?month=<?php echo $myYear . "_" . $myMonth; ?>"><i class="fa fa-circle-o"></i>فیش حقوق</a></li>
 
 					</ul>.

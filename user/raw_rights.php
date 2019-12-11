@@ -668,7 +668,7 @@
 						  			</tr>
 						  		<?php $row++; ?>
 								<?php } }else{ ?>
-									<td colspan="10">داده ای موجود نیست...</td>
+									<td colspan="12">داده ای موجود نیست...</td>
 								<?php } ?>
 								</tbody>
 								<tfoot>

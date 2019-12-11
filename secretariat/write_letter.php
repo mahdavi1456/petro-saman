@@ -1,4 +1,7 @@
-<?php include"../header.php"; include"../nav.php"; $aru = new aru(); 
+<?php include"../header.php"; include"../nav.php"; 
+    $user = new user();
+    $u_level = $user->get_current_user_level();
+    $aru = new aru(); 
     $fact_address = get_var_query("select o_value from options where o_key = 'fact_address' ");
     $com_name = get_var_query("select o_value from options where o_key = 'com_name' ");
     $media_sender = $aru->get_list("media_sender_indicator", "msi_id");
@@ -158,7 +161,11 @@
                                     </div><br><br>
                                     <button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#doc_modal<?php echo $si_id; ?>">پیوست ها</button>
                                     <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#edit<?php echo $si_id; ?>">ویرایش نامه</button>
-                                    <button class="btn btn-warning btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#admin_verify<?php echo $si_id; ?>" >تایید مدیر</button>
+                                    <?php 
+				                    if($u_level == "مدیریت" ){ ?>
+                                        <button class="btn btn-warning btn-sm" type="button" data-toggle="modal" data-keyboard="false" data-target="#admin_verify<?php echo $si_id; ?>" >تایید مدیر</button>
+                                        <?php 
+                                    } ?>
                                 </div>
                             </div>
                         </div>

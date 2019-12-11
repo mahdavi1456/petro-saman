@@ -3,7 +3,7 @@
 	$media = new media(); $user = new user();
 	$u_level = $user->get_current_user_level();
 	$aru = new aru();
-	if($u_level == "منابع انسانی"){
+	if($u_level == "مدیریت" || $u_level == "منابع انسانی"  || $u_level == "امور مالی"){
 		$person_select = get_select_query("select * from user");
 	}
 	else{
