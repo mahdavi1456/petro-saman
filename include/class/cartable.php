@@ -1,6 +1,4 @@
 <?php
-$user = new user();
-$u_level = $user->get_current_user_level();
 class Cartable{
 
 	public function get_works_manager(){
