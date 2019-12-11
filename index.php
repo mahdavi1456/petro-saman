@@ -183,7 +183,7 @@ $u_level = $user->get_current_user_level();
 				</div>
 				<?php
 			}
-			if($u_level == "مدیریت" || $u_level == "منابع انسانی") { ?>
+			if($u_level == "مدیریت" || $u_level == "منابع انسانی" || $u_level == "امور مالی") { ?>
 				<div class="col-md-12">
 					<div class="box box-info">
 						<div class="box-header with-border">
@@ -207,6 +207,7 @@ $u_level = $user->get_current_user_level();
 											<th>تاریخ تایید</th>
 											<th>تایید HR</th>
 											<th>تاریخ</th>
+											<th>تاریخ واریز</th>
 											<th>عملیات</th>
 										</tr>
 									</thead>

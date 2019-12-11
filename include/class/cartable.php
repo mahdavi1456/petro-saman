@@ -350,10 +350,9 @@ class Cartable{
 
 	public function apply_loan() {
 		$user = new user();
+		$u_level = $user->get_current_user_level();
 		if(isset($_POST['save_apply_loan'])){
 			$al_id = $_POST['al_id'];
-			$al_admin_details = $_POST['al_admin_details'];
-			$al_hr_details = $_POST['al_hr_details'];
 			$verify =  $_POST['verify'];
 			$date = jdate('Y/n/j');
 			$u_level = $user->get_current_user_level();
@@ -365,14 +364,23 @@ class Cartable{
 				if($u_level=='مدیریت'){
 					$res2 = ex_query("update apply_loan set al_admin_details = null , al_admin_verify = '$verify' , al_admin_date = '0000-00-00'  where al_id = $al_id");
 				}
+				if($u_level=='امور مالی'){
+					$res2 = ex_query("update apply_loan set al_finan_details = null , 	al_finan_verify = '$verify' , al_finan_date = '0000-00-00'  where al_id = $al_id");
+				}
 			}
 			else
 			{
 				if($u_level=='منابع انسانی'){
+					$al_hr_details = $_POST['al_hr_details'];
 					$res2 = ex_query("update apply_loan set al_hr_details = '$al_hr_details' , al_hr_verify = '$verify' , al_hr_date = '$date'  where al_id = $al_id");
 				}
 				if($u_level=='مدیریت'){
+					$al_admin_details = $_POST['al_admin_details'];
 					$res2 = ex_query("update apply_loan set al_admin_details = '$al_admin_details' , al_admin_verify = '$verify' , al_admin_date = '$date'  where al_id = $al_id");
+				}
+				if($u_level=='امور مالی'){
+					$al_finan_details = $_POST['al_finan_details'];
+					$res2 = ex_query("update apply_loan set al_finan_details = '$al_finan_details' , al_finan_verify = '$verify' , al_finan_date = '$date'  where al_id = $al_id");
 				}
 			}
 			echo '<meta http-equiv="refresh" content="2"/>';
@@ -382,7 +390,15 @@ class Cartable{
 		if(count($res3) > 0) {
 			$mi_amount = $res3[0]['mi_amount'];
 		}
-		$res = get_select_query("select * from apply_loan  where al_admin_verify = 0 or al_hr_verify = 0  order by al_id desc");
+		if($u_level == "امور مالی") { 
+			$res = get_select_query("select * from apply_loan  where (al_hr_verify <> 0) and ( al_admin_verify <> 0 or al_amount <= $mi_amount )  order by al_id desc");
+		}
+		if($u_level=='مدیریت'){
+			$res = get_select_query("select * from apply_loan  where al_admin_verify = 0 and '$mi_amount' < al_amount order by al_id desc");
+		}
+		if($u_level=='منابع انسانی'){
+			$res = get_select_query("select * from apply_loan  where al_hr_verify = 0  order by al_id desc");
+		}
 		if(count($res) > 0) {
 			foreach($res as $row) {
 				?>
@@ -396,8 +412,19 @@ class Cartable{
                     <td><?php echo per_number(str_replace("-", "/", $row['al_admin_date'])); ?></td>
 					<td><?php echo get_user_name($row['al_hr_verify']); ?></td>
                     <td><?php echo per_number(str_replace("-", "/", $row['al_hr_date'])); ?></td>
-					<td>
-						<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_loan_modal<?php echo $row['al_id']; ?>" >تایید مساعده</button>
+					<?php 
+					if($u_level == "امور مالی") { ?>
+						<td><?php echo per_number(str_replace("-", "/", $row['al_finan_date'])); ?></td>
+						<?php
+					} ?>
+					<td> <?php
+						if($u_level=='مدیریت' || $u_level=='منابع انسانی' ){ ?>
+							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_loan_modal<?php echo $row['al_id']; ?>" >تایید مساعده</button>
+							<?php 
+						} if($u_level == "امور مالی") { ?>
+							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#payment_modal<?php echo $row['al_id']; ?>" >واریز</button>
+							<?php
+						} ?>
 						<div class="modal fade text-xs-left" id="apply_loan_modal<?php echo $row['al_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#apply_loan_modal<?php echo $row['al_id']; ?>" style="display: none;" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<form action="" method="post" enctype="multipart/form-data">
@@ -438,6 +465,46 @@ class Cartable{
 													<select class="form-control" name="verify" id="verify">
 														<option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">تایید</option>
 														<option value="0">عدم تایید</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
+											<button class="btn btn-primary btn-sm" name="save_apply_loan" type="submit">ذخیره</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="modal fade text-xs-left" id="payment_modal<?php echo $row['al_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#payment_modal<?php echo $row['al_id']; ?>" style="display: none;" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<form action="" method="post" enctype="multipart/form-data">
+									<input class="hidden" type="text" name="al_id" id="al_id" value="<?php echo $row['al_id']; ?>">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+											<h4 class="modal-title" id="myModalLabel3">واریز مساعده</h4>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<div class="item col-md-12">
+													<div class="margin-tb input-group-prepend">
+														<span class="input-group-text">توضیحات امور مالی</span>
+													</div>
+													<input type="text" id="al_finan_details" name="al_finan_details" placeholder="توضیحات امور مالی" value="<?php echo per_number($row['al_finan_details']); ?>">
+												</div>
+											</div>
+											<div class="row">
+												<div class="item col-md-6">
+													<div class="margin-tb input-group-prepend">
+														<span class="input-group-text">وضعیت</span>
+													</div>
+													<select class="form-control" name="verify" id="verify">
+														<option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">واریز شد</option>
+														<option value="0">واریز نشد</option>
 													</select>
 												</div>
 											</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 10:07 PM
+-- Generation Time: Dec 11, 2019 at 10:09 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -84,17 +84,20 @@ CREATE TABLE `apply_loan` (
   `al_admin_details` text DEFAULT NULL,
   `al_hr_verify` tinyint(4) DEFAULT 0,
   `al_hr_date` date NOT NULL,
-  `al_hr_details` text DEFAULT NULL
+  `al_hr_details` text DEFAULT NULL,
+  `al_finan_verify` int(11) DEFAULT 0 COMMENT 'تایید مالی',
+  `al_finan_date` date NOT NULL,
+  `al_finan_details` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `apply_loan`
 --
 
-INSERT INTO `apply_loan` (`al_id`, `u_id`, `al_date`, `al_amount`, `al_details`, `al_admin_verify`, `al_admin_date`, `al_admin_details`, `al_hr_verify`, `al_hr_date`, `al_hr_details`) VALUES
-(2, 1, '1398-09-04', 150000, 'درخواست وام خرید کتاب', 0, '0000-00-00', NULL, 0, '0000-00-00', NULL),
-(3, 1, '1398-09-03', 100000, 'درخواست وام خرید منزل', 0, '1398-09-05', 'توسط مدیر تایید شد', 42, '1398-09-05', 'توسط منابع انسانی تایید شد'),
-(7, 1, '1398-09-07', 120000, 'درخواست وام خرید موبایل', 0, '0000-00-00', NULL, 0, '0000-00-00', NULL);
+INSERT INTO `apply_loan` (`al_id`, `u_id`, `al_date`, `al_amount`, `al_details`, `al_admin_verify`, `al_admin_date`, `al_admin_details`, `al_hr_verify`, `al_hr_date`, `al_hr_details`, `al_finan_verify`, `al_finan_date`, `al_finan_details`) VALUES
+(2, 1, '1398-09-04', 150000, 'درخواست وام خرید کتاب', 0, '0000-00-00', NULL, 0, '0000-00-00', NULL, 0, '0000-00-00', NULL),
+(3, 1, '1398-09-03', 100000, 'درخواست وام خرید منزل', 0, '0000-00-00', NULL, 0, '0000-00-00', NULL, 0, '0000-00-00', NULL),
+(7, 1, '1398-09-07', 120000, 'درخواست وام خرید موبایل', 0, '0000-00-00', NULL, 0, '0000-00-00', NULL, 0, '0000-00-00', NULL);
 
 -- --------------------------------------------------------
 
