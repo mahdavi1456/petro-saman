@@ -557,3 +557,9 @@
 .edit_storage_item textarea{
     width: 100% !important;
 }
+.modal-footer{
+    background: #fff !important;
+}
+.necessary {
+	color: red;
+}

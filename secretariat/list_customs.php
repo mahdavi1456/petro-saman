@@ -30,16 +30,16 @@
                             </select>
                         </div>
                         <div class="item col-md-3">
-                            <label for="lc_company">نام شرکت</label>
-                            <input type="text" name="lc_company" id="lc_company" placeholder="نام شرکت" class="form-control">
+                            <label for="lc_company">نام شرکت</label><span class="necessary"> *</span>
+                            <input type="text" name="lc_company" id="lc_company" placeholder="نام شرکت" class="form-control" required>
                         </div>
                         <div class="item col-md-3">
-                            <label for="lc_code">کد رهگیری</label>
-                            <input type="text" name="lc_code" id="lc_code" placeholder="کد رهگیری" class="form-control">
+                            <label for="lc_code">کد رهگیری</label><span class="necessary"> *</span>
+                            <input type="text" name="lc_code" id="lc_code" placeholder="کد رهگیری" class="form-control" required>
                         </div>
                         <div class="item col-md-3">
-                            <label for="fb_id">شماره فاکتور</label>
-                            <input type="text" name="fb_id" id="fb_id" placeholder="شماره فاکتور" class="form-control">
+                            <label for="fb_id">شماره فاکتور</label><span class="necessary"> *</span>
+                            <input type="text" name="fb_id" id="fb_id" placeholder="شماره فاکتور" class="form-control" required>
                         </div>
                     </div>
                     <div class="row">

@@ -206,15 +206,15 @@
 																	<div class="row">
 																		<div class="item col-md-6 col-xs-12">
 																			<div class="margin-tb input-group-prepend">
-																				<span class="input-group-text">گیرنده نامه</span>
+																				<span class="input-group-text">گیرنده نامه </span><span class="necessary">*</span>
 																			</div>
-																			<input type="text" name="si_receiver" id="si_receiver" placeholder="گیرنده نامه" class="form-control"  value="<?php echo $a['si_receiver']; ?>">
+																			<input type="text" name="si_receiver" id="si_receiver" placeholder="گیرنده نامه" class="form-control"  value="<?php echo $a['si_receiver']; ?>" required>
 																		</div>
 																		<div class="item col-md-6 col-xs-12">
 																			<div class="input-group-prepend">
-																				<span class="input-group-text">تاریخ ارسال نامه</span>
+																				<span class="input-group-text">تاریخ ارسال نامه </span><span class="necessary">*</span>
 																			</div>
-																			<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ ارسال نامه" id="si_send_date" name="si_send_date" value="<?php echo per_number(str_replace("-", "/", $a['si_send_date'])); ?>">
+																			<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ ارسال نامه" id="si_send_date" name="si_send_date" value="<?php echo per_number(str_replace("-", "/", $a['si_send_date'])); ?>" required>
 																		</div>
 																		<div class="item col-md-12">
 																			<div class="margin-tb input-group-prepend">
@@ -335,21 +335,21 @@
 																	<div class="row">
 																		<div  class="item col-md-4 col-xs-12">
 																			<div class="margin-tb input-group-prepend">
-																				<span class="input-group-text">شماره نامه دریافتی</span>
+																				<span class="input-group-text">شماره نامه دریافتی </span><span class="necessary">*</span>
 																			</div>
-																			<input type="text" name="ri_number" id="ri_number" placeholder="شماره نامه دریافتی" class="form-control" value="<?php echo $a['ri_number']; ?>">
+																			<input type="text" name="ri_number" id="ri_number" placeholder="شماره نامه دریافتی" class="form-control" value="<?php echo $a['ri_number']; ?>" required>
 																		</div>
 																		<div class="item col-md-4 col-xs-12">
 																			<div class="input-group-prepend">
-																				<span class="input-group-text">تاریخ نامه دریافتی</span>
+																				<span class="input-group-text">تاریخ نامه دریافتی </span><span class="necessary">*</span>
 																			</div>
-																			<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ نامه دریافتی" id="ri_reg_date" name="ri_reg_date" value="<?php echo $a['ri_reg_date']; ?>">
+																			<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ نامه دریافتی" id="ri_reg_date" name="ri_reg_date" value="<?php echo $a['ri_reg_date']; ?>" required>
 																		</div>
 																		<div class="item col-md-4 col-xs-12">
 																			<div class="margin-tb input-group-prepend">
-																				<span class="input-group-text">فرستنده نامه</span>
+																				<span class="input-group-text">فرستنده نامه </span><span class="necessary">*</span>
 																			</div>
-																			<input type="text" name="ri_sender" id="ri_sender" placeholder="فرستنده نامه" class="form-control"  value="<?php echo $a['ri_sender']; ?>">
+																			<input type="text" name="ri_sender" id="ri_sender" placeholder="فرستنده نامه" class="form-control"  value="<?php echo $a['ri_sender']; ?>" required>
 																		</div>
 																		
 																		<div class="item col-md-4 col-xs-12">
@@ -420,7 +420,7 @@
 																	<div class="row">
 																		<input type="hidden" name="mri_name" id="mri_name" value="file_letter" class="form-control" >
 																		<div class="item col-md-8">
-																			<label for="uploader1[]">انتخاب فایل</label>
+																			<label for="uploader1[]">انتخاب فایل</label><span class="necessary"> *</span>
 																			<input type="file" name="uploader1[]" multiple/>
 																		</div>
 																	</div>
@@ -436,7 +436,8 @@
 																			</thead>
 																			<tbody>
 																				<?php
-																					$roww=1;
+																					$roww = 1;
+																					$j = 1;
 																					if($media)
 																					{
 																						
@@ -447,27 +448,29 @@
 																							$mri_name = $c['mri_name'];
 																							if($ri_id == $rri_id && $mri_name == "file_letter")
 																							{
-																							?>
-																							<tr>
-																								<td><?php echo $roww; ?></td>
-																								<td><?php echo $c['mri_date']; ?></td>
-																								<td><a target="_blank" href="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" style="width:20px;heigh:20px"></a></td>
-																								<td class="force-inline-text">
-																									<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-																										<button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $mri_id; ?>">حذف</button>
-																									</form>
-																								</td>
-																							</tr>
-																							<?php
-																								$roww++;
+																								?>
+																								<tr>
+																									<td><?php echo $roww; ?></td>
+																									<td><?php echo $c['mri_date']; ?></td>
+																									<td><a target="_blank" href="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" style="width:20px;heigh:20px"></a></td>
+																									<td class="force-inline-text">
+																										<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+																											<button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $mri_id; ?>">حذف</button>
+																										</form>
+																									</td>
+																								</tr>
+																								<?php
+																									$j = 0;
+																									$roww++;
 																							}
 																						}
-																						} else {
-																					?>
-																					<tr>
-																						<td colspan="9">داده ای موجود نیست!</td>
-																					</tr>
-																					<?php
+																					}
+																					if($j == 1) {
+																						?>
+																						<tr>
+																							<td colspan="9">داده ای موجود نیست!</td>
+																						</tr>
+																						<?php
 																					}
 																				?>
 																			</tbody>
@@ -484,10 +487,10 @@
 																	</div>
 																</div>
 																<div class="modal-footer">
-																	<center>
+																	<div class="col-md-12 center">
 																		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
-																		<button class="btn btn-primary btn-sm" name="update-media" value="<?php echo $a['ri_id']; ?>" type="submit">ذخیره</button>
-																	</center>
+																		<button class="btn btn-primary btn-sm" name="update-media" value="<?php echo $ri_id; ?>" type="submit">ذخیره</button>
+																	</div>
 																</div>
 															</div>
 														</form>
@@ -507,17 +510,16 @@
 																	<h4 class="modal-title" id="myModalLabel3">ویرایش پیوست ها</h4>
 																</div>
 																<div class="modal-body">
-																	<div class="row">
+																	<div>
 																		<div class="item col-md-8">
-																			<label for="uploader1[]">انتخاب پیوست</label>
+																			<label for="uploader1[]">انتخاب پیوست</label><span class="necessary"> *</span>
 																			<input type="file" name="uploader1[]" multiple/>
 																		</div>
 																		<div class="item col-md-4">
-																			<label for="mri_name">عنوان پیوست</label>
-																			<input type="text" name="mri_name" id="mri_name" placeholder="عنوان پیوست" class="form-control" >
+																			<label for="mri_name">عنوان پیوست</label><span class="necessary"> *</span>
+																			<input type="text" name="mri_name" id="mri_name" placeholder="عنوان پیوست" class="form-control">
 																		</div>
-																	</div>
-																	<div class="row">
+																	
 																		<table id="example1" class="table table-striped table-bordered table-responsive group_save_table">
 																			<thead>
 																				<tr>
@@ -531,6 +533,7 @@
 																			<tbody>
 																				<?php
 																					$roww=1;
+																					$y = 1 ;
 																					if($media)
 																					{
 																						
@@ -540,29 +543,31 @@
 																							$mri_id = $c['mri_id'];
 																							$mri_name = $c['mri_name'];
 																							if($ri_id==$rri_id && $mri_name != "file_letter")
-																							{
-																							?>
-																							<tr>
-																								<td><?php echo $roww; ?></td>
-																								<td><?php echo $c['mri_name']; ?></td>
-																								<td><?php echo $c['mri_date']; ?></td>
-																								<td><a target="_blank" href="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" style="width:20px;heigh:20px"></a></td>
-																								<td class="force-inline-text">
-																									<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-																										<button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $mri_id; ?>">حذف</button>
-																									</form>
-																								</td>
-																							</tr>
-																							<?php
+																								{
+																								?>
+																								<tr>
+																									<td><?php echo $roww; ?></td>
+																									<td><?php echo $c['mri_name']; ?></td>
+																									<td><?php echo $c['mri_date']; ?></td>
+																									<td><a target="_blank" href="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" style="width:20px;heigh:20px"></a></td>
+																									<td class="force-inline-text">
+																										<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+																											<button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $mri_id; ?>">حذف</button>
+																										</form>
+																									</td>
+																								</tr>
+																								<?php
+																								$y = 0 ;
 																								$roww++;
 																							}
 																						}
-																						} else {
-																					?>
-																					<tr>
-																						<td colspan="9">داده ای موجود نیست!</td>
-																					</tr>
-																					<?php
+																					} 
+																					if($y == 1 ) {
+																						?>
+																						<tr>
+																							<td colspan="9">داده ای موجود نیست!</td>
+																						</tr>
+																						<?php
 																					}
 																				?>
 																			</tbody>
@@ -581,10 +586,10 @@
 																</div>
 															</div>
 															<div class="modal-footer">
-																<center>
+																<div class="center">
 																	<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
-																	<button class="btn btn-primary btn-sm" name="update-media" value="<?php echo $a['ri_id']; ?>" type="submit">ذخیره</button>
-																</center>
+																	<button class="btn btn-primary btn-sm" name="update-media" value="<?php echo $ri_id; ?>" type="submit">ذخیره</button>
+																</div>
 															</div>
 														</div>
 													</form>

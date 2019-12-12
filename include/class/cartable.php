@@ -608,11 +608,11 @@ class Cartable{
 														<th>ردیف</th>
 														<th>تاریخ آپلود فایل</th>
 														<th>لینک فایل</th>
-														<th>عملیات</th>
 													</tr>
 												</thead>
 												<tbody>
 													<?php
+													$k = 1;
 														$roww=1;
 														if($media)
 														{
@@ -629,22 +629,19 @@ class Cartable{
 																	<td><?php echo $roww; ?></td>
 																	<td><?php echo $c['mri_date']; ?></td>
 																	<td><a target="_blank" href="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_received_indicator/<?php echo $c['mri_link']; ?>" style="width:20px;heigh:20px"></a></td>
-																	<td class="force-inline-text">
-																		<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-																			<button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $mri_id; ?>">حذف</button>
-																		</form>
-																	</td>
 																</tr>
 																<?php
+																$k = 0;
 																	$roww++;
 																}
 															}
-															} else {
-														?>
-														<tr>
-															<td colspan="9">داده ای موجود نیست!</td>
-														</tr>
-														<?php
+														} 
+														if($k == 1) {
+															?>
+															<tr>
+																<td colspan="9">داده ای موجود نیست!</td>
+															</tr>
+															<?php
 														}
 													?>
 												</tbody>
@@ -653,7 +650,6 @@ class Cartable{
 														<th>ردیف</th>
 														<th>تاریخ آپلود فایل</th>
 														<th>لینک فایل</th>
-														<th>عملیات</th>
 													</tr>
 													
 												</tfoot>

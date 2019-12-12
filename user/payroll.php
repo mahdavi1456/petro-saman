@@ -1,4 +1,9 @@
-<?php include"../header.php"; include"../nav.php"; ?>
+<?php include"../header.php"; include"../nav.php"; 
+$u_id = $_SESSION['user_id'];
+$user = new user();
+$u_level = $user->get_current_user_level();
+$u_pcode1 = get_var_query("SELECT u_pcode FROM user WHERE u_id = $u_id");
+?>
 	<div class="content-wrapper">
 		
 		<?php breadcrumb("فیش حقوق"); ?>
@@ -9,8 +14,16 @@
 					<div class="row">
 						<div class="item col-md-4">
 							<div class="margin-tb input-group-prepend">
-								<span class="input-group-text">شماره پرسنل</span>
-								<input type="text" name="pcode" placeholder="شماره پرسنل" value="<?php if(isset($_GET['pcode'])){ echo $_GET['pcode']; } ?>" class="form-control">
+								<span class="input-group-text">شماره پرسنل </span><span class="necessary">*</span>
+								<?php 
+								if($u_level == "مدیریت" || $u_level == "امور مالی") { ?>
+									<input type="text" name="pcode" placeholder="شماره پرسنل" value="<?php if(isset($_GET['pcode'])){ echo $_GET['pcode']; } ?>" class="form-control" required>
+									<?php
+								} 
+								else { ?>
+									<input type="text" name="pcode" placeholder="شماره پرسنل" value="<?php  echo $u_pcode1; ?>" class="form-control" readonly>
+									<?php
+								} ?>
 							</div>
 						</div>
 						<div class="item col-md-4">

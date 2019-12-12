@@ -44,7 +44,7 @@
 					<form action="" method="post" id="daily-form">
 						<div class="row">
 							<div class="item col-md-3">
-								<label>نوع مرخصی</label>
+								<label>نوع مرخصی</label><span class="necessary"> *</span>
 								<select name="r_type" class="form-control">
 									<option value="استحقاقی">استحقاقی</option>
 									<option value="استعلاجی">استعلاجی</option>
@@ -52,7 +52,7 @@
 								</select>
 							</div>
 							<div class="item col-md-3">
-								<label>درخواست دهنده</label>
+								<label>درخواست دهنده</label><span class="necessary"> *</span>
 								<select name="u_id" class="form-control select2">
 									<?php
 									if(count($person_select) > 0) {
@@ -65,16 +65,16 @@
 								</select>
 							</div>
 							<div class="item col-md-2">
-								<label>از تاریخ</label>
-								<input type="text" name="r_fromdate" placeholder="از تاریخ" class="date_picker form-control" autocomplete="off">
+								<label>از تاریخ</label><span class="necessary"> *</span>
+								<input type="text" name="r_fromdate" placeholder="از تاریخ" class="date_picker form-control" autocomplete="off" required>
 							</div>
 							<div class="item col-md-2">
-								<label>تا تاریخ</label>
-								<input type="text" name="r_todate" placeholder="تا تاریخ" class="date_picker form-control" autocomplete="off">
+								<label>تا تاریخ</label><span class="necessary"> *</span>
+								<input type="text" name="r_todate" placeholder="تا تاریخ" class="date_picker form-control" autocomplete="off" required>
 							</div>
 							<div class="item col-md-2">
-								<label>به مدت</label>
-								<input type="text" name="r_total" placeholder="به مدت" class="form-control">
+								<label>به مدت</label><span class="necessary"> *</span>
+								<input type="text" name="r_total" placeholder="به مدت" class="form-control" required>
 							</div>
 						</div>
 						<div class="row">
@@ -97,13 +97,13 @@
 					<form action="" method="post" id="hourly-form" style="display: none">
 						<div class="row">
 							<div class="item col-md-2">
-								<label>نوع مرخصی</label>
+								<label>نوع مرخصی</label><span class="necessary"> *</span>
 								<select name="r_type" class="form-control">
 									<option value="ساعتی">ساعتی</option>
 								</select>
 							</div>
 							<div class="item col-md-2">
-								<label>درخواست دهنده</label>
+								<label>درخواست دهنده</label><span class="necessary"> *</span>
 								<select name="u_id" class="form-control select2">
 									<?php
 									if(count($person_select) > 0) {
@@ -116,20 +116,20 @@
 								</select>
 							</div>
 							<div class="item col-md-2">
-								<label>تاریخ</label>
-								<input type="text" name="r_date" placeholder="تاریخ" class="date_picker form-control" autocomplete="off"  value="<?php echo jdate('Y/n/j'); ?>">
+								<label>تاریخ</label><span class="necessary"> *</span>
+								<input type="text" name="r_date" placeholder="تاریخ" class="date_picker form-control" autocomplete="off"  value="<?php echo jdate('Y/n/j'); ?>" required>
 							</div>
 							<div class="item col-md-2">
-								<label>از ساعت</label>
-								<input type="time" name="r_fromtime" placeholder="از ساعت" class="form-control" autocomplete="off">
+								<label>از ساعت</label><span class="necessary"> *</span>
+								<input type="time" name="r_fromtime" placeholder="از ساعت" class="form-control" autocomplete="off" required>
 							</div>
 							<div class="item col-md-2">
-								<label>تا ساعت</label>
-								<input type="time" name="r_totime" placeholder="تا ساعت" class="form-control" autocomplete="off">
+								<label>تا ساعت</label><span class="necessary"> *</span>
+								<input type="time" name="r_totime" placeholder="تا ساعت" class="form-control" autocomplete="off" required>
 							</div>
 							<div class="item col-md-2">
-								<label>به مدت</label>
-								<input type="time" name="r_total" placeholder="به مدت" class="form-control">
+								<label>به مدت</label><span class="necessary"> *</span>
+								<input type="time" name="r_total" placeholder="به مدت" class="form-control" required>
 							</div>
 						</div>
 						<div class="row">

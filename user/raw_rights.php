@@ -666,8 +666,10 @@
 											</form>
 										</td>
 						  			</tr>
-						  		<?php $row++; ?>
-								<?php } }else{ ?>
+						  			<?php $row++; ?>
+									<?php 
+								} 
+								}else{ ?>
 									<td colspan="12">داده ای موجود نیست...</td>
 								<?php } ?>
 								</tbody>

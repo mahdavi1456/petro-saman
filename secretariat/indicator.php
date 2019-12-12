@@ -23,19 +23,19 @@
 	}
 
 	if(isset($_POST['add-sender_indicator'])) {
-		$si_receiver = $_POST['si_receiver'];
-		$si_send_date = $_POST['si_send_date'];
-		$si_description = $_POST['si_description'];
-		$si_details = $_POST['si_details'];
-		$sql="insert into sender_indicator (si_receiver, si_send_date, si_description, si_details) values ('$si_receiver', '$si_send_date', '$si_description', '$si_details')";
-		ex_query($sql);	
-		?>
-		<script>
-			alertify.set('notifier','position', 'bottom-right');
-			alertify.success('مورد با موفقیت ثبت شد');
-		</script>
-		<?php
-		echo "<meta http-equiv='refresh' content='2'>";
+			$si_receiver = $_POST['si_receiver'];
+			$si_send_date = $_POST['si_send_date'];
+			$si_description = $_POST['si_description'];
+			$si_details = $_POST['si_details'];
+			$sql="insert into sender_indicator (si_receiver, si_send_date, si_description, si_details) values ('$si_receiver', '$si_send_date', '$si_description', '$si_details')";
+			ex_query($sql);	
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+				alertify.success('مورد با موفقیت ثبت شد');
+			</script>
+			<?php
+			echo "<meta http-equiv='refresh' content='2'>";
 	} ?>
 	<section class="content">
 		<form action="" method="get">
@@ -71,16 +71,16 @@
 						<div class="row">
 							<div class="item col-md-6 col-xs-12">
 								<div class="margin-tb input-group-prepend">
-									<span class="input-group-text">گیرنده نامه</span>
+									<span class="input-group-text">گیرنده نامه </span><span class="necessary">*</span>
 								</div>
-								<input type="text" name="si_receiver" id="si_receiver" placeholder="گیرنده نامه" class="form-control">
+								<input type="text" name="si_receiver" id="si_receiver" placeholder="گیرنده نامه" class="form-control" required>
 							</div>
 							
 							<div class="item col-md-6 col-xs-12">
 								<div class="input-group-prepend">
-									<span class="input-group-text">تاریخ ارسال نامه</span>
+									<span class="input-group-text">تاریخ ارسال نامه </span><span class="necessary">*</span>
 								</div>
-								<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ ارسال نامه" id="si_send_date" name="si_send_date" value="<?php echo jdate('Y/n/j'); ?>">
+								<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ ارسال نامه" id="si_send_date" name="si_send_date" value="<?php echo jdate('Y/n/j'); ?>" required>
 							</div>
 							<div class="item col-md-12">
 								<div class="margin-tb input-group-prepend">
@@ -115,21 +115,21 @@
 						<div class="row">
 							<div  class="item col-md-4 col-xs-12">
 								<div class="margin-tb input-group-prepend">
-									<span class="input-group-text">شماره نامه دریافتی</span>
+									<span class="input-group-text">شماره نامه دریافتی </span><span class="necessary">*</span>
 								</div>
-								<input type="text" name="ri_number" id="ri_number" placeholder="شماره نامه دریافتی" class="form-control">
+								<input type="text" name="ri_number" id="ri_number" placeholder="شماره نامه دریافتی" class="form-control" required>
 							</div>
 							<div class="item col-md-4 col-xs-12">
 								<div class="input-group-prepend">
-									<span class="input-group-text">تاریخ نامه دریافتی</span>
+									<span class="input-group-text">تاریخ نامه دریافتی </span><span class="necessary">*</span>
 								</div>
-								<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ نامه دریافتی" id="ri_reg_date" name="ri_reg_date">
+								<input type="text" autocomplete="off" class="form-control datepickerClass" placeholder="تاریخ نامه دریافتی" id="ri_reg_date" name="ri_reg_date" required>
 							</div>
 							<div class="item col-md-4 col-xs-12">
 								<div class="margin-tb input-group-prepend">
-									<span class="input-group-text">فرستنده نامه</span>
+									<span class="input-group-text">فرستنده نامه </span><span class="necessary">*</span>
 								</div>
-								<input type="text" name="ri_sender" id="ri_sender" placeholder="فرستنده نامه" class="form-control">
+								<input type="text" name="ri_sender" id="ri_sender" placeholder="فرستنده نامه" class="form-control" required>
 							</div>
 							
 							<div class="item col-md-4 col-xs-12">

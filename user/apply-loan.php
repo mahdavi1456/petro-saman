@@ -56,13 +56,13 @@
                         <div class="row">
                             <div class="item col-md-6">
                                 <div class="margin-tb input-group-prepend">
-                                    <span class="input-group-text">تاریخ درخواست</span>
+                                    <span class="input-group-text">تاریخ درخواست </span><span class="necessary">*</span>
                                 </div>
-                                <input name="al_date" id="al_date" type="text" autocomplete="off" class="form-control datepickerClass" >
+                                <input name="al_date" id="al_date" type="text" autocomplete="off" class="form-control datepickerClass" value="<?php echo jdate('Y/n/j'); ?>" required>
                             </div>
                             <div class="item col-md-6">
                                 <div class="margin-tb input-group-prepend">
-                                    <span class="input-group-text">مبلغ درخواست (ریال)</span>
+                                    <span class="input-group-text">مبلغ درخواست (ریال) </span><span class="necessary">*</span>
                                 </div>
                                 <input id="al_amount" type="text" name="al_amount" onkeyup="javascript:FormatNumber('al_amount','al_amount2'); calculate()" placeholder="مبلغ درخواست" class="form-control" autocomplete="off" required>
 								<input id="al_amount2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />

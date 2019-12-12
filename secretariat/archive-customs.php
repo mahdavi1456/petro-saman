@@ -146,16 +146,16 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="item col-md-6">
-                                                                    <label for="c_id">نام شرکت</label>
-                                                                    <input type="text" name="lc_company" id="lc_company" placeholder="نام شرکت" class="form-control" value="<?php echo  $a['lc_company']; ?>">
+                                                                    <label for="c_id">نام شرکت</label><span class="necessary"> *</span>
+                                                                    <input type="text" name="lc_company" id="lc_company" placeholder="نام شرکت" class="form-control" value="<?php echo  $a['lc_company']; ?>" required>
                                                                 </div>
                                                                 <div class="item col-md-6">
-                                                                    <label for="lc_code">کد رهگیری</label>
-                                                                    <input type="text" name="lc_code" id="lc_code" placeholder="کد رهگیری" class="form-control" value="<?php echo $a['lc_code']; ?>" >
+                                                                    <label for="lc_code">کد رهگیری</label><span class="necessary"> *</span>
+                                                                    <input type="text" name="lc_code" id="lc_code" placeholder="کد رهگیری" class="form-control" value="<?php echo $a['lc_code']; ?>" required>
                                                                 </div>
                                                                 <div class="item col-md-6">
-                                                                    <label for="fb_id">شماره فاکتور</label>
-                                                                    <input type="text" name="fb_id" id="fb_id" placeholder="شماره فاکتور" class="form-control" value="<?php echo $a['fb_id']; ?>" >
+                                                                    <label for="fb_id">شماره فاکتور</label><span class="necessary"> *</span>
+                                                                    <input type="text" name="fb_id" id="fb_id" placeholder="شماره فاکتور" class="form-control" value="<?php echo $a['fb_id']; ?>" required>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -191,12 +191,12 @@
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="item col-md-8">
-                                                                    <label for="cm_name">انتخاب سند</label>
+                                                                    <label for="cm_name">انتخاب سند</label><span class="necessary"> *</span>
                                                                     <input type="file" name="uploader1[]" multiple/>
                                                                 </div>
                                                                 <div class="item col-md-4">
-                                                                    <label for="cm_name">عنوان سند</label>
-                                                                    <input type="text" name="cm_name" id="cm_name" placeholder="عنوان سند" class="form-control" >
+                                                                    <label for="cm_name">عنوان سند</label><span class="necessary"> *</span>
+                                                                    <input type="text" name="cm_name" id="cm_name" placeholder="عنوان سند" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -212,6 +212,7 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         <?php
+                                                                            $k = 1 ;
                                                                             $roww=1;
                                                                             if($media)
                                                                             {
@@ -222,28 +223,30 @@
                                                                                     $cm_id = $c['cm_id'];
                                                                                     if($lc_id==$llc_id)
                                                                                     {
-                                                                                    ?>
-                                                                                    <tr>
-                                                                                        <td><?php echo per_number($roww); ?></td>
-                                                                                        <td><?php echo per_number($c['cm_name']); ?></td>
-                                                                                        <td><?php echo per_number(str_replace("-", "/", $c['cm_date'])); ?></td>
-                                                                                        <td><a target="_blank" href="<?php get_url(); ?>uploads/customs_media/<?php echo $c['cm_link']; ?>" ><img src="<?php get_url(); ?>uploads/customs_media/<?php echo $c['cm_link']; ?>" style="width:20px;heigh:20px"></a></td>
-                                                                                        <td class="force-inline-text">
-                                                                                            <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-                                                                                                <button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $cm_id; ?>">حذف</button>
-                                                                                            </form>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <?php
+                                                                                        ?>
+                                                                                        <tr>
+                                                                                            <td><?php echo per_number($roww); ?></td>
+                                                                                            <td><?php echo per_number($c['cm_name']); ?></td>
+                                                                                            <td><?php echo per_number(str_replace("-", "/", $c['cm_date'])); ?></td>
+                                                                                            <td><a target="_blank" href="<?php get_url(); ?>uploads/customs_media/<?php echo $c['cm_link']; ?>" ><img src="<?php get_url(); ?>uploads/customs_media/<?php echo $c['cm_link']; ?>" style="width:20px;heigh:20px"></a></td>
+                                                                                            <td class="force-inline-text">
+                                                                                                <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+                                                                                                    <button class="btn btn-danger btn-sm" type="submit" name="delete-media" value="<?php echo $cm_id; ?>">حذف</button>
+                                                                                                </form>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <?php
+                                                                                        $k = 0 ;
                                                                                         $roww++;
                                                                                     }
                                                                                 }
-                                                                                } else {
-                                                                            ?>
-                                                                            <tr>
-                                                                                <td colspan="9">داده ای موجود نیست!</td>
-                                                                            </tr>
-                                                                            <?php
+                                                                            } 
+                                                                            if( $k == 1 ) {
+                                                                                ?>
+                                                                                <tr>
+                                                                                    <td colspan="9">داده ای موجود نیست!</td>
+                                                                                </tr>
+                                                                                <?php
                                                                             }
                                                                         ?>
                                                                     </tbody>

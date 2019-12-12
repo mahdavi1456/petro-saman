@@ -226,12 +226,12 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="item col-md-8">
-                                        <label for="uploader1[]">انتخاب پیوست</label>
+                                        <label for="uploader1[]">انتخاب پیوست</label><span class="necessary"> *</span>
                                         <input type="file" name="uploader1[]" multiple/>
                                     </div>
                                     <div class="item col-md-4">
-                                        <label for="msi_name">عنوان پیوست</label>
-                                        <input type="text" name="msi_name" id="msi_name" placeholder="عنوان پیوست" class="form-control" >
+                                        <label for="msi_name">عنوان پیوست</label><span class="necessary"> *</span>
+                                        <input type="text" name="msi_name" id="msi_name" placeholder="عنوان پیوست" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -248,6 +248,7 @@
                                         <tbody>
                                             <?php
                                                 $roww=1;
+                                                $k = 1 ;
                                                 if($media_sender)
                                                 {
                                                     
@@ -257,28 +258,30 @@
                                                         $msi_id = $c['msi_id'];
                                                         if($si_id==$ssi_id)
                                                         {
-                                                        ?>
-                                                        <tr>
-                                                            <td><?php echo per_number($roww); ?></td>
-                                                            <td><?php echo per_number($c['msi_name']); ?></td>
-                                                            <td><?php echo per_number(str_replace("-", "/", $c['msi_date'])); ?></td>
-                                                            <td><a target="_blank" href="<?php get_url(); ?>uploads/media_sender_indicator/<?php echo $c['msi_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_sender_indicator/<?php echo $c['msi_link']; ?>" style="width:20px;heigh:20px"></a></td>
-                                                            <td class="force-inline-text">
-                                                                <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-                                                                    <button class="btn btn-danger btn-sm" type="submit" name="delete-media_sender" value="<?php echo $msi_id; ?>">حذف</button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo per_number($roww); ?></td>
+                                                                <td><?php echo per_number($c['msi_name']); ?></td>
+                                                                <td><?php echo per_number(str_replace("-", "/", $c['msi_date'])); ?></td>
+                                                                <td><a target="_blank" href="<?php get_url(); ?>uploads/media_sender_indicator/<?php echo $c['msi_link']; ?>" ><img src="<?php get_url(); ?>uploads/media_sender_indicator/<?php echo $c['msi_link']; ?>" style="width:20px;heigh:20px"></a></td>
+                                                                <td class="force-inline-text">
+                                                                    <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
+                                                                        <button class="btn btn-danger btn-sm" type="submit" name="delete-media_sender" value="<?php echo $msi_id; ?>">حذف</button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+                                                            <?php
                                                             $roww++;
+                                                            $k = 0;
                                                         }
                                                     }
-                                                    } else {
-                                                ?>
-                                                <tr>
-                                                    <td colspan="9">داده ای موجود نیست!</td>
-                                                </tr>
-                                                <?php
+                                                }
+                                                if($k == 1) {
+                                                    ?>
+                                                    <tr>
+                                                        <td colspan="9">داده ای موجود نیست!</td>
+                                                    </tr>
+                                                    <?php
                                                 }
                                             ?>
                                         </tbody>
