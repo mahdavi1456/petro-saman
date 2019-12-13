@@ -11,7 +11,7 @@
 	
 	<section class="content pd-btm">
 		<section class="box box-info">
-			<div class="box-header">
+			<div class="box-header with-border">
 				<h3 class="box-title">دسته بندی قطعات</h3>
 			</div>
 			<div class="box-header with-border">
@@ -19,15 +19,15 @@
 					<form action="" method="post">
 						<div id="details" class="col-xs-12 no-padd">
 							<div class="row">
-								<div class="item col-xs-9">
+								<div class="item col-xs-6">
 									<div class="margin-tb input-group-prepend">
-										<span class="input-group-text">نام دسته بندی</span>
+										<span class="input-group-text">نام دسته بندی </span><span class="necessary">*</span>
 									</div>
-									<input id="cat_name" type="text" name="cat_name" placeholder="نام دسته بندی" class="form-control">
+									<input id="cat_name" type="text" name="cat_name" placeholder="نام دسته بندی" class="form-control" required>
 								</div><br>
 								<br>
-								<div class="col-xs-3 text-left">
-									<button type="submit" class="btn btn-success w-100" id="cat_submit" name="add-tools_cat">اضافه کردن</button>
+								<div class="col-md-2 text-right">
+									<button type="submit" class="btn btn-success" id="cat_submit" style="width:100%;"  name="add-tools_cat">اضافه کردن</button>
 								</div>
 							</div>
 						</div>
@@ -41,7 +41,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
-					<div class="box-header">
+					<div class="box-header with-border">
 						<h3 class="box-title">لیست دسته بندی قطعات</h3>
 					</div>
 					<div class="box-body">
@@ -79,11 +79,19 @@
                                                                     <h4 class="modal-title">ویرایش دسته بندی</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <?php echo $a['tc_id']; ?>
-                                                                    <div class="row">
-                                                                        <div class="item col-xs-12">
-                                                                            <input type="text" name="cat_name" value="<?php echo $a['cat_name']; ?>" class="form-control">
-                                                                        </div>
+																	<div class="row">
+																		<div  class="item col-md-6 col-xs-12">
+																			<div class="margin-tb input-group-prepend">
+																				<span class="input-group-text">کد دسته بندی</span>
+																			</div>
+																			<input type="text" class="form-control" value="<?php echo per_number($a['tc_id']); ?>" readonly>
+																		</div>
+																		<div  class="item col-md-6 col-xs-12">
+																			<div class="margin-tb input-group-prepend">
+																				<span class="input-group-text">نام دسته بندی </span><span class="necessary">*</span>
+																			</div>
+																			<input type="text" name="cat_name" id="cat_name" placeholder="نام دسته بندی" class="form-control" value="<?php echo $a['cat_name']; ?>" required>
+																		</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">

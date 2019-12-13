@@ -27,7 +27,7 @@
     if($us_type == "امانتی"){ breadcrumb("قطعات امانتی"); }?>
 	<section class="content pd-btm">
 		<section class="box box-info">
-            <div class="box-header">
+            <div class="box-header with-border">
 				<h3 class="box-title">ثبت قطعه <?php echo $us_type; ?></h3>
 			</div>
 			<div class="box-body pd-btm pd-top">
@@ -35,7 +35,7 @@
 					<div id="details" class="col-xs-12 no-padd">
 						<div class="row">
 							<div class="item col-md-6">
-								<label>نام قطعه</label>
+								<label>نام قطعه</label><span class="necessary"> *</span>
 								<select class="form-control select2" id="t_id" name="t_id">
                                     <?php
                                     $res_st = get_select_query("select * from tools");
@@ -49,19 +49,19 @@
 								</select>
 							</div>
 							<div class="item col-md-6">
-								<label>تاریخ خروج قطعه</label>
-                                <input id="f_date" autocomplete="off" type="text" name="us_date" placeholder="تاریخ خروج قطعه" class="form-control" value="<?php echo jdate('Y/n/d'); ?>">
+								<label>تاریخ خروج</label><span class="necessary"> *</span>
+                                <input id="f_date" autocomplete="off" type="text" name="us_date" placeholder="تاریخ خروج" class="form-control" value="<?php echo jdate('Y/n/d'); ?>" required>
 							</div>
                             <div class="item col-md-6">
-								<label>تعداد / مقدار خروجی</label>
-								<input id="us_quantity" type="text" name="us_quantity" placeholder="تعداد / مقدار خروجی" class="form-control">
+								<label>مقدار</label><span class="necessary"> *</span>
+								<input id="us_quantity" type="text" name="us_quantity" placeholder="مقدار" class="form-control" required>
 							</div>
                             <div class="item col-md-6">
 								<label>توضیحات</label>
 								<input id="us_details" type="text" name="us_details" placeholder="توضیحات" class="form-control">
 							</div><br>
 							<div class="item col-md-2 text-left">
-								<input type="submit" class="btn btn-success" name="add-usage_tools" value="اضافه کردن">
+								<input type="submit" class="btn btn-success" name="add-usage_tools" style="width:100%;" value="اضافه کردن">
 							</div>
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
-					<div class="box-header">
+					<div class="box-header with-border">
 						<h3 class="box-title">لیست قطعات <?php echo $us_type; ?></h3>
 					</div>
 					<div class="box-body">
@@ -87,8 +87,8 @@
 									<th>نام قطعه</th>
 									<th>کاربر</th>
 									<th>توضیحات</th>
-                                    <th>خروج</th>
-                                    <th>تعداد / مقدار</th>
+                                    <th>تاریخ خروج</th>
+                                    <th>مقدار</th>
                                     <th>بازگشت</th>
 									<th>عملیات</th>
 								</tr>
@@ -307,8 +307,8 @@
                                     <th>نام قطعه</th>
                                     <th>کاربر</th>
                                     <th>توضیحات</th>
-                                    <th>خروج</th>
-                                    <th>تعداد / مقدار</th>
+                                    <th>تاریخ خروج</th>
+                                    <th>مقدار</th>
                                     <th>بازگشت</th>
                                     <th>عملیات</th>
                                 </tr>

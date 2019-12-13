@@ -6,7 +6,7 @@
 	<?php breadcrumb(); ?>
 	<section class="content pd-btm">
 		<section class="box box-info">
-			<div class="box-header">
+			<div class="box-header with-border">
 				<h3 class="box-title">ثبت قطعه جدید</h3>
 			</div>
 			<div class="box-body pd-btm pd-top">
@@ -15,7 +15,7 @@
 						<div class="row">
 							<div class="item col-md-3">
 								<div class="margin-tb input-group-prepend">
-									<span class="input-group-text">دسته بندی</span>
+									<span class="input-group-text">دسته بندی </span><span class="necessary">*</span>
 								</div>
 								<select class="form-control" id="tc_id" name="tc_id">
                                     <?php
@@ -32,13 +32,13 @@
 							</div>
 							<div class="item col-md-3">
 								<div class="margin-tb input-group-prepend">
-									<span class="input-group-text">نام قطعه</span>
+									<span class="input-group-text">نام قطعه </span><span class="necessary">*</span>
 								</div>
-								<input id="t_name" type="text" name="t_name" placeholder="نام قطعه" class="form-control">
+								<input id="t_name" type="text" name="t_name" placeholder="نام قطعه" class="form-control" required>
 							</div>
 							<div class="item col-md-3">
 								<div class="margin-tb input-group-prepend">
-									<span class="input-group-text">واحد قطعه</span>
+									<span class="input-group-text">واحد قطعه </span><span class="necessary">*</span>
 								</div>
 								<select name="t_unit" class="form-control">
 									<option value="متر">متر</option>
@@ -48,7 +48,7 @@
 							</div>
                             <div class="item col-md-3">
 								<div class="margin-tb input-group-prepend">
-									<span class="input-group-text">موجودی اولیه</span>
+									<span class="input-group-text">موجودی اولیه </span><span class="necessary">*</span>
 								</div>
 								<input id="t_stock" type="text" name="t_stock" onkeyup="javascript:FormatNumber('t_stock','t_stock2'); calculate()" placeholder="موجودی اولیه" class="form-control" autocomplete="off" required>
 								<input id="t_stock2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
@@ -73,7 +73,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
-					<div class="box-header">
+					<div class="box-header with-border">
 						<h3 class="box-title">مدیریت قطعات</h3>
 					</div>
 					<div class="box-body">
@@ -95,7 +95,6 @@
 								if(isset($_POST['update-tools'])) {
 									$t_id = $_POST['update-tools'];
 									$aru->update('tools',$_POST,'t_id', $t_id);
-									echo "<meta http-equiv='refresh' content='0'/>";
                                 }
                                 if(count($asb) >0){
                                     foreach($asb as $a) { 
@@ -122,7 +121,7 @@
                                                                 <div class="row">
                                                                     <div class="item col-md-4 col-lg-4 col-sm-4 col-xs-4">
                                                                         <div class="margin-tb input-group-prepend">
-                                                                            <span class="input-group-text">دسته بندی</span>
+                                                                            <span class="input-group-text">دسته بندی </span><span class="necessary">*</span>
                                                                         </div>
                                                                         <select name="tc_id" class="form-control">
                                                                             <?php
@@ -138,13 +137,13 @@
                                                                     </div>
                                                                     <div class="item col-md-4">
                                                                         <div class="margin-tb input-group-prepend">
-                                                                            <span class="input-group-text">نام قطعه</span>
+                                                                            <span class="input-group-text">نام قطعه </span><span class="necessary">*</span>
                                                                         </div>
-                                                                        <input type="text" name="t_name" value="<?php echo $a['t_name']; ?>" class="form-control">
+                                                                        <input type="text" name="t_name" value="<?php echo $a['t_name']; ?>" class="form-control" required>
                                                                     </div>
                                                                     <div class="item col-md-4 col-lg-4 col-sm-4 col-xs-4">
                                                                         <div class="margin-tb input-group-prepend">
-                                                                            <span class="input-group-text">واحد قطعه</span>
+                                                                            <span class="input-group-text">واحد قطعه </span><span class="necessary">*</span>
                                                                         </div>
                                                                         <select name="t_unit" class="form-control">
                                                                             <option <?php if($a['t_unit'] == 'کیلوگرم') { echo 'selected';} ?> value="کیلوگرم">کیلوگرم</option>
