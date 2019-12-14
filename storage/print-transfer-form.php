@@ -1,12 +1,7 @@
 <?php include"../header.php"; include"../nav.php"; ?> 
 	<div class="content-wrapper">
-		<section class="content-header">
-			<ol class="breadcrumb">
-				<li><a href="<?php get_url(); ?>index.php"><i class="fa fa-dashboard"></i> خانه</a></li>
-				<li><a href="#">انبار</a></li>
-				<li class="active">چاپ فرم حواله خروج</li>
-			</ol>
-		</section>
+	<?php 	breadcrumb("" , "storage/landing.php"); ?>
+
 		<?php 
 		require_once"../customer/functions.php";
 		require_once"../product/functions.php";
@@ -14,11 +9,11 @@
 		$sql = "select * from bar_bring ba inner join factor_body fb on ba.fb_id = fb.fb_id inner join factor f on fb.f_id = f.f_id where ba.bar_id = $bar_id";
 		$res = get_select_query($sql);
 		?>
+	<section class="content">
 		<section class="content-header">
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">چاپ فرم حواله خروج</h1>
 					</div>
 				</div>
 			</div>
@@ -115,6 +110,7 @@
 			</div>
 		</section>
 		<div class="col-xs-2"></div>
+		</section>
 	</div>
 
 	<script>

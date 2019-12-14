@@ -3,7 +3,7 @@
 ?>
 
 <div class="content-wrapper">
-	<?php breadcrumb("ثبت حساب");
+	<?php breadcrumb("افزودن مشتری" , "customer/list-customer.php");
 		if(isset($_POST['add-customer'])) {				
 			$c_stamp = "";
 			$c_signaturep = "";

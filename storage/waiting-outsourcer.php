@@ -72,7 +72,7 @@ $user = new user();
 ?>
 <div class="content-wrapper">
 
-	<?php breadcrumb("لیست پیشنهادات خرید"); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 
 	<section class="content">
 		<div class="row">
@@ -111,7 +111,7 @@ $user = new user();
 									<td><?php echo per_number($row['fb_id']); ?></td>
 									<td><?php echo get_customer_name($row['c_id']); ?></td>
 									<td>
-										<a class="btn btn-primary btn-xs" href="reg-buy.php?f_id=<?php echo $f_id; ?>&c_id=<?php echo $row['c_id']; ?>&fb_id=<?php echo $fb_id; ?>">ویرایش</a>
+										<a class="btn btn-primary btn-xs" href="../buy/reg-buy.php?f_id=<?php echo $f_id; ?>&c_id=<?php echo $row['c_id']; ?>&fb_id=<?php echo $fb_id; ?>">ویرایش</a>
 									</td>
 									<td><?php echo per_number(number_format($row['fb_quantity'])); ?></td>
 									<td><?php echo per_number(number_format($bar_bring)); ?></td>

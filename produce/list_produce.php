@@ -8,10 +8,10 @@ $prc_type = $_GET['prc_type'];
 	<div class="content-wrapper">
 	
 		<?php 
-		if($prc_type == "کلسیناسیون") { breadcrumb("تولیدات کلسیناسیون"); }
-		if($prc_type == "گرانول سازی") { breadcrumb("تولیدات گرانول سازی"); }
-		if($prc_type == "خردایش") { breadcrumb("تولیدات خردایش"); }
-		if($prc_type == "سرند") { breadcrumb("تولیدات سرند"); }
+		if($prc_type == "کلسیناسیون") { breadcrumb("تولیدات کلسیناسیون" , "index.php"); }
+		if($prc_type == "گرانول سازی") { breadcrumb("تولیدات گرانول سازی" , "index.php"); }
+		if($prc_type == "خردایش") { breadcrumb("تولیدات خردایش" , "index.php"); }
+		if($prc_type == "سرند") { breadcrumb("تولیدات سرند" , "index.php"); }
 		
 		
 		?>

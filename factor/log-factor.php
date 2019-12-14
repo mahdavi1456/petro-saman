@@ -1,7 +1,7 @@
 <?php $title = 'تاریخچه فاکتور ها'; include"../header.php"; include"../nav.php";
 	$user = new user(); ?> 
 	<div class="content-wrapper">
-	<?php breadcrumb(); ?>
+	<?php breadcrumb("" , "factor/list-factor.php"); ?>
 		<section class="content">
 
 				<div class="col-xs-12 no-padd">

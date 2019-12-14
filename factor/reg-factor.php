@@ -29,7 +29,7 @@ if(isset($_GET['fb_id'])){
 ?>
 	<script type="text/javascript" src="<?php get_url(); ?>factor/js/factor.js"></script>
 		<div class="content-wrapper">	
-			<?php breadcrumb("پیشنهاد فروش"); ?>
+			<?php if($fd_id == ""){ breadcrumb("ثبت فاکتور فروش" , "index.php"); } else { breadcrumb("ویرایش فاکتور فروش" , "factor/list-factor.php"); } ?>
 			<section class="content">
 				<div class="row">
 					<div id="details" class="col-md-12">	

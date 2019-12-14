@@ -4,7 +4,7 @@
 	$c_account = $customer[0]['c_account'];
 ?>
 <div class="content-wrapper">
-	<?php breadcrumb(); ?>
+	<?php breadcrumb("" , "customer/list-customer.php"); ?>
 	<section class="content">
 		<div id="details-show" class="col-xs-12">
 			<div class="row">

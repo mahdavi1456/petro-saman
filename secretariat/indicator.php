@@ -16,7 +16,7 @@
 ?>
 
 <div class="content-wrapper">
-	<?php breadcrumb("مکاتبات");
+	<?php breadcrumb("ثبت نامه" , "index.php");
 
 	if(isset($_POST['add-received_indicator'])) {
 		$aru->add("received_indicator", $_POST);

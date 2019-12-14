@@ -72,7 +72,7 @@ $user = new user();
 ?>
 <div class="content-wrapper">
 
-	<?php breadcrumb("لیست پیشنهادات خرید"); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 
 	<section class="content">
 		<div class="row">

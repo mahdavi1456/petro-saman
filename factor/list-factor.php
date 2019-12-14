@@ -58,7 +58,7 @@
 ?>
 <div class="content-wrapper">
 
-	<?php breadcrumb("لیست پیشنهادات فروش"); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 
 	<section class="content">
 		<div class="row">

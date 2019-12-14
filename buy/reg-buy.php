@@ -1,11 +1,33 @@
 <?php $title = "فاکتور خرید"; include"../header.php"; include"../nav.php"; include"back.php"; $aru = new aru(); $sms = new sms();
-include"../secretariat/function.php";
+include"../archive/function.php";
 $u_id = $_SESSION['user_id'];
 $media = new media();
 $user = new user();
+if(isset($_GET['fb_id'])) {
+	$fb_id = $_GET['fb_id'];
+	$res4 = get_select_query("select * from factor_buy_body where fb_id = $fb_id");
+	if(count($res4) > 0){
+		$fb_quantity = $res4[0]['fb_quantity'];
+		$fb_price = $res4[0]['fb_price'];
+		$total_price = $res4[0]['total_price'];
+		$ma_id = $res4[0]['ma_id'];
+		$cat_id = $res4[0]['cat_id'];
+		$delivery_time = $res4[0]['delivery_time'];
+		$fd_id = $res4[0]['fd_id'];
+	}
+} else {
+	$fb_quantity = "";
+	$fb_price = "";
+	$total_price = "";
+	$ma_id = "";
+	$cat_id="";
+	$delivery_time = "";
+	$fd_id = "";
+	$fd_text = "";
+}
 ?>
 <div class="content-wrapper">
-	<?php breadcrumb("پیشنهاد خرید"); ?>
+	<?php if($fd_id == ""){ breadcrumb("ثبت فاکتور خرید" , "index.php"); } else { breadcrumb("ویرایش فاکتور خرید" , "buy/list-buy.php"); }  ?>
 	<section class="content">
 		<div class="row">
 			<div id="details" class="col-md-12">	
@@ -14,28 +36,6 @@ $user = new user();
 					<div class="box-body">
 					<?php
 					$u_level = $user->get_current_user_level();
-					if(isset($_GET['fb_id'])) {
-                		$fb_id = $_GET['fb_id'];
-						$res4 = get_select_query("select * from factor_buy_body where fb_id = $fb_id");
-						if(count($res4) > 0){
-                			$fb_quantity = $res4[0]['fb_quantity'];
-                			$fb_price = $res4[0]['fb_price'];
-                			$total_price = $res4[0]['total_price'];
-                			$ma_id = $res4[0]['ma_id'];
-							$cat_id = $res4[0]['cat_id'];
-							$delivery_time = $res4[0]['delivery_time'];
-							$fd_id = $res4[0]['fd_id'];
-						}
-            		} else {
-                		$fb_quantity = "";
-                		$fb_price = "";
-                		$total_price = "";
-		                $ma_id = "";
-						$cat_id="";
-						$delivery_time = "";
-						$fd_id = "";
-						$fd_text = "";
-		            }
 		            
 		            if(isset($_POST['update-factor_buy'])) {
 					   	$f_id = $_GET['f_id'];

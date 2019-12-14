@@ -9,7 +9,7 @@ $stock = new stock();
 
 <div class="content-wrapper">
 
-	<?php breadcrumb(); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 	
 	<section class="content pd-btm">
         <?php

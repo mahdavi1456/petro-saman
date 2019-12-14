@@ -135,7 +135,7 @@
     ?> 
 	<div class="content-wrapper">
 	
-        <?php breadcrumb(); ?>
+        <?php breadcrumb("" , "secretariat/archive-indicator.php?indicator_type=send"); ?>
 
 		<section class="content">
             <form action="" method="get">

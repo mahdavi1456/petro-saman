@@ -1,7 +1,7 @@
 <?php include"../header.php"; include"../nav.php"; $aru = new aru(); ?> 
 	<div class="content-wrapper">
 	
-		<?php breadcrumb(); ?>
+		<?php breadcrumb("" , "lab/list-analyze.php"); ?>
 
 		<section class="content">
 			<div id="analyze_report-print" class="a4">

@@ -13,7 +13,7 @@ function get_text_url($text2){
     case "category":
         return "دانه بندی";
 	case "list-category":
-        return "مدیریت دانه بندی";
+        return "مدیریت دانه بندی ها";
 	case "customer":
         return "مشتریان";	
 	case "list-customer":
@@ -45,7 +45,7 @@ function get_text_url($text2){
 	case "doc_type":
         return "نوع سند";
 	case "list_customs":
-        return "مرسولات";
+        return "ثبت مرسوله";
 	case "list_meeting":
         return "صورت جلسه";
 	case "list_rule":
@@ -56,16 +56,12 @@ function get_text_url($text2){
         return "موجودی مواد اولیه";
 	case "factor":
         return "فاکتور فروش";
-	case "reg-factor":
-        return "ثبت فاکتور فروش";
 	case "list-factor":
         return "لیست فاکتور فروش";
 	case "log-factor":
         return "گزارشات فاکتور فروش";
 	case "buy":
         return "فاکتور خرید";
-	case "reg-buy":
-        return "ثبت فاکتور خرید";
 	case "list-buy":
         return "لیست فاکتور خرید";
 	case "log-factor-buy":
@@ -82,6 +78,8 @@ function get_text_url($text2){
 		return "بارهای برون سپاری";
 	case "list-storage":
 		return "حواله خروج";
+	case "print-transfer-form":
+		return "چاپ فرم حواله خروج";
 	case "landing":
 		return "خروجی انبار";
 	case "bar-list";
@@ -95,7 +93,7 @@ function get_text_url($text2){
 	case "list-driver":
         return "مدیریت راننده ها";
 	case "edit-customer";
-		return "ویرایش کاربر";
+		return "ویرایش مشتری";
 	case "user";
 		return "کاربران";
 	case "payroll";
@@ -166,13 +164,15 @@ function get_text_url($text2){
 		return "تعریف سقف امتیازات";
 	case "header-loading";
 		return "بارگزاری سربرگ";
+	case "system";
+		return "سیستم";
 	case "Petrosaman";
 		return "پتروسامان";
     default:
         return "include-theme-breadcrumb.php";
 	}
 }
-function breadcrumb($name =""){ ?>
+function breadcrumb($name ="" , $link =""){ ?>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<ol class="breadcrumbb">
 			<li><a href="/">خانه</a></li>
@@ -180,7 +180,7 @@ function breadcrumb($name =""){ ?>
 				$crumbs = explode("/",$_SERVER["REQUEST_URI"]);
 				$count = count($crumbs);
 				$linkPath = get_the_url();
-				for($i=1;$i<$count;$i++){
+				for($i=2;$i<$count;$i++){
 					$word = str_replace(".php","",$crumbs[$i]);
 					$text = get_text_url($word);
 					if($text == "include-theme-breadcrumb.php"){ $text = $name; }
@@ -195,7 +195,7 @@ function breadcrumb($name =""){ ?>
 				}
 			?>
 			<a class="reload-btn" href="<?php echo $_SERVER["REQUEST_URI"]; ?>">بروز رسانی</a>
-			<a class="back-btn" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">بازگشت</a>
+			<a class="back-btn" href="<?php  echo get_url() . $link; ?>">بازگشت</a>
 		</ol>
 	</div>
 <?php

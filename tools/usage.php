@@ -23,8 +23,8 @@
     }
     ?>
 <div class="content-wrapper">
-    <?php if($us_type == "مصرفی"){ breadcrumb("قطعات مصرفی"); }
-    if($us_type == "امانتی"){ breadcrumb("قطعات امانتی"); }?>
+    <?php if($us_type == "مصرفی"){ breadcrumb("قطعات مصرفی"  , "index.php"); }
+    if($us_type == "امانتی"){ breadcrumb("قطعات امانتی"  , "index.php"); }?>
 	<section class="content pd-btm">
 		<section class="box box-info">
             <div class="box-header with-border">

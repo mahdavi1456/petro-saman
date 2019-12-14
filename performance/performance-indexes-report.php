@@ -1,6 +1,6 @@
 <?php $title = 'گزارش ارزیابی'; include"../header.php"; include"../nav.php"; ?> 
 <div class="content-wrapper">
-    <?php breadcrumb(); 
+    <?php breadcrumb("" , "index.php"); 
     $aru = new aru();
         ?>
 	<section class="content">

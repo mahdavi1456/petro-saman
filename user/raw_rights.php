@@ -3,7 +3,7 @@
 	?>
 	<div class="content-wrapper">
 	
-		<?php breadcrumb(); ?>
+		<?php breadcrumb("" , "user/list-user.php"); ?>
 
 		<section class="content">
 			<div class="row">

@@ -1,7 +1,7 @@
 <?php include"../header.php"; include"../nav.php"; $aru = new aru(); ?> 
 	<div class="content-wrapper">
 		<?php
-		breadcrumb();
+		breadcrumb("" , "lab/list-analyze.php");
 		if(isset($_GET['cycle']) && isset($_GET['cycle_id'])){
 			$analyze_form = 0;
 			$cycle = $_GET['cycle'];

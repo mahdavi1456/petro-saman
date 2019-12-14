@@ -5,7 +5,7 @@
 ?> 
 <div class="content-wrapper">
 	
-    <?php breadcrumb("بارگزاری سربرگ"); 
+    <?php breadcrumb("بارگزاری سربرگ" , "index.php"); 
     if(isset($_POST['update-header_loading'])) {
         $hl_id = $_POST['update-header_loading'];
         $hl_name =  $_POST['hl_name'];

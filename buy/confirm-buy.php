@@ -12,7 +12,7 @@ $media = new media();
 	if($type_confirm == 'fb_pre_invoice_scan') {
 		$echo_type = "تایید مسئول مالی بخش خرید";
 	}elseif($type_confirm == 'fb_verify_admin1') {
-		$echo_type = "تایید مدیر بخش خرید";
+		$echo_type = "تایید مدیر";
 	}elseif($type_confirm == 'fb_send_customer') {
 		$echo_type = "تایید مسول فروش";
 	}elseif($type_confirm == 'fb_verify_customer') {
@@ -20,10 +20,10 @@ $media = new media();
 	}elseif($type_confirm == 'fb_verify_docs') {
 		$echo_type = "تایید اسناد";
 	}elseif($type_confirm == 'fb_verify_finan') {
-		$echo_type = "تایید مالی بخش خرید";
+		$echo_type = "تایید مالی";
 	}
 
-	breadcrumb("تایید پیشنهاد خرید" . " (" . $echo_type . ")");
+	breadcrumb("تایید پیشنهاد خرید" . " (" . $echo_type . ")" , "buy/list-buy.php");
 
 	$fb_id = $_GET['fb_id'];
 	$type_confirm = $_GET['typee'];

@@ -7,7 +7,7 @@
 ?> 
 <div class="content-wrapper">
 	
-	<?php breadcrumb("شاخص ارزیابی"); ?>
+	<?php breadcrumb("شاخص ارزیابی" , "index.php"); ?>
 	
 	<section class="content pd-btm">
 		<section class="box box-info">

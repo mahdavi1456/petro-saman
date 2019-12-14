@@ -3,7 +3,7 @@ $user = new user();
 ?>
 <div class="content-wrapper">
 
-	<?php breadcrumb(); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 
 	<?php
 	$u_level = $user->get_current_user_level();

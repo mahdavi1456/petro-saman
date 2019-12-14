@@ -17,7 +17,7 @@
 	}
 	?>
 	<div class="content-wrapper">
-		<?php breadcrumb(); ?>
+		<?php breadcrumb("" , "index.php"); ?>
 		<section class="content">
 			<section class="box box-info">
 				<div class="box-header with-border">

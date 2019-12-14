@@ -1,6 +1,6 @@
 <?php $title = 'تاریخچه فاکتور ها'; include"../header.php"; include"../nav.php"; ?> 
 	<div class="content-wrapper">
-		<?php breadcrumb(); ?>
+		<?php breadcrumb("" , "buy/list-buy.php"); ?>
 		<section class="content">
 			<div class="row">
 				<div class="col-xs-12">

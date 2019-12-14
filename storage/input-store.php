@@ -86,7 +86,7 @@ $user = new user();
 	?>
 <div class="content-wrapper">
 
-<?php breadcrumb(); ?>
+<?php breadcrumb("" , "index.php"); ?>
 	<script type="text/javascript" src="<?php get_url(); ?>storage/js/storage.js"></script>
 	<section class="content">
 		<div class="row">

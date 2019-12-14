@@ -113,7 +113,7 @@
 	}
 ?>
 <div class="content-wrapper">
-	<?php breadcrumb("ویرایش مشتری"); ?>
+	<?php breadcrumb("" , "customer/show-customer.php?id=$c_id"); ?>
 	<form action="" method="post" enctype='multipart/form-data'>
 		<input class="hidden" type="text" id="c_id" name="c_id" value="<?php echo $c_id; ?>">
 		<section class="content">

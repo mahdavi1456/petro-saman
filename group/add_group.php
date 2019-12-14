@@ -6,7 +6,7 @@
 ?>
 <div class="content-wrapper">
 	
-	<?php breadcrumb("تعریف گروه"); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 	
 	<section class="content">
 		<section class="box box-info">

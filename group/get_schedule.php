@@ -1,7 +1,7 @@
 <?php include"../header.php"; include"../nav.php"; ?>
 	<div class="content-wrapper">
 
-		<?php breadcrumb("مشاهده گروه ها"); ?>
+		<?php breadcrumb("مشاهده گروه ها" , "index.php"); ?>
 
 		<section class="content">
 			<div id="details" class="col-xs-12">

@@ -3,7 +3,7 @@
 	$asb = $aru->get_list('storage_list','st_id');
 ?>
 <div class="content-wrapper">
-	<?php breadcrumb(); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 	<section class="content pd-btm">
 		<section class="box">
 			<div class="box-header with-border">

@@ -1,6 +1,6 @@
 <?php include"../header.php"; include"../nav.php"; $aru = new aru(); ?>
 	<div class="content-wrapper">
-		<?php breadcrumb("امتیازدهی"); ?>
+		<?php breadcrumb("امتیازدهی" , "index.php"); ?>
 
 		<section class="content">
 			<div id="details" class="col-xs-12 no-padd">

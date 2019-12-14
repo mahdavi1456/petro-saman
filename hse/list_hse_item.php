@@ -5,7 +5,7 @@
 <div class="content-wrapper">
 	
 	<?php
-		breadcrumb();
+		breadcrumb("" , "index.php");
 		if(isset($_POST['add-hse_item'])) {
 			$h_name = $_POST['h_name'];
 			$aru->add_if_not_exists("hse_item", $_POST, "h_name", $h_name, "string", "h_id");

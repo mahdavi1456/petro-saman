@@ -11,7 +11,7 @@
 	}
 	?>
 	<div class="content-wrapper">
-		<?php breadcrumb(); ?>
+		<?php breadcrumb("گزارش مرخصی ها" , "index.php"); ?>
 		<section class="content">
 			<div class="row">
 				<div class="col-xs-12">

@@ -6,7 +6,7 @@ $user = new user();
 <div class="content-wrapper">
 
 	<?php
-	breadcrumb();
+	breadcrumb("" , "index.php");
 	require_once"../product/functions.php";
 	if(isset($_POST['tl_submit'])) {
 		$user_id = $_SESSION['user_id'];

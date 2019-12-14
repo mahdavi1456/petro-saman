@@ -9,7 +9,7 @@
 ?>
 <div class="content-wrapper">
 	
-    <?php breadcrumb();
+    <?php breadcrumb("بایگانی مرسولات" , "index.php");
     
         if(isset($_POST['update-list_customs'])) {
             $lc_id = $_POST['update-list_customs'];
@@ -95,7 +95,7 @@
 	<section class="content pd-btm">
         <section class="box box-info">
 			<div class="box-header with-border">
-                <h3 class="box-title">لیست مرسولات</h3>
+                <h3 class="box-title">بایگانی مرسولات</h3>
             </div>
             <div class="box-body">
                 <table id="example1" class="table table-striped table-bordered table-responsive group_save_table">

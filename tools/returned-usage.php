@@ -2,7 +2,7 @@
     $title = 'گزارش قطعات بازگشتی'; include"../header.php"; include"../nav.php";
 	include"functions.php"; ?> 
 	<div class="content-wrapper">
-	<?php breadcrumb(); ?>
+	<?php breadcrumb("" , "index.php"); ?>
 		<section class="content">
 
 				<div class="col-xs-12 no-padd">

@@ -6,7 +6,7 @@ $u_pcode1 = get_var_query("SELECT u_pcode FROM user WHERE u_id = $u_id");
 ?>
 	<div class="content-wrapper">
 		
-		<?php breadcrumb("فیش حقوق"); ?>
+		<?php breadcrumb("فیش حقوق" , "index.php"); ?>
 		
 		<section class="content">
 			<div id="details" class="col-xs-12">	

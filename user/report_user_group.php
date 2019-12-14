@@ -4,24 +4,13 @@
 	$asb = $aru->list_by_type('group_log', 'u_id', $u_id , 'int', 'gl_id');
 	?>
 	<div class="content-wrapper">
-		<section class="content-header">
-			<ol class="breadcrumb">
-				<li><a href="<?php get_url(); ?>index.php"><i class="fa fa-dashboard"></i> خانه</a></li>
-				<li><a href="#">کاربران</a></li>
-				<li class="active">لیست کاربران</li>
-			</ol>
-		</section>
-
-		<section class="content-header">
-			<h1>گزارشات گروه</h1>
-		</section>
-
+	<?php breadcrumb("" , "user/list-user.php"); ?>	
 		<section class="content">
 			<div class="row">
 				<div class="col-xs-12">
 			  		<div class="box">
 						<div class="box-header">
-				  			<h3 class="box-title">لیست کاربران</h3>
+				  			<h3 class="box-title">گزارشات گروه</h3>
 						</div>
 						<div class="box-body">
 				  			<table id="example1" class="table table-bordered table-striped">

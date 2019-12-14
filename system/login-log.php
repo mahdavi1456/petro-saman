@@ -1,6 +1,6 @@
 <?php include"../header.php"; include"../nav.php"; ?>
 <div class="content-wrapper">
-	<?php breadcrumb("سوابق ورود"); ?>
+	<?php breadcrumb("سوابق ورود" , "index.php"); ?>
 	<section class="content">
 		<div class="row">
 			<div class="col-xs-12">

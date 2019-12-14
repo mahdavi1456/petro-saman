@@ -22,7 +22,7 @@ $media = new media();
 		$echo_type = "تایید مالی";
 	}
 
-	breadcrumb("تایید پیشنهاد فروش" . " (" . $echo_type . ")");
+	breadcrumb("تایید پیشنهاد فروش" . " (" . $echo_type . ")"  , "factor/list-factor.php");
 
 	$fb_id = $_GET['fb_id'];
 	$type_confirm = $_GET['typee'];
