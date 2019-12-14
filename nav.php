@@ -192,12 +192,12 @@
 					<?php 
 				} 
 				if($u_level == "مدیریت" || $u_level == "منابع انسانی" || $u_level == "دبیرخانه"){?>
-					<li class="<?php check_active('doc_type.php'); check_active('list_meeting.php'); check_active('list_rule.php'); ?> treeview">
+					<li class="<?php check_active('doc_type.php'); check_active('doc-loading.php'); check_active('view-doc.php'); ?> treeview">
 						<a href="#"><i class="fa fa-folder-open"></i><span>بایگانی</span></a>
 						<ul class="treeview-menu">
 							<li class="<?php check_active('doc_type.php'); ?>"><a href="<?php get_url(); ?>archive/doc_type.php"><i class="fa fa-circle-o"></i>نوع سند</a></li>
-							<li class="<?php check_active('list_meeting.php'); ?>"><a href="<?php get_url(); ?>archive/list_meeting.php"><i class="fa fa-circle-o"></i>صورت جلسه</a></li>
-							<li class="<?php check_active('list_rule.php'); ?>"><a href="<?php get_url(); ?>archive/list_rule.php"><i class="fa fa-circle-o"></i>اساس نامه</a></li>
+							<li class="<?php check_active('doc-loading.php'); ?>"><a href="<?php get_url(); ?>archive/doc-loading.php"><i class="fa fa-circle-o"></i>بارگزاری سند</a></li>
+							<li class="<?php check_active('view-doc.php'); ?>"><a href="<?php get_url(); ?>archive/view-doc.php"><i class="fa fa-circle-o"></i>مشاهده بایگانی اسناد</a></li>
 						</ul>
 					</li>
 					<?php 

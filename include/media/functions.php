@@ -327,3 +327,134 @@ function get_pre_invoice_file($f_id){
 		}
 	}
 }
+
+	function uploader_by_date($date,$file)
+	{
+		$uploadOk = 1;
+		$array=explode("/",$date);
+		$year=$array[0];
+		$month=$array[1];
+		$tmp_name = $file['tmp_name'];
+		$size = $file['size'];
+		$filename = $file['name'];
+		$ext = explode(".", $filename);
+		$ext = end($ext);
+		$filename = time() . rand(100,1000) . "." . $ext;
+		if(!file_exists("../uploads"))
+		{
+			mkdir("../uploads");
+		}
+		if(!file_exists("../uploads/doc-loading"))
+		{
+			mkdir("../uploads/doc-loading");
+
+			if(!file_exists("../uploads/doc-loading/".$year))
+			{
+				mkdir("../uploads/doc-loading/".$year);
+				mkdir("../uploads/doc-loading/".$year."/".$month);
+			}
+			else
+			{
+				if(!file_exists("../uploads/doc-loading/".$year."/".$month))
+				{
+					mkdir("../uploads/doc-loading/".$year."/".$month);
+				}
+			}
+		}
+		else {
+			if(!file_exists("../uploads/doc-loading/".$year))
+			{
+				mkdir("../uploads/doc-loading/".$year);
+				mkdir("../uploads/doc-loading/".$year."/".$month);
+			}
+			else
+			{
+				if(!file_exists("../uploads/doc-loading/".$year."/".$month))
+				{
+					mkdir("../uploads/doc-loading/".$year."/".$month);
+				}
+			}
+		}
+		$target_file = "../uploads/doc-loading/" . $year . "/" . $month . "/" . basename($filename);
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+	
+		if (file_exists($target_file)) {
+			?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.warning('فایلی با این نام وجود دارد');
+				</script>
+				<?php
+			$uploadOk = 0;
+		}
+
+		if( $imageFileType == "pdf" || $imageFileType == "docx" || $imageFileType == "doc" || $imageFileType == "ppt" || $imageFileType == "pptx"  || $imageFileType == "xls"  || $imageFileType == "xlsx") {
+			if ($size > 4194304) {
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.warning('حجم مجاز برای آپلود فایل ۴ مگابایت است');
+				</script>
+				<?php
+				$uploadOk = 0;
+			}
+		}
+		else {
+			if ($size > 1048576) {
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.warning('حجم مجاز برای آپلود عکس ۱ مگابایت است');
+				</script>
+				<?php
+				$uploadOk = 0;
+			}
+			$check = getimagesize($tmp_name);
+			if($check !== false) {
+				$uploadOk = 1;
+			} else {
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.warning('فایل انتخاب شده تصویر نیست');
+				</script>
+				<?php
+				$uploadOk = 0;
+			}
+		}
+
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "pdf"  && $imageFileType != "docx"  && $imageFileType != "doc" && $imageFileType != "ppt" && $imageFileType != "pptx"  && $imageFileType != "xls"  && $imageFileType != "xlsx") {
+			//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.warning('تنها مجاز به بارگزاری تصویر , pdf و word و xls می باشید');
+				</script>
+				<?php
+			$uploadOk = 0;
+		}
+
+		if ($uploadOk == 0) {
+			//echo "Sorry, your file was not uploaded.";
+			return $uploadOk;
+		} else {
+			if (move_uploaded_file($tmp_name, $target_file)) {
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.success('فایل با موفقیت بارگزاری شد');
+				</script>
+				<?php
+				return $target_file;
+			} else {
+				?>
+				<script>
+					alertify.set('notifier','position', 'bottom-right');
+					alertify.warning('یک خطا در بارگزاری فایل وجود دارد');
+				</script>
+				<?php
+				$uploadOk = 0;
+				return $uploadOk;
+			}
+		}
+	}

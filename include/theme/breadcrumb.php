@@ -166,6 +166,8 @@ function get_text_url($text2){
 		return "بارگزاری سربرگ";
 	case "system";
 		return "گزارشات سیستم";
+	case "archive";
+		return "بایگانی";
 	case "Petrosaman";
 		return "پتروسامان";
     default:
