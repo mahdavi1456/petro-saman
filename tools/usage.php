@@ -151,7 +151,20 @@
                                         if($a['us_type'] == $us_type){
                                             $t_id = $a['t_id'];
                                             $us_id = $a['us_id'];
-                                            $t_name = get_var_query("select t_name from tools where t_id = $t_id ");
+                                            $tools = get_select_query("select * from tools where t_id = $t_id ");
+                                            if(count($tools) >0){
+                                                foreach($tools as $b) {
+                                                    $t_name = $b['t_name'];
+                                                    $t_unit = $b['t_unit'];
+                                                    if($t_unit == "تعداد"){
+                                                        $t_unit = "عدد";
+                                                    }
+                                                }
+                                            }
+                                            else {
+                                                $t_name = " ";
+                                                $t_unit = " ";
+                                            }
                                             $u_name = get_var_query("select u_name from user where u_id = $u_id");
                                             $u_family = get_var_query("select u_family from user where u_id = $u_id");
                                             $quantity_back = get_var_query("select sum(tr_quantity) from tools_returned where us_id = $us_id ");
@@ -162,8 +175,8 @@
                                                 <td><?php echo $u_name . " " . $u_family; ?></td>
                                                 <td><?php echo $a['us_details']; ?></td>
                                                 <td><?php echo per_number(str_replace("-", "/", $a['us_date'])) ; ?></td>
-                                                <td><?php echo per_number(number_format($a['us_quantity'])); ?></td>
-                                                <td><?php echo per_number(number_format($quantity_back)); ?></td>
+                                                <td><?php echo per_number(number_format($a['us_quantity'])) . " " .  $t_unit; ?></td>
+                                                <td><?php echo per_number(number_format($quantity_back)) . " " .  $t_unit; ?></td>
                                                 <td>
                                                     <div id="myModal<?php echo $a['us_id']; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
@@ -234,21 +247,21 @@
                                                                         <div class="row">
                                                                             <div class="item col-md-4 col-lg-4 col-sm-4 col-xs-4">
                                                                                 <div class="margin-tb input-group-prepend">
-                                                                                    <span class="input-group-text">تاریخ بازگشت قطعه</span>
+                                                                                    <span class="input-group-text">تاریخ بازگشت </span><span class="necessary">*</span>
                                                                                 </div>
-                                                                                <input id="f_date" autocomplete="off" type="text" name="tr_date" placeholder="تاریخ بازگشت قطعه" class="form-control">
+                                                                                <input id="f_date" autocomplete="off" type="text" name="tr_date" placeholder="تاریخ بازگشت قطعه" class="form-control" value="<?php echo jdate('Y/n/d'); ?>" required>
                                                                             </div>
                                                                             <div class="item col-md-4 col-lg-4 col-sm-4 col-xs-4">
                                                                                 <div class="margin-tb input-group-prepend">
-                                                                                    <span class="input-group-text">مقدار بازگشتی</span>
+                                                                                    <span class="input-group-text">مقدار بازگشتی </span><span class="necessary">*</span>
                                                                                 </div>
-                                                                                <input id="tr_quantity" type="text" name="tr_quantity" placeholder="مقدار بازگشتی" class="form-control">
+                                                                                <input id="tr_quantity" type="text" name="tr_quantity" placeholder="مقدار بازگشتی" class="form-control" required>
                                                                             </div>
                                                                             <?php 
                                                                             if($us_type=="مصرفی"){ ?>
                                                                                 <div class="item col-md-4 col-lg-4 col-sm-4 col-xs-4">
                                                                                     <div class="input-group-prepend">
-                                                                                        <span class="input-group-text">تعمیر</span>
+                                                                                        <span class="input-group-text">تعمیر </span><span class="necessary">*</span>
                                                                                     </div>
                                                                                     <select class="form-control" id="tr_condition" name="tr_condition">
                                                                                         <option value="<?php echo "1" ; ?>">قابل تعمیر</option>
@@ -260,7 +273,7 @@
                                                                             ?>
                                                                             <div class="item col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                                                 <div class="margin-tb input-group-prepend">
-                                                                                    <span class="input-group-text">توضیحات بازگشت</span>
+                                                                                    <span class="input-group-text">توضیحات</span>
                                                                                 </div>
                                                                                 <input id="tr_details" type="text" name="tr_details" placeholder="توضیحات بازگشت" class="form-control">
                                                                             </div>
