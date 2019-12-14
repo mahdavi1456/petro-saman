@@ -165,7 +165,7 @@ function get_text_url($text2){
 	case "header-loading";
 		return "بارگزاری سربرگ";
 	case "system";
-		return "سیستم";
+		return "گزارشات سیستم";
 	case "Petrosaman";
 		return "پتروسامان";
     default:
