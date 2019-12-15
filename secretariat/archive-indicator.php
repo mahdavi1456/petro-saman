@@ -166,8 +166,9 @@
 									<th>تاریخ ارسال</th>
 									<th>شرح نامه</th>
 									<th>توضیحات</th>
-									<th>تایید مدیر</th>
-									<th>تاریخ تایید</th>
+									<th>نام مدیر</th>
+									<th>وضعیت</th>
+									<th>تاریخ</th>
 									<th>نویسنده</th>
 									<th>عملیات</th>
 								</tr>
@@ -186,7 +187,8 @@
 											<td><?php echo per_number(str_replace("-", "/", $a['si_send_date'])); ?></td>
 											<td><?php echo per_number($a['si_description']); ?></td>
 											<td><?php echo per_number($a['si_details']); ?></td>
-											<td><?php 	$user = new user(); echo $user->get_user_name($a['si_admin_verify']); ?></td>
+											<td><?php $si_admin_verify = abs($a['si_admin_verify']); $user = new user(); echo $user->get_user_name($si_admin_verify); ?></td>
+											<td><?php if($a['si_admin_verify'] > 0 ) { echo "تایید شد"; } else if($a['si_admin_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
 											<td><?php echo per_number(str_replace("-", "/", $a['si_admin_date'])); ?></td>
 											<td><?php 	$user = new user(); echo $user->get_user_name($a['si_writer']); ?></td>
 											<td class="force-inline-text">

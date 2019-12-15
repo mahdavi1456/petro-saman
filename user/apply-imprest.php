@@ -1,6 +1,6 @@
 <?php include"../header.php"; include"../nav.php";
 	$aru = new aru();
-    $asb = $aru->get_list('loan_points_ceiling','lpc_id');
+    $asb = $aru->get_list('points_ceiling','pc_id');
     $u_id = $_SESSION['user_id'];
     $rate_admin = get_var_query ("select sum(pr_admin_rate) from performance_rates where u_id = $u_id" );
     $rate_hr = get_var_query ("select sum(pr_hr_rate) from performance_rates where u_id = $u_id");
@@ -8,7 +8,8 @@
     $rate = $rate_admin + $rate_hr;
     $total_points = $count * 200;
     $rate_percent = ($rate * 100) / ($total_points);
-    $asb2 = get_select_query ("select * from apply_loan where u_id = '$u_id'" );
+    $asb2 = get_select_query ("select * from apply_imprest where u_id = '$u_id'" );
+    $home_dir = get_the_url();
 
 ?>
 <div class="content-wrapper">
@@ -17,7 +18,7 @@
 		<section class="box box-info">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">درخواست وام</h3>
+                    <h3 class="box-title">درخواست مساعده</h3>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
@@ -29,20 +30,18 @@
                                 <table id="example1" class="table table-bordered table-striped center">
                                     <tbody>
                                         <tr>
-                                            <td colspan="3">امتیاز شما : <?php if($rate != null){ echo per_number($rate_percent); } else { echo per_number(0); } ?> درصد</td>
+                                            <td colspan="2">امتیاز شما : <?php if($rate != null){ echo per_number($rate_percent); } else { echo per_number(0); } ?> درصد</td>
                                         </tr>
                                         <tr>
-                                            <td>مبلغ وام (ریال)</td>
-                                            <td>تعداد اقساط</td>
+                                            <td>مبلغ مساعده (ریال)</td>
                                             <td>امتیاز مورد نیاز</td>
                                         </tr>
                                         <?php
                                         if(count($asb) > 0){
                                             foreach($asb as $row) { ?>
                                                 <tr>
-                                                    <td><?php echo per_number(number_format($row['lpc_amount'])); ?></td>
-                                                    <td><?php echo per_number($row['lpc_number']); ?></td>
-                                                    <td><?php echo per_number($row['lpc_points_needed']); ?> درصد</td>
+                                                    <td><?php echo per_number(number_format($row['pc_amount'])); ?></td>
+                                                    <td><?php echo per_number($row['pc_points_needed']); ?> درصد</td>
                                                 </tr>
                                             <?php
                                             }
@@ -62,36 +61,30 @@
                                     <div class="margin-tb input-group-prepend">
                                         <span class="input-group-text">تاریخ درخواست </span><span class="necessary">*</span>
                                     </div>
-                                    <input name="al_date" id="al_date" type="text" autocomplete="off" class="form-control datepickerClass" value="<?php echo jdate('Y/n/j'); ?>" required>
+                                    <input name="ai_date" id="ai_date" type="text" autocomplete="off" class="form-control datepickerClass" value="<?php echo jdate('Y/n/j'); ?>" required>
                                 </div>
                                 <div class="item col-md-6">
-                                    <label>مبلغ درخواست</label><span class="necessary"> *</span>
-                                    <select name="lpc_id" class="form-control select2">
-                                        <?php
-                                        if(count($asb) > 0){
-                                            foreach($asb as $row) { ?>
-                                                <option value="<?php echo $row['lpc_id']; ?>"><?php echo per_number(number_format($row['lpc_amount'])); ?></option>
-                                            <?php
-                                            }
-                                        }
-                                        ?>
-                                    </select>
+                                    <div class="margin-tb input-group-prepend">
+                                        <span class="input-group-text">مبلغ درخواست (ریال) </span><span class="necessary">*</span>
+                                    </div>
+                                    <input id="ai_amount" type="text" name="ai_amount" onkeyup="javascript:FormatNumber('ai_amount','ai_amount2'); calculate()" placeholder="مبلغ درخواست" class="form-control" autocomplete="off" required>
+                                    <input id="ai_amount2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
                                 </div>
                                 <div class="item col-md-12">
                                     <div class="margin-tb input-group-prepend">
                                         <span class="input-group-text">توضیحات</span>
                                     </div>
-                                    <input id="al_details" type="text" rows="3" name="al_details" placeholder="توضیحات" class="form-control">
+                                    <input id="ai_details" type="text" rows="3" name="ai_details" placeholder="توضیحات" class="form-control">
                                 </div></br>
                                 <?php 
-                                if(isset($_POST['add-apply_loan'])) {
-                                    $al_date = $_POST['al_date'] ;
-                                    $lpc_id = $_POST['lpc_id'] ;
-                                    $al_details = $_POST['al_details'] ;
+                                if(isset($_POST['add-apply_imprest'])) {
+                                    $ai_date = $_POST['ai_date'] ;
+                                    $ai_amount = $_POST['ai_amount'] ;
+                                    $ai_details = $_POST['ai_details'] ;
                                     $u_id = $_POST['u_id'] ;
-                                    $res5 = get_select_query("select * from loan_points_ceiling  where lpc_id = $lpc_id and lpc_points_needed <= $rate_percent ");
+                                    $res5 = get_select_query("select * from points_ceiling where pc_amount >= $ai_amount and pc_points_needed <= $rate_percent ");
                                     if(count($res5) >0 ){
-                                        $sql = ex_query("insert into apply_loan (u_id, al_date, lpc_id, al_details) values ($u_id , '$al_date', $lpc_id, '$al_details')");
+                                        $sql = ex_query("insert into apply_imprest (u_id, ai_date, ai_amount, ai_details) values ($u_id , '$ai_date', $ai_amount, '$ai_details')");
                                         ?>
                                         <script>
                                             alertify.set('notifier','position', 'bottom-right');
@@ -104,7 +97,7 @@
                                         ?>
                                         <script>
                                             alertify.set('notifier','position', 'bottom-right');
-                                            alertify.error('امتیاز شما برای این وام کافی نمی باشد');
+                                            alertify.error('امتیاز شما برای این مساعده کافی نمی باشد');
                                         </script>
                                         <?php
                                         echo '<meta http-equiv="refresh" content="2"/>';
@@ -112,7 +105,7 @@
                                 }
                                 ?>
                                 <div class="item col-md-2 text-left">
-                                    <input type="submit" class="btn btn-success" name="add-apply_loan" value="اضافه کردن" style="width:100%;">
+                                    <input type="submit" class="btn btn-success" name="add-apply_imprest" value="اضافه کردن" style="width:100%;">
                                 </div>
                             </div>
                         </div>
@@ -143,23 +136,20 @@
 								<?php
                                 $i = 1;
                                 if(count($asb2) > 0){
-                                    foreach ($asb2 as $a){ 
-                                        $lpc_id = $a['lpc_id'] ;
-                                        $lpc_amount = get_var_query("select lpc_amount from loan_points_ceiling  where lpc_id = $lpc_id ");
-                                        ?>
+                                    foreach ($asb2 as $a){ ?>
                                         <tr>
                                             <td><?php echo per_number($i); ?></td>
-                                            <td><?php echo per_number(str_replace("-", "/", $a['al_date'])); ?></td>
-                                            <td><?php echo per_number(number_format($lpc_amount)); ?></td>
-                                            <td><?php echo per_number($a['al_details']); ?></td>
+                                            <td><?php echo  per_number(str_replace("-", "/", $a['ai_date'])); ?></td>
+                                            <td><?php echo per_number(number_format($a['ai_amount'])); ?></td>
+                                            <td><?php echo per_number($a['ai_details']); ?></td>
                                             <td>
                                                 <form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
                                                     <button class="btn btn-danger btn-xs" type="submit" name="delete-list" id="delete-list">حذف</button>
-                                                        <input class="hidden" type="text" name="delete-text" id="delete-text" value="<?php echo $a['al_id']; ?>">
+                                                        <input class="hidden" type="text" name="delete-text" id="delete-text" value="<?php echo $a['ai_id']; ?>">
                                                         <?php
                                                             if(isset($_POST['delete-list'])){
-                                                                $al_id = $_POST['delete-text'];
-                                                                $aru->remove('apply_loan','al_id', $al_id,'int');
+                                                                $ai_id = $_POST['delete-text'];
+                                                                $aru->remove('apply_imprest','ai_id', $ai_id,'int');
                                                                 exit();
                                                             }
                                                         ?>

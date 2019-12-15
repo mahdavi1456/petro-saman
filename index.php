@@ -122,9 +122,11 @@ $u_level = $user->get_current_user_level();
 											<th>تا ساعت</th>
 											<th>به مدت</th>
 											<th>توضیحات</th>
-											<th>تایید مدیر</th>
+											<th>نام مدیر</th>
+											<th>وضعیت</th>
 											<th>تاریخ</th>
-											<th>تایید HR</th>
+											<th>نام منابع انسانی</th>
+											<th>وضعیت</th>
 											<th>تاریخ</th>
 											<th>عملیات</th>
 										</tr>
@@ -163,9 +165,11 @@ $u_level = $user->get_current_user_level();
 											<th>تا تاریخ</th>
 											<th>به مدت</th>
 											<th>توضیحات</th>
-											<th>تایید مدیر</th>
+											<th>نام مدیر</th>
+											<th>وضعیت</th>
 											<th>تاریخ</th>
-											<th>تایید HR</th>
+											<th>نام منابع انسانی</th>
+											<th>وضعیت</th>
 											<th>تاریخ</th>
 											<th>عملیات</th>
 										</tr>
@@ -203,11 +207,60 @@ $u_level = $user->get_current_user_level();
 											<th>تاریخ درخواست</th>
 											<th>مبلغ درخواست</th>
 											<th>توضیحات</th>
-											<th>تایید مدیر</th>
-											<th>تاریخ تایید</th>
-											<th>تایید HR</th>
+											<th>نام مدیر</th>
+											<th>وضعیت</th>
 											<th>تاریخ</th>
-											<th>تاریخ واریز</th>
+											<th>نام منابع انسانی</th>
+											<th>وضعیت</th>
+											<th>تاریخ</th>
+											<th>نام امور مالی</th>
+											<th>تاریخ</th>
+											<th>وضعیت</th>
+											<th>عملیات</th>
+										</tr>
+									</thead>
+									<tbody>
+									<?php
+									$cartable->apply_imprest();
+									?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="box-footer clearfix"></div>
+					</div>
+				</div>
+				<?php
+			}
+			if($u_level == "مدیریت" || $u_level == "منابع انسانی" || $u_level == "امور مالی") { ?>
+				<div class="col-md-12">
+					<div class="box box-info">
+						<div class="box-header with-border">
+							<h3 class="box-title">کارتابل درخواست وام</h3>
+							<div class="box-tools pull-right">
+								<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+								<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							</div>
+						</div>
+						<div class="box-body">
+							<div class="table-responsive">
+								<table class="table no-margin">
+									<thead>
+										<tr>
+											<th>ردیف</th>
+											<th>درخواست دهنده</th>
+											<th>تاریخ درخواست</th>
+											<th>مبلغ درخواست</th>
+											<th>توضیحات</th>
+											<th>نام مدیر</th>
+											<th>وضعیت</th>
+											<th>تاریخ</th>
+											<th>نام منابع انسانی</th>
+											<th>وضعیت</th>
+											<th>تاریخ</th>
+											<th>نام امور مالی</th>
+											<th>تاریخ</th>
+											<th>وضعیت</th>
 											<th>عملیات</th>
 										</tr>
 									</thead>
@@ -244,8 +297,9 @@ $u_level = $user->get_current_user_level();
 											<th>تاریخ ارسال</th>
 											<th>شرح نامه</th>
 											<th>توضیحات</th>
-											<th>تایید مدیر</th>
-											<th>تاریخ تایید</th>
+											<th>نام مدیر</th>
+											<th>وضعیت</th>
+											<th>تاریخ</th>
 											<th>نویسنده</th>
 											<th>عملیات</th>
 										</tr>

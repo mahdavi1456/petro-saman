@@ -46,16 +46,16 @@ class media{
     }
 
 	public function delete_media($link , $type){
-		$path = str_replace($_SERVER['DOCUMENT_ROOT'], '', "../uploads/" . $type . "/" . $link);
+		if($link == " " ){
+			$path = str_replace($_SERVER['DOCUMENT_ROOT'], '', $type);
+		}
+		else {
+			$path = str_replace($_SERVER['DOCUMENT_ROOT'], '', "../uploads/" . $type . "/" . $link);
+		}
 		if(unlink($path)){
 			return "true";
 		}
 		$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-		?>
-		<script type="text/javascript">
-			window.location.href = "<?php echo $url; ?>";
-		</script>
-		<?php
 	}
 
 	public function is_404($url) {

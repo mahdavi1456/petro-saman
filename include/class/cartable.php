@@ -148,24 +148,18 @@ class Cartable{
 			$verify =  $_POST['verify'];
 			$date = jdate('Y/n/j');
 			$u_level = $user->get_current_user_level();
-			if($verify == 0)
-			{
-				if($u_level=='منابع انسانی'){
-					$res2 = ex_query("update rest_hour set 	r_hr_details = null , r_hr_verify = '$verify' , r_hr_date = '0000-00-00'  where r_id = $r_id");
-				}
-				if($u_level=='مدیریت'){
-					$res2 = ex_query("update rest_hour set 	r_admin_details = null , r_admin_verify = '$verify' , r_admin_date = '0000-00-00'  where r_id = $r_id");
-				}
+			if($u_level=='منابع انسانی'){
+				$res2 = ex_query("update rest_hour set 	r_hr_details = '$r_hr_details' , r_hr_verify = '$verify' , r_hr_date = '$date'  where r_id = $r_id");
 			}
-			else
-			{
-				if($u_level=='منابع انسانی'){
-					$res2 = ex_query("update rest_hour set 	r_hr_details = '$r_hr_details' , r_hr_verify = '$verify' , r_hr_date = '$date'  where r_id = $r_id");
-				}
-				if($u_level=='مدیریت'){
-					$res2 = ex_query("update rest_hour set 	r_admin_details = '$r_admin_details' , r_admin_verify = '$verify' , r_admin_date = '$date'  where r_id = $r_id");
-				}
+			if($u_level=='مدیریت'){
+				$res2 = ex_query("update rest_hour set 	r_admin_details = '$r_admin_details' , r_admin_verify = '$verify' , r_admin_date = '$date'  where r_id = $r_id");
 			}
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.success('مورد با موفقیت ثبت شد');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 		}
 
@@ -182,9 +176,11 @@ class Cartable{
 					<td><?php echo per_number($row['r_totime']); ?></td>
                     <td><?php echo per_number($row['r_total']); ?></td>
                     <td><?php echo per_number($row['r_details']); ?></td>
-                    <td><?php echo get_user_name($row['r_admin_verify']); ?></td>
+                    <td><?php $r_admin_verify = abs($row['r_admin_verify']); echo get_user_name($r_admin_verify); ?></td>
+					<td><?php if($row['r_admin_verify'] > 0 ) { echo "تایید شد"; } else if($row['r_admin_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
                     <td><?php echo per_number(str_replace("-", "/", $row['r_admin_date'])); ?></td>
-                    <td><?php echo get_user_name($row['r_hr_verify']); ?></td>
+                    <td><?php $r_hr_verify = abs($row['r_hr_verify']); echo get_user_name($r_hr_verify); ?></td>
+					<td><?php if($row['r_hr_verify'] > 0 ) { echo "تایید شد"; } else if($row['r_hr_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
                     <td><?php echo per_number(str_replace("-", "/", $row['r_hr_date'])); ?></td>
                     <td>
 						<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#rest_hour_modal<?php echo $row['r_id']; ?>" >تایید مرخصی</button>
@@ -205,13 +201,13 @@ class Cartable{
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات مدیر</span>
 													</div>
-													<input type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['r_admin_details']); ?>">
+													<input class="form-control" type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['r_admin_details']); ?>">
 												</div>
 												<div class="item col-md-12">
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات منابع انسانی</span>
 													</div>
-													<input type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['r_hr_details']); ?>">
+													<input class="form-control" type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['r_hr_details']); ?>">
 												</div>
 											</div>
 											<div class="row">
@@ -221,7 +217,7 @@ class Cartable{
 													</div>
 													<select class="form-control" name="verify" id="verify">
 														<option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">تایید</option>
-														<option value="0">عدم تایید</option>
+														<option value="<?php echo "-" . $u_id; ?>">عدم تایید</option>
 													</select>
 												</div>
 											</div>
@@ -246,6 +242,7 @@ class Cartable{
 
 	public function rest_day() {
 		$user = new user();
+		$u_level = $user->get_current_user_level();
 		if(isset($_POST['save_rest_day'])){
 			$r_id = $_POST['r_id'];
 			$r_admin_details = $_POST['r_admin_details'];
@@ -253,28 +250,27 @@ class Cartable{
 			$verify =  $_POST['verify'];
 			$date = jdate('Y/n/j');
 			$u_level = $user->get_current_user_level();
-			if($verify == 0)
-			{
-				if($u_level=='منابع انسانی'){
-					$res2 = ex_query("update rest_day set r_hr_details = null , r_hr_verify = '$verify' , r_hr_date = '0000-00-00'  where r_id = $r_id");
-				}
-				if($u_level=='مدیریت'){
-					$res2 = ex_query("update rest_day set r_admin_details = null , r_admin_verify = '$verify' , r_admin_date = '0000-00-00'  where r_id = $r_id");
-				}
+			if($u_level=='منابع انسانی'){
+				$res2 = ex_query("update rest_day set r_hr_details = '$r_hr_details' , r_hr_verify = '$verify' , r_hr_date = '$date'  where r_id = $r_id");
 			}
-			else
-			{
-				if($u_level=='منابع انسانی'){
-					$res2 = ex_query("update rest_day set r_hr_details = '$r_hr_details' , r_hr_verify = '$verify' , r_hr_date = '$date'  where r_id = $r_id");
-				}
-				if($u_level=='مدیریت'){
-					$res2 = ex_query("update rest_day set r_admin_details = '$r_admin_details' , r_admin_verify = '$verify' , r_admin_date = '$date'  where r_id = $r_id");
-				}
+			if($u_level=='مدیریت'){
+				$res2 = ex_query("update rest_day set r_admin_details = '$r_admin_details' , r_admin_verify = '$verify' , r_admin_date = '$date'  where r_id = $r_id");
 			}
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.success('مورد با موفقیت ثبت شد');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 		}
 		$i = 1;
-		$res = get_select_query("select * from rest_day where r_admin_verify = 0 or r_hr_verify = 0 order by r_id desc");
+		if($u_level=='مدیریت'){
+			$res = get_select_query("select * from rest_day  where r_admin_verify = 0  order by r_id desc");
+		}
+		if($u_level=='منابع انسانی'){
+			$res = get_select_query("select * from rest_day  where r_hr_verify = 0  order by r_id desc");
+		}
 		if(count($res) > 0) {
 			foreach($res as $row) {
 				?>
@@ -285,10 +281,12 @@ class Cartable{
 					<td><?php echo per_number(str_replace("-", "/", $row['r_todate'])); ?></td>
                     <td><?php echo per_number($row['r_total']); ?></td>
                     <td><?php echo per_number($row['r_details']); ?></td>
-                    <td><?php echo get_user_name($row['r_admin_verify']); ?></td>
-                    <td><?php echo per_number(str_replace("-", "/", $row['r_admin_date'])); ?></td>
-                    <td><?php echo get_user_name($row['r_hr_verify']); ?></td>
-                    <td><?php echo per_number(str_replace("-", "/", $row['r_hr_date'])); ?></td>
+                    <td><?php $r_admin_verify = abs($row['r_admin_verify']); echo get_user_name($r_admin_verify); ?></td>
+					<td><?php if($row['r_admin_verify'] > 0 ) { echo "تایید شد"; } else if($row['r_admin_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['r_admin_date'])); ?></td>
+                    <td><?php $r_hr_verify = abs($row['r_hr_verify']); echo get_user_name($row['r_hr_verify']); ?></td>
+					<td><?php if($row['r_hr_verify'] > 0 ) { echo "تایید شد"; } else if($row['r_hr_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['r_hr_date'])); ?></td>
 					<td>
 						<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#rest_day_modal<?php echo $row['r_id']; ?>" >تایید مرخصی</button>
 						<div class="modal fade text-xs-left" id="rest_day_modal<?php echo $row['r_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#rest_day_modal<?php echo $row['r_id']; ?>" style="display: none;" aria-hidden="true">
@@ -308,13 +306,13 @@ class Cartable{
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات مدیر</span>
 													</div>
-													<input type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['r_admin_details']); ?>">
+													<input class="form-control" type="text" id="r_admin_details" name="r_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['r_admin_details']); ?>">
 												</div>
 												<div class="item col-md-12">
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات منابع انسانی</span>
 													</div>
-													<input type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['r_hr_details']); ?>">
+													<input class="form-control" type="text" id="r_hr_details" name="r_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['r_hr_details']); ?>">
 												</div>
 											</div>
 											<div class="row">
@@ -324,7 +322,7 @@ class Cartable{
 													</div>
 													<select class="form-control" name="verify" id="verify">
 														<option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">تایید</option>
-														<option value="0">عدم تایید</option>
+														<option value="<?php echo "-" . $u_id; ?>">عدم تایید</option>
 													</select>
 												</div>
 											</div>
@@ -348,6 +346,141 @@ class Cartable{
 
 
 
+	public function apply_imprest() {
+		$user = new user();
+		$u_level = $user->get_current_user_level();
+		if(isset($_POST['save_apply_imprest'])){
+			$ai_id = $_POST['ai_id'];
+			$verify =  $_POST['verify'];
+			$date = jdate('Y/n/j');
+			$u_level = $user->get_current_user_level();
+			if($u_level=='منابع انسانی'){
+				$ai_hr_details = $_POST['ai_hr_details'];
+				$res2 = ex_query("update apply_imprest set ai_hr_details = '$ai_hr_details' , ai_hr_verify = '$verify' , ai_hr_date = '$date'  where ai_id = $ai_id");
+			}
+			if($u_level=='مدیریت'){
+				$ai_admin_details = $_POST['ai_admin_details'];
+				$res2 = ex_query("update apply_imprest set ai_admin_details = '$ai_admin_details' , ai_admin_verify = '$verify' , ai_admin_date = '$date'  where ai_id = $ai_id");
+			}
+			if($u_level=='امور مالی'){
+				$ai_finan_details = $_POST['ai_finan_details'];
+				$res2 = ex_query("update apply_imprest set ai_finan_details = '$ai_finan_details' , ai_finan_verify = '$verify' , ai_finan_date = '$date'  where ai_id = $ai_id");
+			}
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.success('مورد با موفقیت ثبت شد');
+			</script>
+			<?php
+			echo '<meta http-equiv="refresh" content="2"/>';
+		}
+		$i = 1;
+		$res3 = get_select_query("select * from max_loan");
+		if(count($res3) > 0) {
+			$mi_amount = $res3[0]['mi_amount'];
+		}
+		if($u_level == "امور مالی") { 
+			$res = get_select_query("select * from apply_imprest  where (ai_hr_verify <> 0) and ( ai_admin_verify <> 0 or ai_amount <= $mi_amount )  order by ai_id desc");
+		}
+		if($u_level=='مدیریت'){
+			$res = get_select_query("select * from apply_imprest  where ai_admin_verify = 0 and '$mi_amount' < ai_amount order by ai_id desc");
+		}
+		if($u_level=='منابع انسانی'){
+			$res = get_select_query("select * from apply_imprest  where ai_hr_verify = 0  order by ai_id desc");
+		}
+		if(count($res) > 0) {
+			foreach($res as $row) {
+				?>
+				<tr>
+					<td><?php echo per_number($i); ?></td>
+					<td><?php echo get_user_name($row['u_id']); ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['ai_date'])); ?></td>
+					<td><?php echo per_number(number_format($row['ai_amount'])); ?></td>
+                    <td><?php echo per_number($row['ai_details']); ?></td>
+                    <td><?php if($row['ai_amount'] <= $mi_amount){ echo "نیاز ندارد"; } else { 	$ai_admin_verify = abs($row['ai_admin_verify']);  echo get_user_name($ai_admin_verify); } ?></td>
+					<td><?php if($row['ai_admin_verify'] > 0 ) { echo "تایید شد"; } else if($row['ai_admin_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['ai_admin_date'])); ?></td>
+					<td><?php $ai_hr_verify = abs($row['ai_hr_verify']); echo get_user_name($ai_hr_verify); ?></td>
+					<td><?php if($row['ai_hr_verify'] > 0 ) { echo "تایید شد"; } else if($row['ai_hr_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
+                    <td><?php echo per_number(str_replace("-", "/", $row['ai_hr_date'])); ?></td>
+					<td><?php $ai_finan_verify = abs($row['ai_finan_verify']);  echo  get_user_name($ai_finan_verify); ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['ai_finan_date'])); ?></td>
+					<td><?php if($row['ai_finan_verify'] > 0 ) { echo "تایید شد"; } else if($row['ai_finan_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
+					<td> <?php
+						if($u_level=='مدیریت' || $u_level=='منابع انسانی' ){ ?>
+							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_imprest_modal<?php echo $row['ai_id']; ?>" >تایید مساعده</button>
+							<?php 
+						} if($u_level == "امور مالی") { ?>
+							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_imprest_modal<?php echo $row['ai_id']; ?>" >واریز مساعده</button>
+							<?php
+						} ?>
+						<div class="modal fade text-xs-left" id="apply_imprest_modal<?php echo $row['ai_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#apply_imprest_modal<?php echo $row['ai_id']; ?>" style="display: none;" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<form action="" method="post" enctype="multipart/form-data">
+									<input class="hidden" type="text" name="ai_id" id="ai_id" value="<?php echo $row['ai_id']; ?>">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+											<h4 class="modal-title" id="myModalLabel3">تایید مساعده</h4>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<?php
+												if($row['ai_amount'] <= $mi_amount) {
+												} 
+												else {?>
+													<div class="item col-md-12">
+														<div class="margin-tb input-group-prepend">
+															<span class="input-group-text">توضیحات مدیر</span>
+														</div>
+														<input class="form-control" type="text" id="ai_admin_details" name="ai_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['ai_admin_details']); ?>">
+													</div>
+													<?php
+												} ?>
+												<div class="item col-md-12">
+													<div class="margin-tb input-group-prepend">
+														<span class="input-group-text">توضیحات منابع انسانی</span>
+													</div>
+													<input class="form-control" type="text" id="ai_hr_details" name="ai_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['ai_hr_details']); ?>">
+												</div>
+												<div class="item col-md-12">
+													<div class="margin-tb input-group-prepend">
+														<span class="input-group-text">توضیحات امور مالی</span>
+													</div>
+													<input class="form-control" type="text" id="ai_finan_details" name="ai_finan_details" placeholder="توضیحات امور مالی" value="<?php echo per_number($row['ai_finan_details']); ?>">
+												</div>
+											</div>
+											<div class="row">
+												<div class="item col-md-6">
+													<div class="margin-tb input-group-prepend">
+														<span class="input-group-text">وضعیت</span>
+													</div>
+													<select class="form-control" name="verify" id="verify">
+														<option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">تایید</option>
+														<option value="<?php echo "-" . $u_id; ?>">عدم تایید</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
+											<button class="btn btn-primary btn-sm" name="save_apply_imprest" type="submit">ذخیره</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<?php
+				$i++;
+			}
+		}
+	}
+
+
 	public function apply_loan() {
 		$user = new user();
 		$u_level = $user->get_current_user_level();
@@ -356,33 +489,24 @@ class Cartable{
 			$verify =  $_POST['verify'];
 			$date = jdate('Y/n/j');
 			$u_level = $user->get_current_user_level();
-			if($verify == 0)
-			{
-				if($u_level=='منابع انسانی'){
-					$res2 = ex_query("update apply_loan set al_hr_details = null , al_hr_verify = '$verify' , al_hr_date = '0000-00-00'  where al_id = $al_id");
-				}
-				if($u_level=='مدیریت'){
-					$res2 = ex_query("update apply_loan set al_admin_details = null , al_admin_verify = '$verify' , al_admin_date = '0000-00-00'  where al_id = $al_id");
-				}
-				if($u_level=='امور مالی'){
-					$res2 = ex_query("update apply_loan set al_finan_details = null , 	al_finan_verify = '$verify' , al_finan_date = '0000-00-00'  where al_id = $al_id");
-				}
+			if($u_level=='منابع انسانی'){
+				$al_hr_details = $_POST['al_hr_details'];
+				$res2 = ex_query("update apply_loan set al_hr_details = '$al_hr_details' , al_hr_verify = '$verify' , al_hr_date = '$date'  where al_id = $al_id");
 			}
-			else
-			{
-				if($u_level=='منابع انسانی'){
-					$al_hr_details = $_POST['al_hr_details'];
-					$res2 = ex_query("update apply_loan set al_hr_details = '$al_hr_details' , al_hr_verify = '$verify' , al_hr_date = '$date'  where al_id = $al_id");
-				}
-				if($u_level=='مدیریت'){
-					$al_admin_details = $_POST['al_admin_details'];
-					$res2 = ex_query("update apply_loan set al_admin_details = '$al_admin_details' , al_admin_verify = '$verify' , al_admin_date = '$date'  where al_id = $al_id");
-				}
-				if($u_level=='امور مالی'){
-					$al_finan_details = $_POST['al_finan_details'];
-					$res2 = ex_query("update apply_loan set al_finan_details = '$al_finan_details' , al_finan_verify = '$verify' , al_finan_date = '$date'  where al_id = $al_id");
-				}
+			if($u_level=='مدیریت'){
+				$al_admin_details = $_POST['al_admin_details'];
+				$res2 = ex_query("update apply_loan set al_admin_details = '$al_admin_details' , al_admin_verify = '$verify' , al_admin_date = '$date'  where al_id = $al_id");
 			}
+			if($u_level=='امور مالی'){
+				$al_finan_details = $_POST['al_finan_details'];
+				$res2 = ex_query("update apply_imprest set al_finan_details = '$al_finan_details' , al_finan_verify = '$verify' , al_finan_date = '$date'  where al_id = $al_id");
+			}
+			?>
+			<script>
+				alertify.set('notifier','position', 'bottom-right');
+ 				alertify.success('مورد با موفقیت ثبت شد');
+			</script>
+			<?php
 			echo '<meta http-equiv="refresh" content="2"/>';
 		}
 		$i = 1;
@@ -394,35 +518,37 @@ class Cartable{
 			$res = get_select_query("select * from apply_loan  where (al_hr_verify <> 0) and ( al_admin_verify <> 0 or al_amount <= $mi_amount )  order by al_id desc");
 		}
 		if($u_level=='مدیریت'){
-			$res = get_select_query("select * from apply_loan  where al_admin_verify = 0 and '$mi_amount' < al_amount order by al_id desc");
+			$res = get_select_query("select * from apply_loan  where al_admin_verify = 0  order by al_id desc");
 		}
 		if($u_level=='منابع انسانی'){
 			$res = get_select_query("select * from apply_loan  where al_hr_verify = 0  order by al_id desc");
 		}
 		if(count($res) > 0) {
 			foreach($res as $row) {
+				$lpc_id = $row['lpc_id'] ;
+				$lpc_amount = get_var_query("select lpc_amount from loan_points_ceiling  where lpc_id = $lpc_id ");
 				?>
 				<tr>
 					<td><?php echo per_number($i); ?></td>
 					<td><?php echo get_user_name($row['u_id']); ?></td>
 					<td><?php echo per_number(str_replace("-", "/", $row['al_date'])); ?></td>
-					<td><?php echo per_number(number_format($row['al_amount'])); ?></td>
+					<td><?php echo per_number(number_format($lpc_amount)); ?></td>
                     <td><?php echo per_number($row['al_details']); ?></td>
-                    <td><?php if($row['al_amount'] <= $mi_amount){ echo "نیاز ندارد"; } else { echo get_user_name($row['al_admin_verify']); } ?></td>
-                    <td><?php echo per_number(str_replace("-", "/", $row['al_admin_date'])); ?></td>
-					<td><?php echo get_user_name($row['al_hr_verify']); ?></td>
+                    <td><?php $al_admin_verify = abs($row['al_admin_verify']);  echo get_user_name($al_admin_verify); ?></td>
+					<td><?php if($row['al_admin_verify'] > 0 ) { echo "تایید شد"; } else if($row['al_admin_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['al_admin_date'])); ?></td>
+					<td><?php $al_hr_verify = abs($row['al_hr_verify']); echo get_user_name($al_hr_verify); ?></td>
+					<td><?php if($row['al_hr_verify'] > 0 ) { echo "تایید شد"; } else if($row['al_hr_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
                     <td><?php echo per_number(str_replace("-", "/", $row['al_hr_date'])); ?></td>
-					<?php 
-					if($u_level == "امور مالی") { ?>
-						<td><?php echo per_number(str_replace("-", "/", $row['al_finan_date'])); ?></td>
-						<?php
-					} ?>
+					<td><?php $al_finan_verify = abs($row['al_finan_verify']);  echo  get_user_name($al_finan_verify); ?></td>
+					<td><?php echo per_number(str_replace("-", "/", $row['al_finan_date'])); ?></td>
+					<td><?php if($row['al_finan_verify'] > 0 ) { echo "تایید شد"; } else if($row['al_finan_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
 					<td> <?php
 						if($u_level=='مدیریت' || $u_level=='منابع انسانی' ){ ?>
-							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_loan_modal<?php echo $row['al_id']; ?>" >تایید مساعده</button>
+							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_loan_modal<?php echo $row['al_id']; ?>" >تایید وام</button>
 							<?php 
 						} if($u_level == "امور مالی") { ?>
-							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#payment_modal<?php echo $row['al_id']; ?>" >واریز</button>
+							<button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-keyboard="false" data-target="#apply_loan_modal<?php echo $row['al_id']; ?>" >واریز وام</button>
 							<?php
 						} ?>
 						<div class="modal fade text-xs-left" id="apply_loan_modal<?php echo $row['al_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#apply_loan_modal<?php echo $row['al_id']; ?>" style="display: none;" aria-hidden="true">
@@ -434,7 +560,7 @@ class Cartable{
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">×</span>
 											</button>
-											<h4 class="modal-title" id="myModalLabel3">تایید مساعده</h4>
+											<h4 class="modal-title" id="myModalLabel3">تایید وام</h4>
 										</div>
 										<div class="modal-body">
 											<div class="row">
@@ -446,7 +572,7 @@ class Cartable{
 														<div class="margin-tb input-group-prepend">
 															<span class="input-group-text">توضیحات مدیر</span>
 														</div>
-														<input type="text" id="al_admin_details" name="al_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['al_admin_details']); ?>">
+														<input class="form-control" type="text" id="al_admin_details" name="al_admin_details" placeholder="توضیحات مدیر" value="<?php echo per_number($row['al_admin_details']); ?>">
 													</div>
 													<?php
 												} ?>
@@ -454,7 +580,13 @@ class Cartable{
 													<div class="margin-tb input-group-prepend">
 														<span class="input-group-text">توضیحات منابع انسانی</span>
 													</div>
-													<input type="text" id="al_hr_details" name="al_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['al_hr_details']); ?>">
+													<input class="form-control" type="text" id="al_hr_details" name="al_hr_details" placeholder="توضیحات منابع انسانی" value="<?php echo per_number($row['al_hr_details']); ?>">
+												</div>
+												<div class="item col-md-12">
+													<div class="margin-tb input-group-prepend">
+														<span class="input-group-text">توضیحات امور مالی</span>
+													</div>
+													<input class="form-control" type="text" id="al_finan_details" name="al_finan_details" placeholder="توضیحات امور مالی" value="<?php echo per_number($row['al_finan_details']); ?>">
 												</div>
 											</div>
 											<div class="row">
@@ -464,47 +596,7 @@ class Cartable{
 													</div>
 													<select class="form-control" name="verify" id="verify">
 														<option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">تایید</option>
-														<option value="0">عدم تایید</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
-											<button class="btn btn-primary btn-sm" name="save_apply_loan" type="submit">ذخیره</button>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						<div class="modal fade text-xs-left" id="payment_modal<?php echo $row['al_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="#payment_modal<?php echo $row['al_id']; ?>" style="display: none;" aria-hidden="true">
-							<div class="modal-dialog" role="document">
-								<form action="" method="post" enctype="multipart/form-data">
-									<input class="hidden" type="text" name="al_id" id="al_id" value="<?php echo $row['al_id']; ?>">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">×</span>
-											</button>
-											<h4 class="modal-title" id="myModalLabel3">واریز مساعده</h4>
-										</div>
-										<div class="modal-body">
-											<div class="row">
-												<div class="item col-md-12">
-													<div class="margin-tb input-group-prepend">
-														<span class="input-group-text">توضیحات امور مالی</span>
-													</div>
-													<input type="text" id="al_finan_details" name="al_finan_details" placeholder="توضیحات امور مالی" value="<?php echo per_number($row['al_finan_details']); ?>">
-												</div>
-											</div>
-											<div class="row">
-												<div class="item col-md-6">
-													<div class="margin-tb input-group-prepend">
-														<span class="input-group-text">وضعیت</span>
-													</div>
-													<select class="form-control" name="verify" id="verify">
-														<option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">واریز شد</option>
-														<option value="0">واریز نشد</option>
+														<option value="<?php echo "-" . $u_id; ?>">عدم تایید</option>
 													</select>
 												</div>
 											</div>
@@ -526,27 +618,6 @@ class Cartable{
 	}
 
 	public function sender_indicator() {
-		$user = new user();
-		if(isset($_POST['save_admin_verify'])){
-			$si_id = $_POST['si_id'];
-			$si_admin_details = $_POST['si_admin_details'];
-			$verify =  $_POST['verify'];
-			$date = jdate('Y/n/j');
-			$u_level = $user->get_current_user_level();
-			if($verify == 0)
-			{
-				if($u_level=='مدیریت'){
-					$res2 = ex_query("update sender_indicator set si_admin_details = null , si_admin_verify = '$verify' , si_admin_date = '0000-00-00'  where si_id = $si_id");
-				}
-			}
-			else
-			{
-				if($u_level=='مدیریت'){
-					$res2 = ex_query("update sender_indicator set si_admin_details = '$si_admin_details' , si_admin_verify = '$verify' , si_admin_date = '$date'  where si_id = $si_id");
-				}
-			}
-			echo '<meta http-equiv="refresh" content="2"/>';
-		}
 		$i = 1;
 		$res = get_select_query("select * from sender_indicator where si_admin_verify = 0 order by si_id desc");
 		if(count($res) > 0) {
@@ -558,7 +629,8 @@ class Cartable{
 					<td><?php echo per_number(str_replace("-", "/", $row['si_send_date'])); ?></td>
                     <td><?php echo per_number($row['si_description']); ?></td>
                     <td><?php echo per_number($row['si_details']); ?></td>
-                    <td><?php echo get_user_name($row['si_admin_verify']); ?></td>
+					<td><?php $si_admin_verify = abs($row['si_admin_verify']);  echo get_user_name($si_admin_verify); ?></td>
+					<td><?php if($row['si_admin_verify'] > 0 ) { echo "تایید شد"; } else if($row['si_admin_verify'] < 0 ){  echo "تایید نشد"; } else { echo "نامعتبر"; } ?></td>
                     <td><?php echo per_number(str_replace("-", "/", $row['si_admin_date'])); ?></td>
                     <td><?php echo get_user_name($row['si_writer']); ?></td>
 					<td>

@@ -105,31 +105,16 @@
         $date = jdate('Y/n/j');
         $user = new user();
         $u_level = $user->get_current_user_level();
-		if($verify == 0)
-		{
-			if($u_level=='مدیریت'){
-				$res2 = ex_query("update sender_indicator set si_admin_details = null , si_admin_verify = '$verify' , si_admin_date = '0000-00-00'  where si_id = $si_id");
-				?>
-				<script>
-					alertify.set('notifier','position', 'bottom-right');
-					alertify.success('مورد با موفقیت ثبت شد');
-				</script>
-				<?php
-			}
-		}
-		else
-		{
-			if($u_level=='مدیریت'){
-				$res2 = ex_query("update sender_indicator set si_admin_details = '$si_admin_details' , si_admin_verify = '$verify' , si_admin_date = '$date'  where si_id = $si_id");
-				?>
-				<script>
-					alertify.set('notifier','position', 'bottom-right');
-					alertify.success('مورد با موفقیت ثبت شد');
-				</script>
-				<?php
-			}
-		}
-		echo '<meta http-equiv="refresh" content="2"/>';
+        if($u_level=='مدیریت'){
+            $res2 = ex_query("update sender_indicator set si_admin_details = '$si_admin_details' , si_admin_verify = '$verify' , si_admin_date = '$date'  where si_id = $si_id");
+            ?>
+            <script>
+                alertify.set('notifier','position', 'bottom-right');
+                alertify.success('مورد با موفقیت ثبت شد');
+            </script>
+            <?php
+            echo '<meta http-equiv="refresh" content="2"/>';
+        }
 	}
 
     ?> 
@@ -189,7 +174,7 @@
                                         <div class="margin-tb input-group-prepend">
                                             <span class="input-group-text">توضیحات مدیر</span>
                                         </div>
-                                        <input type="text" id="si_admin_details" name="si_admin_details" placeholder="توضیحات مدیر" value="<?php if(count($sql) > 0) { foreach($sql as $row) { echo $row['si_admin_details']; } } ?>">
+                                        <input class="form-control" type="text" id="si_admin_details" name="si_admin_details" placeholder="توضیحات مدیر" value="<?php if(count($sql) > 0) { foreach($sql as $row) { echo $row['si_admin_details']; } } ?>">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -199,7 +184,7 @@
                                         </div>
                                         <select class="form-control" name="verify" id="verify">
                                             <option value="<?php $u_id = $_SESSION['user_id']; echo $u_id; ?>">تایید</option>
-                                            <option value="0">عدم تایید</option>
+                                            <option value="<?php echo "-" . $u_id; ?>">عدم تایید</option>
                                         </select>
                                     </div>
                                 </div>

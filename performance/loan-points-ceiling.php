@@ -1,15 +1,14 @@
 <?php include"../header.php"; include"../nav.php";
 	$aru = new aru();
-	$asb = $aru->get_list('points_ceiling','pc_id');
+	$asb = $aru->get_list('loan_points_ceiling','lpc_id');
 	$home_dir = get_the_url();
-	$res = get_select_query("select * from max_loan");
 ?>
 <div class="content-wrapper">
 	<?php breadcrumb("" , "index.php"); ?>
 	<section class="content pd-btm">
 		<section class="box box-info">
 			<div class="box-header with-border">
-                <h3 class="box-title">تعریف سقف امتیاز مساعده</h3>
+                <h3 class="box-title">تعریف سقف امتیاز وام</h3>
             </div>
             <div class="box-body pd-btm pd-top">
                 <form action="" method="post">
@@ -17,22 +16,28 @@
                         <div class="row">
                             <div class="item col-md-4">
                                 <div class="margin-tb input-group-prepend">
-                                    <span class="input-group-text">مبلغ مساعده (ریال)</span>
+                                    <span class="input-group-text">مبلغ وام (ریال)</span>
                                 </div>
-								<input id="pc_amount" type="text" name="pc_amount" onkeyup="javascript:FormatNumber('pc_amount','pc_amount2'); calculate()" placeholder="مبلغ مساعده" class="form-control" autocomplete="off" required>
-								<input id="pc_amount2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
+								<input id="lpc_amount" type="text" name="lpc_amount" onkeyup="javascript:FormatNumber('lpc_amount','lpc_amount2'); calculate()" placeholder="مبلغ وام" class="form-control" autocomplete="off" required>
+								<input id="lpc_amount2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
 							</div>
-                            <div class="item col-md-4">
+                            <div class="item col-md-3">
+                                <div class="margin-tb input-group-prepend">
+                                    <span class="input-group-text">تعداد اقساط</span>
+                                </div>
+                                <input id="lpc_number" type="text" name="lpc_number" placeholder="تعداد اقساط" class="form-control">
+                            </div> 
+                            <div class="item col-md-3">
                                 <div class="margin-tb input-group-prepend">
                                     <span class="input-group-text">امتیاز مورد نیاز (برحسب درصد)</span>
                                 </div>
-                                <input id="pc_points_needed" type="text" name="pc_points_needed" placeholder="بین 0 تا 100" class="form-control">
+                                <input id="lpc_points_needed" type="text" name="lpc_points_needed" placeholder="بین 0 تا 100" class="form-control">
                             </div> <br>
                             <?php 
-                            if(isset($_POST['add-points_ceiling'])) {
-								$points = $_POST['pc_points_needed'];
+                            if(isset($_POST['add-loan_points_ceiling'])) {
+								$points = $_POST['lpc_points_needed'];
 								if(0 <= $points && $points <= 100) {
-									$aru->add("points_ceiling", $_POST);
+									$aru->add("loan_points_ceiling", $_POST);
 								}
 								else {
 									?>
@@ -46,7 +51,7 @@
                             }
                             ?>
                             <div class="item col-md-2 text-left">
-                                <input type="submit" class="btn btn-success" name="add-points_ceiling" value="اضافه کردن" style="width:100%;">
+                                <input type="submit" class="btn btn-success" name="add-loan_points_ceiling" value="اضافه کردن" style="width:100%;">
                             </div>
                         </div>
                     </div>
@@ -54,53 +59,21 @@
             </div>
 		</section>
 	</section>
-	
-	<section class="content pd-btm">
-		<section class="box box-info">
-			<div class="box-header with-border">
-                <h3 class="box-title">تعریف سقف مبلغ مساعده بدون نیاز به تایید مدیر</h3>
-            </div>
-            <div class="box-body pd-btm pd-top">
-                <form action="" method="post">
-                    <div id="details" class="col-xs-12 no-padd">
-                        <div class="row">
-                            <div class="item col-md-4">
-                                <div class="margin-tb input-group-prepend">
-                                    <span class="input-group-text">سقف مبلغ مساعده (ریال)</span>
-                                </div>
-								<input value="<?php if(count($res) > 0) { foreach($res as $row){ echo $row['mi_amount']; } } ?>" id="mi_amount" type="text" name="mi_amount" onkeyup="javascript:FormatNumber('mi_amount','mi_amount2'); calculate()" placeholder="سقف مبلغ مساعده (ریال)" class="form-control" autocomplete="off" required>
-								<input id="mi_amount2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
-							</div><br>
-                            <?php 
-                            if(isset($_POST['update-max_loan'])) {
-								$ml_id = 1 ;
-								$aru->update('max_loan',$_POST,'ml_id', $ml_id);
-                            }
-                            ?>
-                            <div class="item col-md-2 text-left">
-                                <input type="submit" class="btn btn-success" name="update-max_loan" value="ذخیره" style="width:100%;">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-		</section>
-	</section>
-
 
 	<section class="content pd-top">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">لیست سقف امتیازات مساعده</h3>
+						<h3 class="box-title">لیست سقف امتیازات وام</h3>
 					</div>
 					<div class="box-body">
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th>ردیف</th>
-									<th>مبلغ مساعده (ریال)</th>
+									<th>مبلغ وام (ریال)</th>
+                                    <th>تعداد اقساط</th>
 									<th>امتیاز مورد نیاز</th>
                                     <th>عملیات</th>
 								</tr>
@@ -108,11 +81,11 @@
 							<tbody>
 								<?php
 								$i = 1;
-								if(isset($_POST['update-points_ceiling'])) {
-									$pc_id = $_POST['update-points_ceiling'];
-									$points = $_POST['pc_points_needed'];
+								if(isset($_POST['update-loan_points_ceiling'])) {
+									$lpc_id = $_POST['update-loan_points_ceiling'];
+									$points = $_POST['lpc_points_needed'];
 									if(0 <= $points && $points <= 100) {
-										$aru->update('points_ceiling',$_POST,'pc_id', $pc_id);
+										$aru->update('loan_points_ceiling',$_POST,'lpc_id', $lpc_id);
 									}
 									else {
 										?>
@@ -128,31 +101,39 @@
 									foreach($asb as $a) { ?>
 										<tr>
 											<td><?php echo per_number($i); ?></td>
-											<td><?php echo per_number(number_format($a['pc_amount'])); ?></td>
-											<td><?php echo per_number($a['pc_points_needed']); ?> درصد</td>
+											<td><?php echo per_number(number_format($a['lpc_amount'])); ?></td>
+                                            <td><?php echo per_number($a['lpc_number']); ?></td>
+											<td><?php echo per_number($a['lpc_points_needed']); ?> درصد</td>
 											<td>
-												<div id="myModal<?php echo $a['pc_id']; ?>" class="modal fade" role="dialog">
+												<div id="myModal<?php echo $a['lpc_id']; ?>" class="modal fade" role="dialog">
 													<div class="modal-dialog">
 														<!-- Modal content-->
 														<div class="modal-content">
 															<form action="" method="post" >
 																<div class="modal-header">
 																	<button type="button" class="close" data-dismiss="modal">&times;</button>
-																	<h4 class="modal-title">ویرایش سقف امتیاز مساعده</h4>
+																	<h4 class="modal-title">ویرایش سقف امتیاز وام</h4>
 																</div>
 																<div class="modal-body">
 																	<div class="row">
-																		<div class="item col-md-6">
+																		<div class="item col-md-4">
 																			<div class="margin-tb input-group-prepend">
-																				<span class="input-group-text">مبلغ مساعده</span>
+																				<span class="input-group-text">مبلغ وام</span>
 																			</div>
-																			<input type="text" name="pc_amount" placeholder="مبلغ مساعده" value="<?php echo $a['pc_amount']; ?>" class="form-control">
+                                                                            <input value="<?php echo $a['lpc_amount']; ?>"  id="lpc_amount" type="text" name="lpc_amount" onkeyup="javascript:FormatNumber('lpc_amount','lpc_amount2'); calculate()" placeholder="مبلغ وام" class="form-control" autocomplete="off" required>
+								                                            <input id="lpc_amount2" type="text" class="form-control" disabled="disabled" style="margin: 0;" />
 																		</div>
-																		<div class="item col-md-6">
+                                                                        <div class="item col-md-4">
+																			<div class="margin-tb input-group-prepend">
+																				<span class="input-group-text">تعداد اقساط</span>
+																			</div>
+																			<input type="text" name="lpc_number" placeholder="تعداد اقساط" value="<?php echo $a['lpc_number']; ?>" class="form-control">
+																		</div>
+																		<div class="item col-md-4">
 																			<div class="margin-tb input-group-prepend">
 																				<span class="input-group-text">امتیاز مورد نیاز (برحسب درصد)</span>
 																			</div>
-																			<input type="text" name="pc_points_needed" placeholder="بین 0 تا 100" value="<?php echo $a['pc_points_needed']; ?>" class="form-control">
+																			<input type="text" name="lpc_points_needed" placeholder="بین 0 تا 100" value="<?php echo $a['lpc_points_needed']; ?>" class="form-control">
 																		</div>
 																	</div>
 																	
@@ -160,7 +141,7 @@
 																<div class="modal-footer">
 																	<center>
 																		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">انصراف</button>
-																		<button class="btn btn-primary btn-sm" name="update-points_ceiling" value="<?php echo $a['pc_id']; ?>" type="submit">ذخیره</button>
+																		<button class="btn btn-primary btn-sm" name="update-loan_points_ceiling" value="<?php echo $a['lpc_id']; ?>" type="submit">ذخیره</button>
 																	</center>
 																</div>
 															</form>
@@ -168,13 +149,13 @@
 													</div>
 												</div>
 												<form action="" method="post" onSubmit="if(!confirm('آیا از انجام این عملیات اطمینان دارید؟')){return false;}">
-													<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal<?php echo $a['pc_id']; ?>">ویرایش</button>
+													<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal<?php echo $a['lpc_id']; ?>">ویرایش</button>
 													<button class="btn btn-danger btn-xs" type="submit" name="delete-list" id="delete-list">حذف</button>
-													<input class="hidden" type="text" name="delete-text" id="delete-text" value="<?php echo $a['pc_id']; ?>">
+													<input class="hidden" type="text" name="delete-text" id="delete-text" value="<?php echo $a['lpc_id']; ?>">
 													<?php
 														if(isset($_POST['delete-list'])){
-															$pc_id = $_POST['delete-text'];
-															$aru->remove('points_ceiling','pc_id', $pc_id ,'int');
+															$lpc_id = $_POST['delete-text'];
+															$aru->remove('loan_points_ceiling','lpc_id', $lpc_id ,'int');
 															exit();
 														}
 													?>
@@ -185,18 +166,19 @@
 										$i++;
 									} 
 								} else {
-									?>
-									<tr>
-										<td colspan="9">داده ای موجود نیست!</td>
-									</tr>
-									<?php
-									}
-								?>
+                                    ?>
+                                    <tr>
+                                        <td colspan="9">داده ای موجود نیست!</td>
+                                    </tr>
+                                    <?php
+                                    }
+                                ?>
 							</tbody>
 							<tfoot>
 								<tr>
                                     <th>ردیف</th>
-									<th>مبلغ مساعده (ریال)</th>
+									<th>مبلغ وام (ریال)</th>
+                                    <th>تعداد اقساط</th>
 									<th>امتیاز مورد نیاز</th>
                                     <th>عملیات</th>
 								</tr>

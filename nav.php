@@ -168,12 +168,13 @@
 					<?php
 				} 
 				if($u_level == "مدیریت" || $u_level == "ارزیابی"  || $u_level == "منابع انسانی"){?>
-					<li class="<?php check_active('points-ceiling.php'); check_active('indexes.php');  check_active('performance-indexes.php'); check_active('performance-indexes-report.php'); ?> treeview">
+					<li class="<?php check_active('loan-points-ceiling.php'); check_active('points-ceiling.php'); check_active('indexes.php');  check_active('performance-indexes.php'); check_active('performance-indexes-report.php'); ?> treeview">
 						<a href="#"><i class="fa fa-wrench"></i><span>ارزیابی و عملکرد</span></a>
 						<ul class="treeview-menu">
 							<li class="<?php check_active('indexes.php'); ?>"><a href="<?php get_url(); ?>performance/indexes.php"><i class="fa fa-circle-o"></i>تعریف شاخص</a></li>
 							<li class="<?php check_active('performance-indexes.php'); ?>"><a href="<?php get_url(); ?>performance/performance-indexes.php"><i class="fa fa-circle-o"></i>فرم ارزیابی</a></li>
-							<li class="<?php check_active('points-ceiling.php'); ?>"><a href="<?php get_url(); ?>performance/points-ceiling.php"><i class="fa fa-circle-o"></i>تعریف سقف امتیازات</a></li>
+							<li class="<?php check_active('points-ceiling.php'); ?>"><a href="<?php get_url(); ?>performance/points-ceiling.php"><i class="fa fa-circle-o"></i>تعریف سقف امتیازات مساعده</a></li>
+							<li class="<?php check_active('loan-points-ceiling.php'); ?>"><a href="<?php get_url(); ?>performance/loan-points-ceiling.php"><i class="fa fa-circle-o"></i>تعریف سقف امتیازات وام</a></li>
 							<li class="<?php check_active('performance-indexes-report.php'); ?>"><a href="<?php get_url(); ?>performance/performance-indexes-report.php"><i class="fa fa-circle-o"></i>گزارش ارزیابی</a></li>
 						</ul>
 					</li>
@@ -211,13 +212,16 @@
 					</li>
 					<?php 
 				} ?>
-				<li class="<?php  check_active('report-rest.php'); check_active('list-user.php'); check_active('rest.php'); check_active('apply-loan.php'); check_active('raw_rights.php'); check_active('payroll.php'); ?> treeview">
+				<li class="<?php check_active('report-loan.php'); check_active('apply-loan.php'); check_active('report-imprest.php');  check_active('report-rest.php'); check_active('list-user.php'); check_active('rest.php'); check_active('apply-imprest.php'); check_active('raw_rights.php'); check_active('payroll.php'); ?> treeview">
 					<a href="#"><i class="fa fa-gear"></i><span>پرسنل</span></a>
 					<ul class="treeview-menu">
 						<li class="<?php check_active('list-user.php'); ?>"><a href="<?php get_url(); ?>user/list-user.php?type=profile"><i class="fa fa-circle-o"></i>پروفایل</a></li>
 						<li class="<?php check_active('rest.php'); ?>"><a href="<?php get_url(); ?>user/rest.php"><i class="fa fa-circle-o"></i>مدیریت مرخصی</a></li>
 						<li class="<?php check_active('report-rest.php'); ?>"><a href="<?php get_url(); ?>user/report-rest.php"><i class="fa fa-circle-o"></i>گزارش مرخصی ها</a></li>
-						<li class="<?php check_active('apply-loan.php'); ?>"><a href="<?php get_url(); ?>user/apply-loan.php"><i class="fa fa-circle-o"></i>درخواست مساعده</a></li>
+						<li class="<?php check_active('apply-imprest.php'); ?>"><a href="<?php get_url(); ?>user/apply-imprest.php"><i class="fa fa-circle-o"></i>درخواست مساعده</a></li>
+						<li class="<?php check_active('report-imprest.php'); ?>"><a href="<?php get_url(); ?>user/report-imprest.php"><i class="fa fa-circle-o"></i>گزارش مساعده ها</a></li>
+						<li class="<?php check_active('apply-loan.php'); ?>"><a href="<?php get_url(); ?>user/apply-loan.php"><i class="fa fa-circle-o"></i>درخواست وام</a></li>
+						<li class="<?php check_active('report-loan.php'); ?>"><a href="<?php get_url(); ?>user/report-loan.php"><i class="fa fa-circle-o"></i>گزارش وام ها</a></li>
 						<?php 
 						if($u_level == "امور مالی" ){ ?>
 							<li class="<?php check_active('raw_rights.php'); ?>"><a href="<?php get_url(); ?>user/raw_rights.php?month=<?php echo $myYear . "_" . $myMonth; ?>"><i class="fa fa-circle-o"></i>محاسبه حقوق</a></li>
